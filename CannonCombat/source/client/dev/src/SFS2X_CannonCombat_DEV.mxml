@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx			= 'http://ns.adobe.com/mxml/2009' 
+					   xmlns:s			= 'library://ns.adobe.com/flex/spark' 
+					   xmlns:mx			= 'library://ns.adobe.com/flex/mx'
+					   title    		= 'SFS2X Cannon Combat'
+					   width			= '800'
+					   height			= '480'
+					   applicationDPI	= '320'
+					   windowComplete 	= 'Main();'>
+	
+	<s:ToggleSwitch id='audioToggleSwitch' skinClass="spark.skins.mobile.ToggleSwitchSkin" selected='true' visible='false' />
+	
+	<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		s|ToggleSwitch 
+		{
+			chromeColor: #aaaaaa;
+			accentColor: #738b2d;
+			font-family: "Bangers";
+			font-size: 40;
+			font-anti-alias-type:advanced;
+		}
+		
+		@media (os-platform: "IOS")
+		{
+			s|ToggleSwitch
+			{
+				defaultButtonAppearance: beveled;
+			}
+		}
+		
+		@media (os-platform: "QNX")
+		{
+			s|ToggleSwitch
+			{
+				defaultButtonAppearance: beveled;
+			}
+			
+			global
+			{
+				fontSize: 20;
+			}
+		}
+	</fx:Style>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script> 
+		<![CDATA[ 
+			import sfs2x.games.cannoncombat.CannonCombat;
+			import sfs2x.games.cannoncombat.config.Assets;
+			import sfs2x.games.cannoncombat.config.Settings;
+			import sfs2x.games.cannoncombat.managers.InstanceManager; 
+			
+			
+			
+			/**
+			 * Application entry point
+			 */
+			public function Main():void
+			{
+				//Add a background color to the whole game
+				var	sh	:Shape	= new Shape();
+				sh.graphics.beginFill(0x000000);
+				sh.graphics.drawRect(0, 0, Settings.APPLICATION_WIDTH, Settings.APPLICATION_HEIGHT);
+				sh.graphics.endFill();
+				
+				systemManager.stage.addChild(sh);
+				systemManager.stage.align = StageAlign.TOP_LEFT;
+				systemManager.stage.scaleMode = StageScaleMode.NO_SCALE;
+				systemManager.stage.frameRate = Settings.FRAME_RATE;
+				
+				addEventListener(Event.CLOSING, closeApp, false, 0, true);
+				
+				// Instantiate and add our game to the stage in the Application
+				systemManager.stage.addChild(genCannonCombat(this.title));
+				
+				if(Settings.DEBUG) 
+				{
+					for(var i:int = 1; i < Settings.DEBUG_WINS + 1; i++)
+					{
+						spawnAppWindow('debug' + i);
+					}
+				}
+			}
+			
+			
+			
+			/**
+			 * Creates a replica of our main window
+			 * 
+			 * @param $id :String - Identifier for window
+			 */
+			private function spawnAppWindow($id:String):void
+			{
+				var winOptions		:NativeWindowInitOptions 	= new NativeWindowInitOptions(),
+					natWin			:NativeWindow,
+					sh				:Shape 						= new Shape();
+				
+				winOptions.maximizable = false;
+				winOptions.minimizable = true;
+				winOptions.resizable = false;
+				
+				//AIR native window
+				natWin = new NativeWindow(winOptions);
+				natWin.width = systemManager.stage.nativeWindow.bounds.width;
+				natWin.height = systemManager.stage.nativeWindow.bounds.height;
+				
+				natWin.addEventListener(Event.CLOSING, closeApp, false, 0, true);
+				
+				//Add a background color to the whole game
+				sh.graphics.beginFill(0xffffff);
+				sh.graphics.drawRect(0, 0, Settings.APPLICATION_WIDTH, Settings.APPLICATION_HEIGHT);
+				sh.graphics.endFill();
+				
+				natWin.stage.addChild(sh);
+				natWin.stage.align = StageAlign.TOP_LEFT;
+				natWin.stage.scaleMode = StageScaleMode.NO_SCALE;
+				natWin.stage.frameRate = Settings.FRAME_RATE;
+				
+				natWin.title = $id;
+				natWin.activate();
+				
+				// Instantiate and add our game to the stage in the native window
+				natWin.stage.addChild(genCannonCombat($id));
+			}
+			
+			
+			
+			/**
+			 * Returns an instance of our Main class
+			 * 
+			 * @param $winID :String - Identifier for window
+			 */
+			private function genCannonCombat($winID:String):CannonCombat
+			{
+				var cc:CannonCombat = new CannonCombat();
+				cc.name = 'SFS2X Cannon Combat';
+				cc.windowID = $winID;
+				
+				return cc; 
+			}
+			
+			
+			
+			//--------------------------------------------------------------------------
+			//  EVENT HANDLERS
+			//--------------------------------------------------------------------------
+			
+			
+			
+			/**
+			 * Close main window/app
+			 * 
+			 * @param $e :Event
+			 */
+			private function closeApp($e:Event):void
+			{
+				 var win		:Object	= $e.currentTarget as Object,
+					 stage		:Stage = (win.title == 'SFS2X Cannon Combat') ? systemManager.stage as Stage : win.stage as Stage,
+					 app		:CannonCombat 	= (win.title == 'SFS2X Cannon Combat') ? stage.getChildAt(2) as CannonCombat : stage.getChildAt(1) as CannonCombat,
+					 assets		:Assets;
+
+				 //Remove event listeners
+				win.removeEventListener(Event.CLOSING, closeApp);
+				
+				//Stop all sounds
+				InstanceManager.getSoundManagerInstance(app.windowID).stopAllSounds();
+				
+				//Destroy global references and dispose bitmaps
+				InstanceManager.destroy(app.windowID);
+				
+				//Clear display list
+				while (stage.numChildren)
+				{
+					var child:*  = stage.removeChildAt(0);
+					if('destroy' in child) child.destroy();
+					child = null;
+				}
+				
+				//Destroy global dictionary
+				Settings.destroy(app.windowID);
+				
+				//Remove references in our app
+				app = null;
+				assets = null;
+				
+				//Close native window
+				(win.title == 'SFS2X Cannon Combat') ? stage.nativeWindow.close() : win.close();
+				
+				stage = null;
+				win = null;
+				
+				//Run GC
+				flash.system.System.gc(); 
+			}
+		]]> 
+	</fx:Script> 
+</s:WindowedApplication>

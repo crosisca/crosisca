@@ -5,6 +5,7 @@ package com.caiorosisca
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
+	import flash.geom.Point;
 	import flash.ui.Keyboard;
 	
 	import Box2D.Collision.Shapes.b2CircleShape;
@@ -44,6 +45,8 @@ package com.caiorosisca
 		private var playerSprite:Sprite = new Player();
 		private var bgSprite:Sprite = new Background();
 		
+		private var portalSprite:Goal= new Goal();
+		
 		private var player:b2Body;
 		
 		private var portal:b2Body;
@@ -59,9 +62,13 @@ package com.caiorosisca
 		public function RoundGameTest2()
 		{
 			stage.addChild(bgSprite);
+			stage.addChild(playerSprite);
 			playerSprite.scaleX = .1;
 			playerSprite.scaleY = .1;
-			stage.addChild(playerSprite);
+			
+			stage.addChild(portalSprite);
+			portalSprite.scaleX = .1;
+			portalSprite.scaleY = .1;
 			
 			
 			square.x = rolyCenter.x;
@@ -161,8 +168,7 @@ package com.caiorosisca
 							portalFixtureDef.restitution = 0.5;
 							portalFixtureDef.friction = 1;
 							
-							var portalSprite:Goal= new Goal();
-							fixtureDef.userData = portalSprite;
+							portalFixtureDef.userData = "portal";
 							
 							rolyLevel.CreateFixture(portalFixtureDef);
 							
@@ -258,7 +264,7 @@ package com.caiorosisca
 			fixtureDef.shape = circleShape;
 			fixtureDef.density = 1;
 			fixtureDef.restitution = 0.5;
-			fixtureDef.friction = 1;
+			fixtureDef.friction = 0.5;
 			
 			
 			
@@ -284,22 +290,50 @@ package com.caiorosisca
 		private function rotateCalc():void
 		{
 			if(rotateLeft)
+			{
 				rotateSpeed +=.05;
-			if(rotateRight)
+			}
+			else if(rotateRight)
+			{
 				rotateSpeed-=.05;
+			}
 			
 			if(rotateSpeed >= 1)
+			{
 				rotateSpeed = 1;
-			
-			if(rotateSpeed <= -1)
+				trace(" fdp" );
+			}
+			else if(rotateSpeed <= -1)
+			{
 				rotateSpeed = -1;
+			}
 			
-			
+			trace(rotateSpeed);
+
 			if(!rotateLeft && !rotateRight)
 				if(rotateSpeed > 0)
 					rotateSpeed -= 0.05;
 				else if(rotateSpeed < 0)
 					rotateSpeed += 0.05;
+			
+			
+			////////////////////////////////
+			/*if(!rotateLeft && !rotateRight)
+				if(rotateSpeed > 0)
+					do 
+					{
+						rotateSpeed -= 0.01;
+					} while(rotateSpeed > 0);
+					//rotateSpeed -= 0.05;
+				else if(rotateSpeed < 0)
+					do 
+					{
+						rotateSpeed += 0.01;
+					} while(rotateSpeed < 0);*/
+			//rotateSpeed += 0.05;
+			
+			/////////////////////////
+			
 		}
 		
 		private function updateWorld(event:Event):void
@@ -309,11 +343,20 @@ package com.caiorosisca
 			//rolyJoint.SetMotorSpeed((mouseX-rolyCenter.x*worldScale)/100)
 			world.Step(1/30,10,10);
 			world.ClearForces();
-			world.DrawDebugData();
+			//world.DrawDebugData();
 			draw();
+			drawPlayer();
 			stage.setChildIndex(bgSprite, 0);
+			//stage.setChildIndex(portalSprite, stage.numChildren-1);
+			trace("esse codigo nao funciona e eu sou gay");
 		}
 		
+		private function drawPlayer():void
+		{
+			playerSprite.x = player.GetPosition().x * worldScale;
+			playerSprite.y = player.GetPosition().y * worldScale;
+			playerSprite.rotation = radiansToDegrees(player.GetAngle());
+		}		
 		
 		private function draw():void
 		{
@@ -325,10 +368,19 @@ package com.caiorosisca
 				
 				var fixSprite:Sprite = f.GetUserData() as Sprite;
 					
-				if(shapeType is b2CircleShape){
-					
-					
-				}else{
+				if(shapeType is b2CircleShape)
+				{
+					if(f.GetUserData() == "portal")
+					{
+						var body:b2CircleShape = f.GetShape() as b2CircleShape;
+						var vector2pos:b2Vec2 = rolyLevel.GetWorldPoint(body.GetLocalPosition());
+						
+						portalSprite.x = (vector2pos.x *worldScale)- portalSprite.width/2;
+						portalSprite.y = (vector2pos.y *worldScale)- portalSprite.height/2;
+					}
+				}
+				else
+				{
 					if(fixSprite)
 					{
 						var b:b2PolygonShape = f.GetShape() as b2PolygonShape;
@@ -336,12 +388,10 @@ package com.caiorosisca
 						
 						var b2Vec:b2Vec2 = rolyLevel.GetWorldPoint(vector[3]);
 
-						
-						
 						if(!ready){
 							tilesContainer.addChild(fixSprite);
-							fixSprite.x = b2Vec.x * worldScale;
-							fixSprite.y = b2Vec.y * worldScale;
+							fixSprite.x = (b2Vec.x -0.05)* worldScale;
+							fixSprite.y = (b2Vec.y -1.58)* worldScale;
 						}
 					
 					}
@@ -354,7 +404,6 @@ package com.caiorosisca
 			stage.addChild(square);
 			square.addChild(tilesContainer);
 			
-			//trace(tilesContainer.x,tilesContainer.width/2);
 			/*tilesContainer.graphics.beginFill(0X330044, 0.1);
 			tilesContainer.graphics.drawRect(0, 0, tilesContainer.width, tilesContainer.height);
 			tilesContainer.graphics.endFill();*/
