@@ -6,7 +6,7 @@ package
 	{
 		public function Box2DTeste()
 		{
-			
+			//comen
 		}
 	}
 }
