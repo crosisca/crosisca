@@ -1,4 +1,4 @@
-package com.caiorosisca.box2dtest
+package 
 {
 	import flash.display.Sprite;
 	
