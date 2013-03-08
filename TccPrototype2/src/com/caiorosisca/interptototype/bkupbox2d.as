@@ -1,7 +1,5 @@
 package com.caiorosisca.interptototype
 {
-	import com.caiorosisca.Box2DTeste;
-	
 	import flash.display.Sprite;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
@@ -15,21 +13,20 @@ package com.caiorosisca.interptototype
 	import Box2D.Dynamics.b2FixtureDef;
 	import Box2D.Dynamics.b2World;
 	
+	[SWF(frameRate="60")]
 	public class TccPrototype2 extends Sprite
 	{
 		public var world:b2World;
-		//private var wheelBody:b2Body;
 		private var stepTimer:Timer;
 		private var wheelArray:Array;
 		
-		private var scaleFactor:Number = 20;
-		
 		public function TccPrototype2()
 		{
+			var fps:FrameRateTracker = new FrameRateTracker();
+			addChild(fps);
 			getStarted();
 		}
 		
-		[SWF(width="800",height="600")]
 		private function getStarted():void
 		{
 			var gravity:b2Vec2 = new b2Vec2(0, 10);
@@ -39,7 +36,7 @@ package com.caiorosisca.interptototype
 			
 			for (var i:int = 0; i < 20; i++) 
 			{
-				createWheel(Math.random()*.5, //radius
+				createWheel(Math.random()*10, //radius
 					Math.random()*(stage.stageWidth - 20) + 10,// X
 					Math.random()*(stage.stageHeight - 20) + 10,// Y
 					(Math.random()* 100) - 50,// velX
@@ -72,9 +69,9 @@ package com.caiorosisca.interptototype
 			
 			for each (var wheelBody:b2Body in wheelArray) 
 			{
-				graphics.drawCircle(wheelBody.GetPosition().x*scaleFactor,
-					wheelBody.GetPosition().y*scaleFactor,
-					(wheelBody.GetFixtureList().GetShape() as b2CircleShape).GetRadius()*scaleFactor);
+				graphics.drawCircle(wheelBody.GetPosition().x,
+					wheelBody.GetPosition().y,
+					(wheelBody.GetFixtureList().GetShape() as b2CircleShape).GetRadius());
 			}
 		}
 		
@@ -82,14 +79,12 @@ package com.caiorosisca.interptototype
 		{
 			var wheelBodyDef:b2BodyDef = new b2BodyDef();
 			wheelBodyDef.type = b2Body.b2_dynamicBody;
-			wheelBodyDef.position.Set(startX/scaleFactor, startY/scaleFactor);
+			wheelBodyDef.position.Set(startX, startY);
 			var wheelBody:b2Body = world.CreateBody(wheelBodyDef);
 			var circleShape:b2CircleShape = new b2CircleShape(radius);
 			var wheelFixtureDef:b2FixtureDef = new b2FixtureDef();
 			wheelFixtureDef.shape = circleShape;
 			wheelFixtureDef.restitution = (Math.random()* 0.5)+0.5;
-			wheelFixtureDef.friction = Math.random() * 1.0;
-			wheelFixtureDef.density = Math.random() * 20;
 			var wheelFixture:b2Fixture = wheelBody.CreateFixture(wheelFixtureDef);
 			
 			var startingVelocity:b2Vec2 = new b2Vec2(velX, velY);
@@ -102,44 +97,45 @@ package com.caiorosisca.interptototype
 		{
 			/**Ground*/
 			var groundBodyDef:b2BodyDef = new b2BodyDef();
-			groundBodyDef.position.Set(0/scaleFactor, stage.stageHeight/scaleFactor);
+			groundBodyDef.position.Set(0, stage.stageHeight);
 			var groundBody:b2Body = world.CreateBody(groundBodyDef);
 			var groundShape:b2PolygonShape = new b2PolygonShape();
-			groundShape.SetAsBox(stage.stageWidth/scaleFactor, 1/scaleFactor);
+			groundShape.SetAsBox(stage.stageWidth, 1);
 			var groundFixtureDef:b2FixtureDef = new b2FixtureDef();
 			groundFixtureDef.shape = groundShape;
 			var groundFixture:b2Fixture = groundBody.CreateFixture(groundFixtureDef);
 			
 			/**Ceiling*/
 			var ceilingBodyDef:b2BodyDef = new b2BodyDef();
-			ceilingBodyDef.position.Set(0/scaleFactor, 0/scaleFactor);
+			ceilingBodyDef.position.Set(0, 0);
 			var ceilingBody:b2Body = world.CreateBody(ceilingBodyDef);
 			var ceilingShape:b2PolygonShape = new b2PolygonShape();
-			ceilingShape.SetAsBox(stage.stageWidth/scaleFactor, 1/scaleFactor);
+			ceilingShape.SetAsBox(stage.stageWidth, 1);
 			var ceilingFixtureDef:b2FixtureDef = new b2FixtureDef();
 			ceilingFixtureDef.shape = ceilingShape;
 			var ceilingFixture:b2Fixture = ceilingBody.CreateFixture(ceilingFixtureDef);
 			
 			/**Right Wall*/
 			var rightWallBodyDef:b2BodyDef = new b2BodyDef();
-			rightWallBodyDef.position.Set(stage.stageWidth/scaleFactor, 0/scaleFactor);
+			rightWallBodyDef.position.Set(stage.stageWidth, 0);
 			var rightWallBody:b2Body = world.CreateBody(rightWallBodyDef);
 			var rightWallShape:b2PolygonShape = new b2PolygonShape();
-			rightWallShape.SetAsBox(1/scaleFactor, stage.stageHeight/scaleFactor);
+			rightWallShape.SetAsBox(1, stage.stageHeight);
 			var rightWallFixtureDef:b2FixtureDef = new b2FixtureDef();
 			rightWallFixtureDef.shape = rightWallShape;
 			var rightWallFixture:b2Fixture = rightWallBody.CreateFixture(rightWallFixtureDef);
 			
 			/**Left Wall*/
 			var leftWallBodyDef:b2BodyDef = new b2BodyDef();
-			leftWallBodyDef.position.Set(0/scaleFactor, 0/scaleFactor);
+			leftWallBodyDef.position.Set(0, 0);
 			var leftWallBody:b2Body = world.CreateBody(leftWallBodyDef);
 			var leftWallShape:b2PolygonShape = new b2PolygonShape();
-			leftWallShape.SetAsBox(1/scaleFactor, stage.stageHeight/scaleFactor);
+			leftWallShape.SetAsBox(1, stage.stageHeight);
 			var leftWallFixtureDef:b2FixtureDef = new b2FixtureDef();
 			leftWallFixtureDef.shape = leftWallShape;
 			var leftWallFixture:b2Fixture = leftWallBody.CreateFixture(leftWallFixtureDef);
 		}
-		
 	}
 }
+import com.caiorosisca.interptototype;
+
