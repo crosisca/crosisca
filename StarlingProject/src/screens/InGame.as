@@ -1,7 +1,5 @@
 package screens
 {
-	import com.hsharma.hungryHero.ui.HUD;
-	
 	import flash.geom.Rectangle;
 	import flash.utils.getTimer;
 	
