@@ -1,5 +1,7 @@
 package screens
 {
+	import com.hsharma.hungryHero.ui.HUD;
+	
 	import flash.geom.Rectangle;
 	import flash.utils.getTimer;
 	
@@ -21,6 +23,8 @@ package screens
 	import starling.utils.HAlign;
 	import starling.utils.VAlign;
 	import starling.utils.deg2rad;
+	
+	import ui.Hud;
 	
 	public class InGame extends Sprite
 	{
@@ -55,7 +59,9 @@ package screens
 		
 		private var scoreText:TextField;
 		
-		private var particle:PDParticleSystem;		
+		private var particle:PDParticleSystem;
+		
+		private var hud:Hud;
 		
 		
 		public function InGame()
@@ -69,15 +75,21 @@ package screens
 			// TODO Auto Generated method stub
 			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			drawGame();
+			drawHUD();
 			
 			scoreText = new TextField(300,200, "Score: 0", Assets.getFont().name, 24, 0xffffff);
 			scoreText.hAlign = HAlign.LEFT;
 			scoreText.vAlign = VAlign.TOP;
 			scoreText.x = 20;
 			scoreText.y = 20;
-			scoreText.border = true;
 			scoreText.height = scoreText.textBounds.height + 10;
 			this.addChild(scoreText);
+		}
+		
+		private function drawHUD():void
+		{
+			hud = new Hud();
+			this.addChild(hud);
 		}
 		
 		private function drawGame():void
@@ -105,6 +117,31 @@ package screens
 			this.addChild(startButton);
 			
 			gameArea = new Rectangle(0, 100, stage.stageWidth, stage.stageHeight - 250);
+		}
+		
+		public function initialize():void
+		{
+			this.visible = true;
+			
+			this.addEventListener(Event.ENTER_FRAME, checkElapsed);
+			
+			hero.x = -hero.width;// Nao pode ser menor q isso q buga..n sei pq
+			hero.y = stage.stageHeight * .5;
+			
+			gameState = "idle";
+			
+			playerSpeed = 0;
+			hitObstacle = 0;
+			
+			bg.speed = 0;
+			scoreDistance = 0;
+			obstacleGapCount = 0;
+			
+			obstaclesToAnimate = new Vector.<Obstacles>();
+			itemsToAnimate = new Vector.<Item>();
+			eatParticlesToAnimate = new Vector.<Particle>();
+			
+			startButton.addEventListener(Event.TRIGGERED, onStartButtonClick);
 		}
 		
 		private function onStartButtonClick(event:Event):void
@@ -401,31 +438,6 @@ package screens
 		public function disposeTemporarily():void
 		{
 			this.visible = false;
-		}
-		
-		public function initialize():void
-		{
-			this.visible = true;
-			
-			this.addEventListener(Event.ENTER_FRAME, checkElapsed);
-			
-			hero.x = -hero.width;// Nao pode ser menor q isso q buga..n sei pq
-			hero.y = stage.stageHeight * .5;
-			
-			gameState = "idle";
-			
-			playerSpeed = 0;
-			hitObstacle = 0;
-			
-			bg.speed = 0;
-			scoreDistance = 0;
-			obstacleGapCount = 0;
-			
-			obstaclesToAnimate = new Vector.<Obstacles>();
-			itemsToAnimate = new Vector.<Item>();
-			eatParticlesToAnimate = new Vector.<Particle>();
-			
-			startButton.addEventListener(Event.TRIGGERED, onStartButtonClick);
 		}
 		
 		private function checkElapsed(event:Event):void
