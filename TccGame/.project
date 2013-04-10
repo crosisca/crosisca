@@ -24,14 +24,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>[source path] Citrus-Engine-src</name>
+			<name>[source path] src</name>
 			<type>2</type>
-			<location>F:/GameDev/Flash Stuff/Flash Projects/Citrus-Engine/src</location>
-		</link>
-		<link>
-			<name>[source path] Gestouch-src</name>
-			<type>2</type>
-			<location>C:/Users/Caio/git/crosisca/Gestouch/src</location>
+			<location>C:/Users/Caio/git/Gestouch/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>
