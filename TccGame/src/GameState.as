@@ -226,33 +226,6 @@ package
 			add(hero);
 		}
 		
-		//Gravity
-		/*private function onAccelerometerUpdate(e:AccelerometerEvent):void{
-			if(e.accelerationX > 0 && e.accelerationY > -myConst && e.accelerationY < myConst){
-				//Left
-				setWorldRotation(90);
-				box2d.gravity.Set(-gravityForce,0);
-				swipe.direction = SwipeGestureDirection.RIGHT;
-			}else if( e.accelerationY >= myConst){
-				//Default
-				setWorldRotation(0);
-				box2d.gravity.Set(0, gravityForce);
-				swipe.direction = SwipeGestureDirection.UP;
-			}else if(e.accelerationX < 0 && e.accelerationY > -myConst && e.accelerationY < myConst){
-				//Right
-				setWorldRotation(270);
-				box2d.gravity.Set(gravityForce,0);
-				swipe.direction = SwipeGestureDirection.LEFT;
-			}else if(e.accelerationY <= myConst){
-				//Upside down
-				setWorldRotation(180);
-				box2d.gravity.Set(0, -gravityForce);
-				swipe.direction = SwipeGestureDirection.DOWN;
-			}
-				heroBodyTransform = new b2Transform(hero.body.GetPosition(), b2Mat22.FromAngle(getWorldRotation()));
-				hero.body.SetTransform(heroBodyTransform);
-		}*/
-		
 		
 		public static function deg2rad(degree:Number):Number {
 			return degree * (Math.PI / 180);
