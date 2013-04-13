@@ -7,11 +7,15 @@ package
 	import flash.display.StageQuality;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
-	import flash.events.StageOrientationEvent;
 	import flash.net.URLRequest;
+	import flash.system.ApplicationDomain;
+	import flash.system.LoaderContext;
 	
 	import citrus.core.CitrusEngine;
 	
+	import utils.Stats;
+	
+	[SWF(frameRate="60")]
 	public class TccGame extends CitrusEngine
 	{
 		public function TccGame()
@@ -23,22 +27,16 @@ package
 			
 			stage.showDefaultContextMenu = true;
 			
+			var fps:Stats = new Stats();
+			fps.scaleX = fps.scaleY = 2;
+			addChild(fps);
+			
 			//state = new GameState();
 			
+			var loaderContext:LoaderContext = new LoaderContext(false, ApplicationDomain.currentDomain,null);
 			var loader:Loader = new Loader();
 			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, handleLoadComplete);
-			loader.load(new URLRequest("Level1.swf"));
-			
-			
-			stage.addEventListener(StageOrientationEvent.ORIENTATION_CHANGING, onOrientationChange); 
-			
-		}
-		
-		
-		private function onOrientationChange(event:StageOrientationEvent):void 
-		{ 
-			event.preventDefault();
-			//event.stopImmediatePropagation();
+			loader.load(new URLRequest("Level2.swf"),loaderContext);
 		}
 		
 		protected function handleLoadComplete(event:Event):void

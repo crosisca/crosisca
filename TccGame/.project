@@ -24,9 +24,19 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>[source path] src</name>
+			<name>[source path] Citrus-Engine-src</name>
+			<type>2</type>
+			<location>C:/Users/Caio/git/Citrus-Engine/src</location>
+		</link>
+		<link>
+			<name>[source path] Gestouch-src</name>
 			<type>2</type>
 			<location>C:/Users/Caio/git/Gestouch/src</location>
+		</link>
+		<link>
+			<name>[source path] srclib</name>
+			<type>2</type>
+			<location>C:/Users/Caio/git/Citrus-Engine/srclib</location>
 		</link>
 	</linkedResources>
 </projectDescription>
