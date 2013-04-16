@@ -21,8 +21,7 @@ package
 		public function MyNewHero(name:String, params:Object=null)
 		{
 			super(name, params);
-			jumpHeight = 15;
-			jumpAcceleration= 0.5;
+			jumpHeight = 20;
 		}
 		
 		public function swipeJump():void
@@ -120,23 +119,17 @@ package
 				{
 					switch(GameState.getWorldRotationDeg())
 					{
-						case 0://Normal
+						case 0:
 							velocity.Subtract(new b2Vec2(0,jumpHeight));
-							//velocity.y = -jumpHeight;
 							break;
 						case 180:
 							velocity.Add(new b2Vec2(0,jumpHeight));
-							//velocity.y = +jumpHeight;
 							break;
-						case 270://certo
-							//velocity.Subtract(new b2Vec2(jumpHeight,0));
+						case 270:
 							velocity.Subtract(Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),GameState.getWorldRotation()));
-							//velocity.x = -jumpHeight;
 							break;
-						case 90://left
-							//velocity.Add(new b2Vec2(jumpHeight,0));
+						case 90:
 							velocity.Subtract(Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),GameState.getWorldRotation()));
-							//velocity.x = +jumpHeight;
 							break;
 					}
 					
