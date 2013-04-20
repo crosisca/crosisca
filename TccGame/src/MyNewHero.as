@@ -15,13 +15,14 @@ package
 		private var _worldRotation:int;
 		private var isDoingRight:Boolean;
 		private var isDoingLeft:Boolean;
-		private var maxVerticalVelocity:Number;
+		//private var maxVerticalVelocity:Number;
 		
 		
 		public function MyNewHero(name:String, params:Object=null)
 		{
 			super(name, params);
-			jumpHeight = 20;
+			jumpHeight = 30;
+			maxVelocity = 10;
 		}
 		
 		public function swipeJump():void
@@ -36,7 +37,8 @@ package
 			{
 				isDoingRight = true;
 				isDoingLeft = false;
-			}else if(dir == "left")
+			}
+			else if(dir == "left")
 			{
 				isDoingLeft = true;
 				isDoingRight = false;
@@ -139,7 +141,7 @@ package
 				
 				//Cap velocities
 				
-				maxVerticalVelocity = maxVelocity<<1;//*2
+				//maxVerticalVelocity = maxVelocity<<1;//*2
 				
 				if(GameState.getWorldRotationDeg() == 0 || GameState.getWorldRotationDeg() == 180)
 				{
@@ -150,10 +152,10 @@ package
 						velocity.x = -maxVelocity;
 					
 					//vertical
-					if (velocity.y > (maxVerticalVelocity))
+					/*if (velocity.y > (maxVerticalVelocity))
 						velocity.y = maxVerticalVelocity;
 					else if (velocity.y < (-maxVerticalVelocity))
-						velocity.y = -maxVerticalVelocity;
+						velocity.y = -maxVerticalVelocity;*/
 				}
 				else if(GameState.getWorldRotationDeg() == 90 || GameState.getWorldRotationDeg() == 270)
 				{
@@ -164,10 +166,10 @@ package
 						velocity.y = -maxVelocity;
 					
 					//vertical
-					if (velocity.x > (maxVerticalVelocity))
+					/*if (velocity.x > (maxVerticalVelocity))
 						velocity.x = maxVerticalVelocity;
 					else if (velocity.x < (-maxVerticalVelocity))
-						velocity.x = -maxVerticalVelocity;
+						velocity.x = -maxVerticalVelocity;*/
 				}
 			}
 			

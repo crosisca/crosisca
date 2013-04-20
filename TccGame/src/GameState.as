@@ -12,11 +12,11 @@ package
 	import Box2D.Common.Math.b2Transform;
 	
 	import citrus.core.CitrusObject;
-	import citrus.core.Console;
 	import citrus.core.starling.StarlingState;
 	import citrus.input.controllers.Keyboard;
 	import citrus.math.MathVector;
 	import citrus.objects.CitrusSprite;
+	import citrus.objects.complex.box2dstarling.FluidBox;
 	import citrus.objects.platformer.box2d.Platform;
 	import citrus.physics.box2d.Box2D;
 	import citrus.utils.Mobile;
@@ -32,9 +32,6 @@ package
 	import starling.display.Image;
 	import starling.events.Event;
 	import starling.events.KeyboardEvent;
-	import starling.events.Touch;
-	import starling.events.TouchEvent;
-	import starling.events.TouchPhase;
 	import starling.text.TextField;
 	import starling.textures.Texture;
 	
@@ -146,7 +143,7 @@ package
 			//Create physics engine
 			box2d = new Box2D("box2d");
 			box2d.gravity.Set(0,gravityForce);
-			box2d.visible = false;
+			box2d.visible = true;
 			add(box2d);
 			
 			//Setup swipe
@@ -161,6 +158,19 @@ package
 			addBorders();
 			//Create level from MC
 			ObjectMaker2D.FromMovieClip(levelSwf);
+			
+			//Create Liquid
+			/*var pool:Pool = new Pool("pool",{x:ScreenRealHeight-1000,y:ScreenRealWidth/2,
+									 leftWall:true,rightWall:true,wallThickness:10,
+									 density:0.2, linearDrag:0.3, angularDrag:0.3,
+									width:500,height:200});
+			add(pool);*/
+			
+			/*var fluidBox:FluidBox = new FluidBox("fluid", {bcWidth:300, bcHeight:200,
+			bcThickness:40, ws:30 ,numBalls:15});
+			fluidBox.x = ScreenRealWidth/2;
+			fluidBox.y = ScreenRealHeight-100;
+			add(fluidBox);*/
 			
 			//Add Hero
 			var heroBitmap:Bitmap = new HeroPng();
