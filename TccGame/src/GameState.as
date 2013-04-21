@@ -196,10 +196,11 @@ package
 			}
 			
 			//Add move listeners
-			Starling.current.nativeStage
 			Starling.current.nativeStage.addEventListener(flash.events.TouchEvent.TOUCH_BEGIN, onTouchBegin);
 			Starling.current.nativeStage.addEventListener(flash.events.TouchEvent.TOUCH_MOVE, onTouchBegin);
 			Starling.current.nativeStage.addEventListener(flash.events.TouchEvent.TOUCH_END, onTouchEnd);
+			
+			trace("TOUCH EVENTS ADDED TO STARLING STAGE");
 			
 			//Create rotation handler
 			accelerometerHandler = new AccelerometerHandler("accelerometerHandler",{})
