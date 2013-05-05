@@ -17,8 +17,6 @@ package
 		
 		public var gravDirection:String = "down";
 		
-		public var rotZtest:Number;
-		
 		public static var GravityDown:String = "gravDown";
 		public static var GravityLeft:String = "gravLeft";
 		public static var GravityRight:String = "gravRight";
@@ -46,7 +44,8 @@ package
 		override protected function customActions():void
 		{
 			//Default
-			if (_rot.z < rotationFactor && _rot.z > - rotationFactor)
+			//if (_rot.z < rotationFactor && _rot.z > - rotationFactor)
+			if (rot.z < rotationFactor && rot.z > - rotationFactor)
 			{
 				gravDirection = "Down";
 				triggerON("gravDown", 1);
@@ -55,7 +54,8 @@ package
 				triggerOFF("gravUp", 0);
 			}
 			//Right
-			else if (_rot.z < idleAngleRight + rotationFactor && _rot.z > idleAngleRight -rotationFactor)
+			//else if (_rot.z < idleAngleRight + rotationFactor && _rot.z > idleAngleRight -rotationFactor)
+			else if (rot.z < idleAngleRight + rotationFactor && rot.z > idleAngleRight -rotationFactor)
 			{
 				gravDirection = "Right";
 				triggerOFF("gravDown", 0);
@@ -64,7 +64,8 @@ package
 				triggerOFF("gravUp", 0);
 			}
 			//Left
-			else if (_rot.z < idleAngleLeft + rotationFactor && _rot.z > idleAngleLeft -rotationFactor)
+			//else if (_rot.z < idleAngleLeft + rotationFactor && _rot.z > idleAngleLeft -rotationFactor)
+			else if (rot.z < idleAngleLeft + rotationFactor && rot.z > idleAngleLeft -rotationFactor)
 			{
 				gravDirection = "Left";
 				triggerOFF("gravDown", 0);
@@ -73,7 +74,8 @@ package
 				triggerOFF("gravUp", 0);
 			}
 			//Up
-			else if (_rot.z > idleAngleUp -rotationFactor || _rot.z < -idleAngleUp +rotationFactor)
+			//else if (_rot.z > idleAngleUp -rotationFactor || _rot.z < -idleAngleUp +rotationFactor)
+			else if (rot.z > idleAngleUp -rotationFactor || rot.z < -idleAngleUp +rotationFactor)
 			{
 				gravDirection = "Up";
 				triggerOFF("gravDown", 0);
@@ -97,9 +99,6 @@ package
 					delayBetweenRotations = 0;
 				}
 			}
-			
-			//Debbuging only
-			rotZtest = _rot.z;
 		}
 		
 		public function triggerGravityChangeOff():void

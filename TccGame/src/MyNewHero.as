@@ -5,9 +5,12 @@
 package
 {
 	import Box2D.Common.Math.b2Vec2;
+	import Box2D.Dynamics.Contacts.b2Contact;
 	
 	import citrus.objects.platformer.box2d.Hero;
+	import citrus.objects.platformer.box2d.Missile;
 	import citrus.physics.box2d.Box2DUtils;
+	import citrus.physics.box2d.IBox2DPhysicsObject;
 	
 	public class MyNewHero extends Hero
 	{
@@ -21,8 +24,8 @@ package
 		public function MyNewHero(name:String, params:Object=null)
 		{
 			super(name, params);
-			jumpHeight = 30;
-			maxVelocity = 10;
+			jumpHeight = 15;
+			maxVelocity = 5;
 		}
 		
 		public function swipeJump():void
@@ -141,8 +144,6 @@ package
 				
 				//Cap velocities
 				
-				//maxVerticalVelocity = maxVelocity<<1;//*2
-				
 				if(GameState.getWorldRotationDeg() == 0 || GameState.getWorldRotationDeg() == 180)
 				{
 					//horizontal
@@ -174,6 +175,32 @@ package
 			}
 			
 			updateAnimation();
+		}
+		
+		override public function handleBeginContact(contact:b2Contact):void {
+			
+			var collider:IBox2DPhysicsObject = Box2DUtils.CollisionGetOther(this, contact);
+			
+			if (_enemyClass && collider is _enemyClass || collider is Missile)
+			{
+				if (_body.GetLinearVelocity().y < killVelocity && !_hurt)
+				{
+					hurt();
+					
+					//fling the hero
+					var hurtVelocity:b2Vec2 = _body.GetLinearVelocity();
+					hurtVelocity.y = -hurtVelocityY;
+					hurtVelocity.x = hurtVelocityX;
+					if (collider.x > x)
+						hurtVelocity.x = -hurtVelocityX;
+					_body.SetLinearVelocity(hurtVelocity);
+				}
+				else
+				{
+					_springOffEnemy = collider.y - height;
+					onGiveDamage.dispatch();
+				}
+			}
 		}
 	}
 }
