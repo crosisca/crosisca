@@ -1,7 +1,6 @@
 package
 {
 	import com.gamua.flox.Flox;
-	import com.gamua.flox.Player;
 	
 	import flash.display.Loader;
 	import flash.display.MovieClip;
@@ -17,6 +16,8 @@ package
 	
 	import citrus.core.starling.StarlingCitrusEngine;
 	
+	import starling.core.Starling;
+	
 	[SWF(frameRate="30")]
 	public class TccGame extends StarlingCitrusEngine
 	{
@@ -31,12 +32,10 @@ package
 			//Minimap
 			addChild(debugSpriteRectangle);
 			
+			Starling.multitouchEnabled = true;
 			setUpStarling(true);
 			
-			/*var fps:Stats = new Stats();
-			addChild(fps);*/
-
-			Flox.init("caiorosisca-tccgame", "ue4aNbO8zlES1tbp","1.0");
+			//Flox.init("caiorosisca-tccgame", "ue4aNbO8zlES1tbp","1.0");
 			
 			loaderInfo.uncaughtErrorEvents.addEventListener(  UncaughtErrorEvent.UNCAUGHT_ERROR, 
 				function(event:UncaughtErrorEvent):void 
@@ -47,7 +46,7 @@ package
 			
 			var email:String = "caio.rosisca@hotmail.com";
 			
-			Player.loginWithEmail(email,
+			/*Player.loginWithEmail(email,
 				function onLoginComplete(player:Player):void {
 					Flox.logInfo("Player sucessfully logged in!"+player);
 				},
@@ -58,7 +57,7 @@ package
 						Flox.logError(error, "Error when loggin in via e-mail!"); 
 					}
 				}
-			);
+			);*/
 			//state = new GameState();
 			var loaderContext:LoaderContext = new LoaderContext(false, ApplicationDomain.currentDomain,null);
 			var loader:Loader = new Loader();
@@ -75,8 +74,9 @@ package
 		protected function handleLoadComplete(event:Event):void
 		{
 			var levelSwf:MovieClip = event.target.loader.content as MovieClip;
-			state = new GameState(levelSwf,debugSpriteRectangle);
+			//state = new GameState(levelSwf,debugSpriteRectangle);
 			//state = new ThresholdTestState(levelSwf);//FLUID LEVEL
+			state = new NewGameControlsState(debugSpriteRectangle);
 		}
 		
 		private function handleLoadError(event:IOErrorEvent):void

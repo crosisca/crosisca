@@ -7,10 +7,16 @@ package
 	import Box2D.Common.Math.b2Vec2;
 	import Box2D.Dynamics.Contacts.b2Contact;
 	
+	import citrus.math.MathVector;
 	import citrus.objects.platformer.box2d.Hero;
 	import citrus.objects.platformer.box2d.Missile;
+	import citrus.objects.platformer.box2d.Sensor;
 	import citrus.physics.box2d.Box2DUtils;
 	import citrus.physics.box2d.IBox2DPhysicsObject;
+	
+	import org.gestouch.events.GestureEvent;
+	
+	import utils.WorldUtils;
 	
 	public class MyNewHero extends Hero
 	{
@@ -59,7 +65,8 @@ package
 			var velocity:b2Vec2 = _body.GetLinearVelocity();
 			
 			//Makes the hero always on ground for testing purposes only
-			_onGround = true;
+			//_onGround = true;
+			//trace("OnGround =",_onGround);
 			
 			if (controlsEnabled)
 			{
@@ -67,7 +74,7 @@ package
 				
 				if (isDoingRight && _onGround)
 				{
-					switch(GameState.getWorldRotationDeg())
+					switch(WorldUtils.getWorldRotationDeg())
 					{
 						case 0://Normal
 							velocity.Add(getSlopeBasedMoveAngle());
@@ -76,11 +83,10 @@ package
 							velocity.Subtract(getSlopeBasedMoveAngle());
 							break;
 						case 270://right
-							velocity.Add(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),GameState.getWorldRotation()));
+							velocity.Add(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),WorldUtils.getWorldRotation()));
 							break;
 						case 90://left
-							velocity.Add(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),GameState.getWorldRotation()));
-							//velocity.Subtract(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),GameState.getWorldRotation()));//Retorna o valor contrario(eskerda vira direita)
+							velocity.Add(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),WorldUtils.getWorldRotation()));
 							break;
 					}
 					moveKeyPressed = true;
@@ -88,7 +94,7 @@ package
 				
 				if (isDoingLeft && _onGround)
 				{
-					switch(GameState.getWorldRotationDeg())
+					switch(WorldUtils.getWorldRotationDeg())
 					{
 						case 0://Normal
 							velocity.Subtract(getSlopeBasedMoveAngle());
@@ -97,11 +103,10 @@ package
 							velocity.Add(getSlopeBasedMoveAngle());
 							break;
 						case 270://right
-							velocity.Subtract(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),GameState.getWorldRotation()));
+							velocity.Subtract(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),WorldUtils.getWorldRotation()));
 							break;
 						case 90://left
-							velocity.Subtract(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),GameState.getWorldRotation()));
-							//velocity.Add(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),GameState.getWorldRotation()));
+							velocity.Subtract(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),WorldUtils.getWorldRotation()));
 							break;
 					}
 					moveKeyPressed = true;
@@ -122,7 +127,7 @@ package
 				
 				if (shouldJump)
 				{
-					switch(GameState.getWorldRotationDeg())
+					switch(WorldUtils.getWorldRotationDeg())
 					{
 						case 0:
 							velocity.Subtract(new b2Vec2(0,jumpHeight));
@@ -131,10 +136,10 @@ package
 							velocity.Add(new b2Vec2(0,jumpHeight));
 							break;
 						case 270:
-							velocity.Subtract(Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),GameState.getWorldRotation()));
+							velocity.Subtract(Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),WorldUtils.getWorldRotation()));
 							break;
 						case 90:
-							velocity.Subtract(Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),GameState.getWorldRotation()));
+							velocity.Subtract(Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),WorldUtils.getWorldRotation()));
 							break;
 					}
 					
@@ -144,7 +149,7 @@ package
 				
 				//Cap velocities
 				
-				if(GameState.getWorldRotationDeg() == 0 || GameState.getWorldRotationDeg() == 180)
+				if(WorldUtils.getWorldRotationDeg() == 0 || WorldUtils.getWorldRotationDeg() == 180)
 				{
 					//horizontal
 					if (velocity.x > (maxVelocity))
@@ -158,7 +163,7 @@ package
 					else if (velocity.y < (-maxVerticalVelocity))
 						velocity.y = -maxVerticalVelocity;*/
 				}
-				else if(GameState.getWorldRotationDeg() == 90 || GameState.getWorldRotationDeg() == 270)
+				else if(WorldUtils.getWorldRotationDeg() == 90 || WorldUtils.getWorldRotationDeg() == 270)
 				{
 					//horizontal
 					if (velocity.y > (maxVelocity))
@@ -199,6 +204,40 @@ package
 				{
 					_springOffEnemy = collider.y - height;
 					onGiveDamage.dispatch();
+				}
+			}
+			
+			//Collision angle if we don't touch a Sensor.
+			if (contact.GetManifold().m_localPoint && !(collider is Sensor)) //The normal property doesn't come through all the time. I think doesn't come through against sensors.
+			{				
+				var collisionAngle:Number = (((new MathVector(contact.normal.x, contact.normal.y).angle) * 180 / Math.PI) + 360) % 360;// 0º <-> 360º
+				
+				var adjustedMinCollisionAngle:int;
+				var adjustedMaxCollisionAngle:int;
+				switch(WorldUtils.getWorldRotationDeg())
+				{
+					case 0://Collision Angle do chao = 90
+						adjustedMinCollisionAngle = 45;
+						adjustedMaxCollisionAngle = 135;
+						break;
+					case 180://Collision Angle do chao = 270
+						adjustedMinCollisionAngle = 225;
+						adjustedMaxCollisionAngle = 315;
+						break;
+					case 270://Collision Angle do chao = 0
+						adjustedMinCollisionAngle = -45;
+						adjustedMaxCollisionAngle = 45;
+						break;
+					case 90://Collision Angle do chao = 180
+						adjustedMinCollisionAngle = 135;
+						adjustedMaxCollisionAngle = 225;
+						break;
+				}
+				if ((collisionAngle > adjustedMinCollisionAngle && collisionAngle < adjustedMaxCollisionAngle))
+				{
+					_groundContacts.push(collider.body.GetFixtureList());
+					_onGround = true;
+					updateCombinedGroundAngle();
 				}
 			}
 		}

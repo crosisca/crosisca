@@ -2,7 +2,6 @@ package
 {
 	import com.gamua.flox.Entity;
 	import com.gamua.flox.Flox;
-	import com.gamua.flox.Player;
 	import com.gamua.flox.utils.HttpStatus;
 	
 	import flash.display.Bitmap;
@@ -11,10 +10,10 @@ package
 	import flash.events.KeyboardEvent;
 	import flash.events.TouchEvent;
 	import flash.geom.Rectangle;
-	import flash.text.TextFieldAutoSize;
 	
 	import Box2D.Common.Math.b2Mat22;
 	import Box2D.Common.Math.b2Transform;
+	import Box2D.Common.Math.b2Vec2;
 	import Box2D.Dynamics.b2Body;
 	import Box2D.Dynamics.Contacts.b2Contact;
 	
@@ -25,11 +24,8 @@ package
 	import citrus.objects.Box2DPhysicsObject;
 	import citrus.objects.CitrusSprite;
 	import citrus.objects.complex.box2dstarling.Rope;
-	import citrus.objects.platformer.box2d.Cannon;
 	import citrus.objects.platformer.box2d.Enemy;
 	import citrus.objects.platformer.box2d.Platform;
-	import citrus.objects.platformer.box2d.Sensor;
-	import citrus.objects.platformer.box2d.Teleporter;
 	import citrus.objects.platformer.box2d.Treadmill;
 	import citrus.physics.box2d.Box2D;
 	import citrus.utils.Mobile;
@@ -37,8 +33,11 @@ package
 	import citrus.view.starlingview.StarlingCamera;
 	
 	import customobjects.EnemyVertical;
+	import customobjects.Esteira;
 	import customobjects.Spike;
 	import customobjects.VerticalCannon;
+	
+	import flox.GameSave;
 	
 	import org.gestouch.events.GestureEvent;
 	import org.gestouch.gestures.SwipeGesture;
@@ -52,6 +51,8 @@ package
 	import starling.text.TextField;
 	import starling.textures.Texture;
 	
+	import utils.WorldUtils;
+	
 	public class GameState extends StarlingState
 	{
 		
@@ -64,7 +65,7 @@ package
 		private static var _worldRotation:Number;
 		private var heroBodyTransform:b2Transform;
 		private var levelSwf:MovieClip;
-		public static var touchMoveId:int;
+		public var touchMoveId:int;
 		private var accelerometerHandler:AccelerometerHandler;
 		private var myTextField:TextField;
 		private var myConsoleTextField:TextField;
@@ -95,10 +96,11 @@ package
 		private var enemy:Enemy;
 		
 		
-		private var objectsUsedToBuildLevel:Array = [Platform,Treadmill,Spike,Enemy,VerticalCannon];
+		private var objectsUsedToBuildLevel:Array = [Platform,Treadmill,Spike,Enemy,VerticalCannon,Esteira];
 		private var rope1:Rope;
 		private var rope2:Rope;
 		private var rankScreen:RankingScreen;
+		private var gameSave:GameSave;
 		
 		public function GameState(level:MovieClip,debugSprt:Sprite)
 		{
@@ -148,23 +150,11 @@ package
 			
 			rankScreen = new RankingScreen();
 			
-			/*var bgBitmap:Bitmap = new BgForestJpg();
-			var bgTexture:Texture = Texture.fromBitmap(bgBitmap);
-			var bgImg:Image = new Image(bgTexture);
-			var backgroundSprite:CitrusSprite = new CitrusSprite("bgSprite",{view:bgImg,parallaxX:0.5,parallaxY:0.5});
-			add(backgroundSprite);*/
 			var bgBitmap:Bitmap = new Level1Jpg();
 			var bgTexture:Texture = Texture.fromBitmap(bgBitmap);
 			var bgImg:Image = new Image(bgTexture);
-			var backgroundSprite:CitrusSprite = new CitrusSprite("bgSprite",{view:bgImg/*,parallaxX:0.5,parallaxY:0.5*/});
+			var backgroundSprite:CitrusSprite = new CitrusSprite("bgSprite",{view:bgImg});
 			add(backgroundSprite);
-			
-			
-			/*var fgBitmap:Bitmap = new FgForestPng();
-			var fgTexture:Texture = Texture.fromBitmap(fgBitmap);
-			var fgImg:Image = new Image(fgTexture);
-			var foregroundSprite:CitrusSprite = new CitrusSprite("fgSprite" ,{view:fgImg});
-			add(foregroundSprite);*/
 			
 			//Create physics engine
 			box2d = new Box2D("box2d");
@@ -178,11 +168,8 @@ package
 			swipe.addEventListener(GestureEvent.GESTURE_RECOGNIZED, onSwipe);
 			
 			//Initialize world with default rotation;
-			setWorldRotation(0);
+			WorldUtils.setWorldRotation(0);
 
-			//Create Borders
-			//addBorders();
-			
 			//Create level from MC
 			ObjectMaker2D.FromMovieClip(levelSwf);
 			
@@ -203,20 +190,13 @@ package
 			//Create enemys
 			//createEnemys();
 			
-			
 			//Setup Camera
 			_camera = view.camera as StarlingCamera;
 			var _bounds:Rectangle = new Rectangle(0,0,2048,1536);
 			_camera.setUp(hero, new MathVector(ScreenRealWidth / 2, ScreenRealHeight / 2), _bounds, new MathVector(0.5, 0.5));
 			_camera.restrictZoom = true;
 			_camera.allowZoom = true;
-			
-			if(Mobile.isIpad() && Mobile.isRetina())
-			{
-				_camera.setZoom(2);
-				/*foregroundSprite.width *= _camera.getZoom();
-				foregroundSprite.height *= _camera.getZoom();*/
-			}
+			_camera.zoomFit(960,640);
 			
 			//Add move listeners
 			Starling.current.nativeStage.addEventListener(flash.events.TouchEvent.TOUCH_BEGIN, onTouchBegin);
@@ -224,23 +204,50 @@ package
 			Starling.current.nativeStage.addEventListener(flash.events.TouchEvent.TOUCH_END, onTouchEnd);
 			
 			//Create rotation handler
-			accelerometerHandler = new AccelerometerHandler("accelerometerHandler",{})
+			accelerometerHandler = new AccelerometerHandler("accelerometerHandler",{});
+			accelerometerHandler.triggerActions=true;
 			_ce.input.addController(accelerometerHandler);
-			
-			//Create Debug TF
-			//createTxtField();
 			
 			//Console input
 			createConsoleInput();
 			
+			//Create Flow stuff for saving player
+			gameSave = new GameSave();
+			gameSave.id = "mysave";
+			_ce.console.addCommand("saveHero", saveHero);
+			_ce.console.addCommand("loadHero", loadHero);
+			
 			//RankingBtn
 			createRankingButton();
-			//addCustomObjects();
-			
-			/*var enemySpawnSenson:Sensor = new Sensor("spawnSensor",{width:40,height:40,x:310,y:460,updateCallEnabled:true,
-				view:Texture.fromColor(40,40,0xFFFFFFFF)});
-			enemySpawnSenson.onBeginContact.add(onSpawnEnemy);
-			add(enemySpawnSenson);*/
+		}
+		
+		private function saveHero():void
+		{
+			gameSave.playerX = (hero.getBody() as b2Body).GetPosition().x;
+			gameSave.playerY = (hero.getBody() as b2Body).GetPosition().y;
+			gameSave.playerAngle = hero.rotation;
+			gameSave.save(function onComplete(_gameSave:GameSave): void {
+				Flox.logInfo("Hero saved sucessfully.");
+			},
+				function onError(error:String):void {
+					Flox.logError(error, "Nao salvou Hero info. Device deve estar offline.");
+				}
+			);
+		}
+		private function loadHero():void
+		{
+			Entity.load(GameSave, gameSave.id, 
+				function onComplete(_gameSave:GameSave):void {
+					hero.body.SetPositionAndAngle(new b2Vec2(_gameSave.playerX,_gameSave.playerY),_gameSave.playerAngle);
+				},
+				function onError(error:String, httpStatus:HttpStatus):void {
+					if(httpStatus == HttpStatus.NOT_FOUND) {
+						Flox.logError(error, "Não existe ume Entity com o tipo e id especificado no server.");
+					} else {
+						Flox.logError(error, "Algum erro ocorreu durante carregamento dos dados do Player. Device deve estar offline.");
+					}
+				}
+			);
 		}
 		
 		private function createEnemys():void
@@ -280,45 +287,6 @@ package
 			rope2.onHang.add(onRopeHang2);
 			rope2.onHangEnd.add(onRopeStopHang2);
 			add(rope2);
-		}
-		
-		private function addCustomObjects():void
-		{
-			//Enemy
-			enemy = new Enemy("enemy",{x:ScreenRealWidth/2,y:ScreenRealHeight-150,
-				height:100,width:100, view:Texture.fromColor(100,100,0xFF0000FF)});
-			add(enemy);
-			
-			//Teleport
-			var teleporter:Teleporter = new Teleporter("Teleporter", {x:1880, y:1380, width:50, height:50, view:Texture.fromColor(50,50,0xFFFF00FF)});
-			add(teleporter);
-			teleporter.endX = 200;
-			teleporter.endY = 200;
-			teleporter.waitingTime = 200;
-			teleporter.onBeginContact.add(_teleport);
-			
-			//Cannon
-			var cannon:Cannon = new Cannon("Cannon", {x:130, y:880, width:40, height:40, view:Texture.fromColor(50,50,0xFFFFF00)});
-			cannon.fireRate = 10000;
-			cannon.missileSpeed = 10;
-			cannon.missileFuseDuration = 10000;
-			cannon.missileView = Texture.fromColor(20,20,0XFF00FFFF);
-			add(cannon);
-			cannon.onGiveDamage.add(_cannonHurt);
-			
-			//Create Liquid
-			/*var pool:Pool = new Pool("pool",{x:ScreenRealHeight-1000,y:ScreenRealWidth/2,
-			leftWall:true,rightWall:true,wallThickness:10,
-			density:0.2, linearDrag:0.3, angularDrag:0.3,
-			width:500,height:200});
-			add(pool);*/
-			
-			/*var fluidBox:FluidBox = new FluidBox("fluid", {bcWidth:300, bcHeight:200,
-			bcThickness:40, ws:30 ,numBalls:15});
-			fluidBox.x = ScreenRealWidth/2;
-			fluidBox.y = ScreenRealHeight-100;
-			add(fluidBox);*/
-			
 		}
 		
 		private function onSpawnEnemy(cEvt:b2Contact):void {
@@ -402,32 +370,32 @@ package
 			if(_ce.input.isDoing(AccelerometerHandler.GravityDown))
 			{
 				Flox.logEvent("Device Rotated", {Gravity : "Down"});
-				setWorldRotation(0);
+				WorldUtils.setWorldRotation(0);
 				box2d.gravity.Set(0, gravityForce);
 				swipe.direction = SwipeGestureDirection.UP;
 			}
 			if(_ce.input.isDoing(AccelerometerHandler.GravityLeft))
 			{
 				Flox.logEvent("Device Rotated", {Gravity : "Left"});
-				setWorldRotation(90);
+				WorldUtils.setWorldRotation(90);
 				box2d.gravity.Set(-gravityForce,0);
 				swipe.direction = SwipeGestureDirection.RIGHT;
 			}
 			if(_ce.input.isDoing(AccelerometerHandler.GravityRight))
 			{
 				Flox.logEvent("Device Rotated", {Gravity : "Right"});
-				setWorldRotation(270);
+				WorldUtils.setWorldRotation(270);
 				box2d.gravity.Set(gravityForce,0);
 				swipe.direction = SwipeGestureDirection.LEFT;
 			}
 			if(_ce.input.isDoing(AccelerometerHandler.GravityUp))
 			{
 				Flox.logEvent("Device Rotated", {Gravity : "Up"});
-				setWorldRotation(180);
+				WorldUtils.setWorldRotation(180);
 				box2d.gravity.Set(0, -gravityForce);
 				swipe.direction = SwipeGestureDirection.DOWN;
 			}
-			heroBodyTransform = new b2Transform(hero.body.GetPosition(), b2Mat22.FromAngle(getWorldRotation()));
+			heroBodyTransform = new b2Transform(hero.body.GetPosition(), b2Mat22.FromAngle(WorldUtils.getWorldRotation()));
 			hero.body.SetTransform(heroBodyTransform);
 		}
 		
@@ -437,7 +405,7 @@ package
 			{
 				touchMoveId = event.touchPointID;
 				
-				switch(getWorldRotationDeg())
+				switch(WorldUtils.getWorldRotationDeg())
 				{
 					case 0://Normal
 						if(event.stageX > ScreenRealWidth>>1)
@@ -522,70 +490,6 @@ package
 			{
 				_debugSprite.graphics.drawRect((platfrm as Platform).x - (platfrm as Platform).width / 2, (platfrm as Platform).y - (platfrm as Platform).height / 2, (platfrm as Platform).width, (platfrm as Platform).height);
 			}
-		}
-		
-		private function addBorders():void
-		{
-			var levelDoTamanhoDaTela:Boolean = false;
-			if(!levelDoTamanhoDaTela)
-			{
-				var floor:Platform = new Platform("floor",
-					{x: 2048 * .5, y: 1536, width: 2048,height: 20});
-				add(floor);
-				
-				ceiling = new Platform("ceiling",
-					{x: 2048 * .5, y: 0, width: 2048,height: 20});
-				add(ceiling);
-				
-				var leftWall:Platform = new Platform("leftWall",
-					{x: 0, y:1536 *.5, width: 20,height: 1536});
-				add(leftWall);
-				
-				var rightWall:Platform = new Platform("rightWall",
-					{x: 2048, y:1536*.5, width: 20,height: 1536});
-				add(rightWall);
-			}
-		/*	else
-			{
-				var floor:Platform = new Platform("floor",
-					{x: ScreenRealWidth * .5, y: ScreenRealHeight, width: ScreenRealWidth,height: 20});
-				add(floor);
-				
-				var ceiling:Platform = new Platform("ceiling",
-					{x: ScreenRealWidth * .5, y: 0, width: ScreenRealWidth,height: 20});
-				add(ceiling);
-				
-				var leftWall:Platform = new Platform("leftWall",
-					{x: 0, y:ScreenRealHeight *.5, width: 20,height: ScreenRealHeight});
-				add(leftWall);
-				
-				var rightWall:Platform = new Platform("rightWall",
-					{x: ScreenRealWidth, y:ScreenRealHeight*.5, width: 20,height: ScreenRealHeight});
-				add(rightWall);
-			}*/
-		}
-		
-		
-		public static function deg2rad(degree:Number):Number {
-			return degree * (Math.PI / 180);
-		}
-		public static function rad2deg(rad:Number):Number
-		{
-			return rad * (180 / Math.PI);
-		}
-		
-		public function setWorldRotation(worldRotation:int):void
-		{
-			_worldRotation = deg2rad(worldRotation);
-		}
-		
-		public static function getWorldRotation():Number
-		{
-			return _worldRotation;
-		}
-		public static function getWorldRotationDeg():Number
-		{
-			return rad2deg(_worldRotation);
 		}
 	}
 }

@@ -44,7 +44,6 @@ package
 		override protected function customActions():void
 		{
 			//Default
-			//if (_rot.z < rotationFactor && _rot.z > - rotationFactor)
 			if (rot.z < rotationFactor && rot.z > - rotationFactor)
 			{
 				gravDirection = "Down";
@@ -54,7 +53,6 @@ package
 				triggerOFF("gravUp", 0);
 			}
 			//Right
-			//else if (_rot.z < idleAngleRight + rotationFactor && _rot.z > idleAngleRight -rotationFactor)
 			else if (rot.z < idleAngleRight + rotationFactor && rot.z > idleAngleRight -rotationFactor)
 			{
 				gravDirection = "Right";
@@ -64,7 +62,6 @@ package
 				triggerOFF("gravUp", 0);
 			}
 			//Left
-			//else if (_rot.z < idleAngleLeft + rotationFactor && _rot.z > idleAngleLeft -rotationFactor)
 			else if (rot.z < idleAngleLeft + rotationFactor && rot.z > idleAngleLeft -rotationFactor)
 			{
 				gravDirection = "Left";
@@ -74,7 +71,6 @@ package
 				triggerOFF("gravUp", 0);
 			}
 			//Up
-			//else if (_rot.z > idleAngleUp -rotationFactor || _rot.z < -idleAngleUp +rotationFactor)
 			else if (rot.z > idleAngleUp -rotationFactor || rot.z < -idleAngleUp +rotationFactor)
 			{
 				gravDirection = "Up";
@@ -83,11 +79,6 @@ package
 				triggerOFF("gravRight", 0);
 				triggerON("gravUp", 1);
 			}
-			else
-			{
-				//gravDirection = "NotTriggering";
-			}
-			
 			
 			if(delayBetweenRotations >= minimumTimeBetweenRotations)
 			{
