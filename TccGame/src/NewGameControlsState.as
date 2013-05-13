@@ -7,6 +7,7 @@ package
 	
 	import Box2D.Common.Math.b2Mat22;
 	import Box2D.Common.Math.b2Transform;
+	import Box2D.Common.Math.b2Vec2;
 	
 	import citrus.core.CitrusObject;
 	import citrus.core.starling.StarlingCitrusEngine;
@@ -14,6 +15,7 @@ package
 	import citrus.math.MathVector;
 	import citrus.objects.platformer.box2d.Platform;
 	import citrus.physics.box2d.Box2D;
+	import citrus.physics.box2d.Box2DUtils;
 	import citrus.utils.Mobile;
 	import citrus.view.starlingview.StarlingCamera;
 	
@@ -45,6 +47,7 @@ package
 		
 		[Embed(source="/assets/images/consoleImg.jpg")]
 		private var ConsoleJpg:Class;
+		private var swipeLenghtToJump:int = 100;
 		
 		public function NewGameControlsState(debugSprt:flash.display.Sprite)
 		{
@@ -138,9 +141,17 @@ package
 				var touch:Touch = touches[i];
 				var touchMovement:Point = touch.getMovement(stage);
 				
-				trace("Movement:",touchMovement);
-				if(touchMovement.y < -50)
-					trace("Jumped");
+				var movementVector:b2Vec2 = new b2Vec2(touchMovement.x, touchMovement.y);
+				var adjustedMoveVector:b2Vec2 = Box2DUtils.Rotateb2Vec2(movementVector, WorldUtils.getWorldRotation());
+				
+				trace("Move vector: (X="+movementVector.x,",","Y="+movementVector.y,")");
+				trace("Rotated vector: (X="+adjustedMoveVector.x,",","Y="+adjustedMoveVector.y,")");
+				//caio TODO> Vetor de movimento roda pro sentid contrario ao desejado..arrumar isso se nao
+				//adjustedMoveVector.y terá que ser positivo quando o device estiver em portrait.
+				if(adjustedMoveVector.y < -swipeLenghtToJump)
+				{
+					hero.swipeJump();
+				}
 			}
 		}		
 		
