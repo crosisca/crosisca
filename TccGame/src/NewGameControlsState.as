@@ -143,9 +143,11 @@ package
 				
 				var movementVector:b2Vec2 = new b2Vec2(touchMovement.x, touchMovement.y);
 				var adjustedMoveVector:b2Vec2 = Box2DUtils.Rotateb2Vec2(movementVector, WorldUtils.getWorldRotation());
+				var adjustedMoveVector2:b2Vec2 = Box2DUtils.Rotateb2Vec2(movementVector, WorldUtils.getWorldRotation()+180);
 				
 				trace("Move vector: (X="+movementVector.x,",","Y="+movementVector.y,")");
 				trace("Rotated vector: (X="+adjustedMoveVector.x,",","Y="+adjustedMoveVector.y,")");
+				trace("Rotated vector2: (X="+adjustedMoveVector2.x,",","Y="+adjustedMoveVector2.y,")");
 				//caio TODO> Vetor de movimento roda pro sentid contrario ao desejado..arrumar isso se nao
 				//adjustedMoveVector.y terá que ser positivo quando o device estiver em portrait.
 				if(adjustedMoveVector.y < -swipeLenghtToJump)
