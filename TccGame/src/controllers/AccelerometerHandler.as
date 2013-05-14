@@ -1,4 +1,4 @@
-package
+package controllers
 {
 	import citrus.input.controllers.Accelerometer;
 	

@@ -28,6 +28,7 @@ package
 	import starling.textures.Texture;
 	
 	import utils.WorldUtils;
+	import controllers.AccelerometerHandler;
 	
 	public class NewGameControlsState extends StarlingState
 	{
@@ -139,17 +140,56 @@ package
 			for (var i:int = 0; i < touches.length; i++) 
 			{
 				var touch:Touch = touches[i];
+				
+				switch(WorldUtils.getWorldRotationDeg())
+				{
+					case 0://Normal
+						if(touch.globalX > ScreenRealWidth>>1)
+							hero.moveDir("right");
+						else
+							hero.moveDir("left");
+						break;
+					
+					case 90://Left
+						if(touch.globalY > ScreenRealHeight>>1)
+							hero.moveDir("right");
+						else
+							hero.moveDir("left");
+						break;
+					
+					case 180:
+						if(touch.globalX < ScreenRealWidth>>1)
+							hero.moveDir("right");
+						else
+							hero.moveDir("left");
+						break;
+					
+					case 270:
+						if(touch.globalY < ScreenRealHeight>>1)
+							hero.moveDir("right");
+						else
+							hero.moveDir("left");
+						break;
+				}
+				
+				//Valor do movimento do touch
 				var touchMovement:Point = touch.getMovement(stage);
-				
-				var movementVector:b2Vec2 = new b2Vec2(touchMovement.x, touchMovement.y);
-				var adjustedMoveVector:b2Vec2 = Box2DUtils.Rotateb2Vec2(movementVector, WorldUtils.getWorldRotation());
-				var adjustedMoveVector2:b2Vec2 = Box2DUtils.Rotateb2Vec2(movementVector, WorldUtils.getWorldRotation()+180);
-				
-				trace("Move vector: (X="+movementVector.x,",","Y="+movementVector.y,")");
-				trace("Rotated vector: (X="+adjustedMoveVector.x,",","Y="+adjustedMoveVector.y,")");
-				trace("Rotated vector2: (X="+adjustedMoveVector2.x,",","Y="+adjustedMoveVector2.y,")");
-				//caio TODO> Vetor de movimento roda pro sentid contrario ao desejado..arrumar isso se nao
-				//adjustedMoveVector.y terá que ser positivo quando o device estiver em portrait.
+				//Vetor que guarda o valor do movimento do touch(pra poder ser rotacionado)
+				var movedTouchVector:b2Vec2 = new b2Vec2(touchMovement.x, touchMovement.y);
+				//Vetor do touch a ser rotacionado de acordo com a rotacao do device.
+				var adjustedMoveVector:b2Vec2;
+				//Rotaciona o vetor do touch de acordo com a rotacao do device.
+				if(WorldUtils.getWorldRotationDeg() == 180 || WorldUtils.getWorldRotationDeg() == 0)
+				{
+					adjustedMoveVector = Box2DUtils.Rotateb2Vec2(movedTouchVector, WorldUtils.getWorldRotation());
+				}
+				else if(WorldUtils.getWorldRotationDeg() == 90 || WorldUtils.getWorldRotationDeg() == 270)
+				{
+					adjustedMoveVector = Box2DUtils.Rotateb2Vec2(movedTouchVector, WorldUtils.getWorldInvertedRotation());
+				}
+				//trace("Rotated vector: (X="+adjustedMoveVector.x,",","Y="+adjustedMoveVector.y,")");
+
+				//Se for um SwipeUP > pula
 				if(adjustedMoveVector.y < -swipeLenghtToJump)
 				{
 					hero.swipeJump();
@@ -206,6 +246,7 @@ package
 		
 		private function handleWorldRotation():void
 		{
+			//Caio TODO> invertendo 270 e 90..o vetor de pulo funciona..mas a rotacao do objeto box2d do personagem fica invertida no eixo X
 			if(_ce.input.isDoing(AccelerometerHandler.GravityDown))
 			{
 				WorldUtils.setWorldRotation(0);
@@ -226,7 +267,16 @@ package
 				WorldUtils.setWorldRotation(180);
 				box2d.gravity.Set(0, -gravityForce);
 			}
-			heroBodyTransform = new b2Transform(hero.body.GetPosition(), b2Mat22.FromAngle(WorldUtils.getWorldRotation()));
+			
+			
+			//if(WorldUtils.getWorldRotationDeg() == 0 || WorldUtils.getWorldRotationDeg() == 180)
+			//{
+				heroBodyTransform = new b2Transform(hero.body.GetPosition(), b2Mat22.FromAngle(WorldUtils.getWorldRotation()));
+			/*}
+			else if(WorldUtils.getWorldRotationDeg() == 90 || WorldUtils.getWorldRotationDeg() == 270)
+			{
+				heroBodyTransform = new b2Transform(hero.body.GetPosition(), b2Mat22.FromAngle(WorldUtils.getWorldInvertedRotation()));
+			}*/
 			hero.body.SetTransform(heroBodyTransform);
 		}
 		

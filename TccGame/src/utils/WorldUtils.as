@@ -17,6 +17,11 @@ package utils
 			return _worldRotation;
 		}
 		
+		public static function getWorldInvertedRotation():Number
+		{
+			return _worldRotation-Math.PI;
+		}
+		
 		public static function getWorldRotationDeg():Number
 		{
 			return rad2deg(_worldRotation);

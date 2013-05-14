@@ -52,6 +52,7 @@ package
 	import starling.textures.Texture;
 	
 	import utils.WorldUtils;
+	import controllers.AccelerometerHandler;
 	
 	public class GameState extends StarlingState
 	{

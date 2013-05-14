@@ -14,8 +14,6 @@ package
 	import citrus.physics.box2d.Box2DUtils;
 	import citrus.physics.box2d.IBox2DPhysicsObject;
 	
-	import org.gestouch.events.GestureEvent;
-	
 	import utils.WorldUtils;
 	
 	public class MyNewHero extends Hero
@@ -44,11 +42,13 @@ package
 		{
 			if(dir == "right")
 			{
+				trace("isDoingRight");
 				isDoingRight = true;
 				isDoingLeft = false;
 			}
 			else if(dir == "left")
 			{
+				trace("isDoingLeft");
 				isDoingLeft = true;
 				isDoingRight = false;
 			}
@@ -127,28 +127,14 @@ package
 				
 				if (shouldJump)
 				{
-					switch(WorldUtils.getWorldRotationDeg())
-					{
-						case 0:
-							velocity.Subtract(new b2Vec2(0,jumpHeight));
-							break;
-						case 180:
-							velocity.Add(new b2Vec2(0,jumpHeight));
-							break;
-						case 270:
-							velocity.Subtract(Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),WorldUtils.getWorldRotation()));
-							break;
-						case 90:
-							velocity.Subtract(Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),WorldUtils.getWorldRotation()));
-							break;
-					}
-					
-					//onJump.dispatch();
+					var jumpVec:b2Vec2 = Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),WorldUtils.getWorldRotation());
+					//trace("JumpVec = (X:",jumpVec.x,",","Y:",jumpVec.y,")");
+					velocity.Subtract(jumpVec);
+					onJump.dispatch();
 					shouldJump = false;
 				}
 				
 				//Cap velocities
-				
 				if(WorldUtils.getWorldRotationDeg() == 0 || WorldUtils.getWorldRotationDeg() == 180)
 				{
 					//horizontal
