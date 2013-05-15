@@ -112,6 +112,9 @@ package controllers
 							}
 							break;
 					}//End switch
+					//Tirou o dedo da tela..desliga todas as acoes de movimento
+					if(touch.phase == TouchPhase.ENDED)
+						turnOffActions();
 				}//End if(touches.lenght == 1)
 				
 				//Valor do movimento do touch
@@ -136,9 +139,9 @@ package controllers
 					turnOnAction(Controls.JUMP);
 				}
 				
-				//Tirou o dedo da tela..desliga todas as acoes de movimento
+				//Desliga o pulo pra n ficar ligado pra sempre
 				if(touch.phase == TouchPhase.ENDED)
-					turnOffActions();
+					turnOffAction(Controls.JUMP);
 			}
 		}
 		
