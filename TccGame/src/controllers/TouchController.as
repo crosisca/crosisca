@@ -56,61 +56,63 @@ package controllers
 			for (var i:int = 0; i < touches.length; i++) 
 			{
 				var touch:Touch = touches[i];
-				
-				switch(WorldUtils.getWorldRotationDeg())
+				if(touches.length == 1)
 				{
-					case 0:
-						if(touch.globalX > ScreenUtils.SCREEN_REAL_WIDTH>>1)
-						{
-							turnOnAction(Controls.RIGHT);
-							turnOffAction(Controls.LEFT);
-						}
-						else
-						{
-							turnOnAction(Controls.LEFT);
-							turnOffAction(Controls.RIGHT);
-						}
-						break;
-					
-					case 90:
-						if(touch.globalY > ScreenUtils.SCREEN_REAL_HEIGHT>>1)
-						{
-							turnOnAction(Controls.RIGHT);
-							turnOffAction(Controls.LEFT);
-						}
-						else
-						{
-							turnOnAction(Controls.LEFT);
-							turnOffAction(Controls.RIGHT);
-						}
-						break;
-					
-					case 180:
-						if(touch.globalX < ScreenUtils.SCREEN_REAL_WIDTH>>1)
-						{
-							turnOnAction(Controls.RIGHT);
-							turnOffAction(Controls.LEFT);
-						}
-						else
-						{
-							turnOnAction(Controls.LEFT);
-							turnOffAction(Controls.RIGHT);
-						}
-						break;
-					
-					case 270:
-						if(touch.globalY < ScreenUtils.SCREEN_REAL_HEIGHT>>1)
-						{
-							turnOnAction(Controls.RIGHT);
-							turnOffAction(Controls.LEFT);
-						}
-						else
-						{
-							turnOnAction(Controls.LEFT);
-							turnOffAction(Controls.RIGHT);
-						}
-						break;
-				}
+					switch(WorldUtils.getWorldRotationDeg())
+					{
+						case 0:
+							if(touch.globalX > ScreenUtils.SCREEN_REAL_WIDTH>>1)
+							{
+								turnOnAction(Controls.RIGHT);
+								turnOffAction(Controls.LEFT);
+							}
+							else
+							{
+								turnOnAction(Controls.LEFT);
+								turnOffAction(Controls.RIGHT);
+							}
+							break;
+						
+						case 90:
+							if(touch.globalY > ScreenUtils.SCREEN_REAL_HEIGHT>>1)
+							{
+								turnOnAction(Controls.RIGHT);
+								turnOffAction(Controls.LEFT);
+							}
+							else
+							{
+								turnOnAction(Controls.LEFT);
+								turnOffAction(Controls.RIGHT);
+							}
+							break;
+						
+						case 180:
+							if(touch.globalX < ScreenUtils.SCREEN_REAL_WIDTH>>1)
+							{
+								turnOnAction(Controls.RIGHT);
+								turnOffAction(Controls.LEFT);
+							}
+							else
+							{
+								turnOnAction(Controls.LEFT);
+								turnOffAction(Controls.RIGHT);
+							}
+							break;
+						
+						case 270:
+							if(touch.globalY < ScreenUtils.SCREEN_REAL_HEIGHT>>1)
+							{
+								turnOnAction(Controls.RIGHT);
+								turnOffAction(Controls.LEFT);
+							}
+							else
+							{
+								turnOnAction(Controls.LEFT);
+								turnOffAction(Controls.RIGHT);
+							}
+							break;
+					}//End switch
+				}//End if(touches.lenght == 1)
 				
 				//Valor do movimento do touch
 				var touchMovement:Point = touch.getMovement(_stage);

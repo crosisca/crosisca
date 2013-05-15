@@ -25,7 +25,6 @@ package
 		private var isDoingLeft:Boolean;
 		//private var maxVerticalVelocity:Number;
 		
-		
 		public function MyNewHero(name:String, params:Object=null)
 		{
 			super(name, params);
