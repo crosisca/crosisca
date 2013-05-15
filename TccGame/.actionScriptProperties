@@ -57,9 +57,9 @@
       <multiPlatformSettings enabled="true" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.ios.platform" reducedSizePackaging="false" version="1"/>
       <airSettings airCertificatePath="F:/GameDev/iOS Certificates/Tcc Final Stuff/TccGameCaioRosiscaCertificate.p12" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes>
+          <pathEntry path="Level1.fla"/>
           <pathEntry path="assets/images"/>
           <pathEntry path=".gitignore"/>
-          <pathEntry path="Level1.fla"/>
         </airExcludes>
         <anePaths/>
         <newLaunchParams/>

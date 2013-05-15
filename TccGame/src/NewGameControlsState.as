@@ -2,45 +2,40 @@ package
 {
 	import flash.display.Bitmap;
 	import flash.display.Sprite;
-	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	
 	import Box2D.Common.Math.b2Mat22;
 	import Box2D.Common.Math.b2Transform;
-	import Box2D.Common.Math.b2Vec2;
 	
 	import citrus.core.CitrusObject;
-	import citrus.core.starling.StarlingCitrusEngine;
 	import citrus.core.starling.StarlingState;
 	import citrus.math.MathVector;
 	import citrus.objects.platformer.box2d.Platform;
 	import citrus.physics.box2d.Box2D;
-	import citrus.physics.box2d.Box2DUtils;
 	import citrus.utils.Mobile;
 	import citrus.view.starlingview.StarlingCamera;
+	
+	import controllers.AccelerometerHandler;
+	import controllers.TouchController;
 	
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.events.Event;
-	import starling.events.Touch;
-	import starling.events.TouchEvent;
-	import starling.events.TouchPhase;
 	import starling.textures.Texture;
 	
+	import utils.ScreenUtils;
 	import utils.WorldUtils;
-	import controllers.AccelerometerHandler;
 	
 	public class NewGameControlsState extends StarlingState
 	{
 		private var _debugSprite:flash.display.Sprite;
-		private var ScreenRealWidth:uint;
-		private var ScreenRealHeight:uint;
 		//private var levelSwf:MovieClip;
 		private var box2d:Box2D;
 		private var gravityForce:int = 15;
 		private var hero:MyNewHero;
 		private var _camera:StarlingCamera;
 		private var accelerometerHandler:AccelerometerHandler;
+		private var touchController:TouchController;
 		
 		[Embed(source="/assets/images/robotHero.png")]
 		private var HeroPng:Class;
@@ -48,7 +43,6 @@ package
 		
 		[Embed(source="/assets/images/consoleImg.jpg")]
 		private var ConsoleJpg:Class;
-		private var swipeLenghtToJump:int = 100;
 		
 		public function NewGameControlsState(debugSprt:flash.display.Sprite)
 		{
@@ -58,31 +52,31 @@ package
 				{
 					if(Mobile.isRetina())
 					{
-						ScreenRealWidth = Mobile.iPAD_RETINA_WIDTH;
-						ScreenRealHeight = Mobile.iPAD_RETINA_HEIGHT;	
+						ScreenUtils.SCREEN_REAL_WIDTH = Mobile.iPAD_RETINA_WIDTH;
+						ScreenUtils.SCREEN_REAL_HEIGHT = Mobile.iPAD_RETINA_HEIGHT;	
 					}
 					else
 					{
-						ScreenRealWidth = Mobile.iPAD_WIDTH;
-						ScreenRealHeight = Mobile.iPAD_HEIGHT;
+						ScreenUtils.SCREEN_REAL_WIDTH = Mobile.iPAD_WIDTH;
+						ScreenUtils.SCREEN_REAL_HEIGHT = Mobile.iPAD_HEIGHT;
 					}
 				}
 				else
 				{
 					if(Mobile.isRetina())
 					{
-						ScreenRealWidth = Mobile.iPHONE_RETINA_WIDTH;
-						ScreenRealHeight = Mobile.iPHONE_RETINA_HEIGHT;
+						ScreenUtils.SCREEN_REAL_WIDTH = Mobile.iPHONE_RETINA_WIDTH;
+						ScreenUtils.SCREEN_REAL_HEIGHT = Mobile.iPHONE_RETINA_HEIGHT;
 					}
 				}
 			}
 			if(Mobile.isLandscapeMode())
 			{
-				var landscapeWidth:uint = ScreenRealHeight;
-				var landscapeHeight:uint = ScreenRealWidth;
+				var landscapeWidth:uint = ScreenUtils.SCREEN_REAL_HEIGHT;
+				var landscapeHeight:uint = ScreenUtils.SCREEN_REAL_WIDTH;
 				
-				ScreenRealHeight = landscapeHeight;
-				ScreenRealWidth = landscapeWidth;
+				ScreenUtils.SCREEN_REAL_HEIGHT = landscapeHeight;
+				ScreenUtils.SCREEN_REAL_WIDTH = landscapeWidth;
 			}
 			
 			_debugSprite = debugSprt;
@@ -93,6 +87,10 @@ package
 		override public function initialize():void
 		{
 			super.initialize();
+			
+			//Create Controller
+			touchController = new TouchController("touchController");
+			_ce.input.addController(touchController);
 			
 			//Create physics engine
 			box2d = new Box2D("box2d");
@@ -116,7 +114,7 @@ package
 			
 			_camera = view.camera as StarlingCamera;
 			var _bounds:Rectangle = new Rectangle(0,0,2048,1536);
-			_camera.setUp(hero, new MathVector(ScreenRealWidth / 2, ScreenRealHeight / 2), _bounds, new MathVector(0.5, 0.5));
+			_camera.setUp(hero, new MathVector(ScreenUtils.SCREEN_REAL_WIDTH / 2, ScreenUtils.SCREEN_REAL_HEIGHT / 2), _bounds, new MathVector(0.5, 0.5));
 			_camera.restrictZoom = true;
 			_camera.allowZoom = true;
 			_camera.zoomFit(960,640);
@@ -124,7 +122,7 @@ package
 			//Add move listeners
 			//Where should I add the TouchEvent listener? Keep stuff on starling.stage for now
 			//stage.addEventListener(TouchEvent.TOUCH, onTouch3);
-			(_ce as StarlingCitrusEngine).starling.stage.addEventListener(TouchEvent.TOUCH, onTouch);
+			//(_ce as StarlingCitrusEngine).starling.stage.addEventListener(TouchEvent.TOUCH, onTouch);
 			
 			//Create rotation handler
 			accelerometerHandler = new AccelerometerHandler("accelerometerHandler",{});
@@ -133,86 +131,22 @@ package
 			createConsoleInput();
 		}
 		
-		private function onTouch(event:TouchEvent):void
-		{
-			var touches:Vector.<Touch> = event.getTouches(stage, TouchPhase.MOVED);
-			
-			for (var i:int = 0; i < touches.length; i++) 
-			{
-				var touch:Touch = touches[i];
-				
-				switch(WorldUtils.getWorldRotationDeg())
-				{
-					case 0://Normal
-						if(touch.globalX > ScreenRealWidth>>1)
-							hero.moveDir("right");
-						else
-							hero.moveDir("left");
-						break;
-					
-					case 90://Left
-						if(touch.globalY > ScreenRealHeight>>1)
-							hero.moveDir("right");
-						else
-							hero.moveDir("left");
-						break;
-					
-					case 180:
-						if(touch.globalX < ScreenRealWidth>>1)
-							hero.moveDir("right");
-						else
-							hero.moveDir("left");
-						break;
-					
-					case 270:
-						if(touch.globalY < ScreenRealHeight>>1)
-							hero.moveDir("right");
-						else
-							hero.moveDir("left");
-						break;
-				}
-				
-				//Valor do movimento do touch
-				var touchMovement:Point = touch.getMovement(stage);
-				//Vetor que guarda o valor do movimento do touch(pra poder ser rotacionado)
-				var movedTouchVector:b2Vec2 = new b2Vec2(touchMovement.x, touchMovement.y);
-				//Vetor do touch a ser rotacionado de acordo com a rotacao do device.
-				var adjustedMoveVector:b2Vec2;
-				//Rotaciona o vetor do touch de acordo com a rotacao do device.
-				if(WorldUtils.getWorldRotationDeg() == 180 || WorldUtils.getWorldRotationDeg() == 0)
-				{
-					adjustedMoveVector = Box2DUtils.Rotateb2Vec2(movedTouchVector, WorldUtils.getWorldRotation());
-				}
-				else if(WorldUtils.getWorldRotationDeg() == 90 || WorldUtils.getWorldRotationDeg() == 270)
-				{
-					adjustedMoveVector = Box2DUtils.Rotateb2Vec2(movedTouchVector, WorldUtils.getWorldInvertedRotation());
-				}
-				//trace("Rotated vector: (X="+adjustedMoveVector.x,",","Y="+adjustedMoveVector.y,")");
-
-				//Se for um SwipeUP > pula
-				if(adjustedMoveVector.y < -swipeLenghtToJump)
-				{
-					hero.swipeJump();
-				}
-			}
-		}		
-		
 		private function addWalls():void
 		{
 			var floor:Platform = new Platform("floor",
-				{x: ScreenRealWidth * .5, y: ScreenRealHeight/2, width: ScreenRealWidth,height: 20});
+				{x: ScreenUtils.SCREEN_REAL_WIDTH * .5, y: ScreenUtils.SCREEN_REAL_HEIGHT/2, width: ScreenUtils.SCREEN_REAL_WIDTH,height: 20});
 			add(floor);
 			
 			var ceiling:Platform = new Platform("ceiling",
-				{x: ScreenRealWidth * .5, y: 0, width: ScreenRealWidth,height: 20});
+				{x: ScreenUtils.SCREEN_REAL_WIDTH * .5, y: 0, width: ScreenUtils.SCREEN_REAL_WIDTH,height: 20});
 			add(ceiling);
 			
 			var leftWall:Platform = new Platform("leftWall",
-				{x: 0, y:ScreenRealHeight *.5, width: 20,height: ScreenRealHeight});
+				{x: 0, y:ScreenUtils.SCREEN_REAL_HEIGHT *.5, width: 20,height: ScreenUtils.SCREEN_REAL_HEIGHT});
 			add(leftWall);
 			
 			var rightWall:Platform = new Platform("rightWall",
-				{x: ScreenRealWidth/2, y:ScreenRealHeight*.5, width: 20,height: ScreenRealHeight});
+				{x: ScreenUtils.SCREEN_REAL_WIDTH/2, y:ScreenUtils.SCREEN_REAL_HEIGHT*.5, width: 20,height: ScreenUtils.SCREEN_REAL_HEIGHT});
 			add(rightWall);
 			
 		}
@@ -221,7 +155,7 @@ package
 		{
 			var consoleBtmp:Bitmap = new ConsoleJpg();
 			var consoleBtn:Button = new Button(Texture.fromBitmap(consoleBtmp));
-			consoleBtn.x = ScreenRealWidth-consoleBtn.width;
+			consoleBtn.x = ScreenUtils.SCREEN_REAL_WIDTH-consoleBtn.width;
 			consoleBtn.touchable = true;
 			addChild(consoleBtn);
 			consoleBtn.addEventListener(Event.TRIGGERED, onTouchConsole);
@@ -285,8 +219,8 @@ package
 			_camera.renderDebug(_debugSprite);
 			_debugSprite.scaleX = 0.2 * 0.6;
 			_debugSprite.scaleY = 0.2 * 0.6;
-			_debugSprite.x = ScreenRealWidth-_debugSprite.width;
-			_debugSprite.y = ScreenRealHeight-_debugSprite.height;
+			_debugSprite.x = ScreenUtils.SCREEN_REAL_WIDTH-_debugSprite.width;
+			_debugSprite.y = ScreenUtils.SCREEN_REAL_HEIGHT-_debugSprite.height;
 			
 			_debugSprite.graphics.lineStyle();
 			_debugSprite.graphics.beginFill(0x000000, 0.2);

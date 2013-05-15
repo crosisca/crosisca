@@ -44,7 +44,7 @@ package controllers
 		override protected function customActions():void
 		{
 			//Default
-			if (rot.z < rotationFactor && rot.z > - rotationFactor)
+			if (rotation.z < rotationFactor && rotation.z > - rotationFactor)
 			{
 				gravDirection = "Down";
 				triggerON("gravDown", 1);
@@ -53,7 +53,7 @@ package controllers
 				triggerOFF("gravUp", 0);
 			}
 			//Right
-			else if (rot.z < idleAngleRight + rotationFactor && rot.z > idleAngleRight -rotationFactor)
+			else if (rotation.z < idleAngleRight + rotationFactor && rotation.z > idleAngleRight -rotationFactor)
 			{
 				gravDirection = "Right";
 				triggerOFF("gravDown", 0);
@@ -62,7 +62,7 @@ package controllers
 				triggerOFF("gravUp", 0);
 			}
 			//Left
-			else if (rot.z < idleAngleLeft + rotationFactor && rot.z > idleAngleLeft -rotationFactor)
+			else if (rotation.z < idleAngleLeft + rotationFactor && rotation.z > idleAngleLeft -rotationFactor)
 			{
 				gravDirection = "Left";
 				triggerOFF("gravDown", 0);
@@ -71,7 +71,7 @@ package controllers
 				triggerOFF("gravUp", 0);
 			}
 			//Up
-			else if (rot.z > idleAngleUp -rotationFactor || rot.z < -idleAngleUp +rotationFactor)
+			else if (rotation.z > idleAngleUp -rotationFactor || rotation.z < -idleAngleUp +rotationFactor)
 			{
 				gravDirection = "Up";
 				triggerOFF("gravDown", 0);

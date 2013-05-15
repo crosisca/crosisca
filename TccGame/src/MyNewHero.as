@@ -14,11 +14,12 @@ package
 	import citrus.physics.box2d.Box2DUtils;
 	import citrus.physics.box2d.IBox2DPhysicsObject;
 	
+	import controllers.Controls;
+	
 	import utils.WorldUtils;
 	
 	public class MyNewHero extends Hero
 	{
-		private var shouldJump:Boolean;
 		private var _worldRotation:int;
 		private var isDoingRight:Boolean;
 		private var isDoingLeft:Boolean;
@@ -32,47 +33,17 @@ package
 			maxVelocity = 5;
 		}
 		
-		public function swipeJump():void
-		{
-			if(_onGround)
-				shouldJump = true;
-		}
-		
-		public function moveDir(dir:String):void
-		{
-			if(dir == "right")
-			{
-				trace("isDoingRight");
-				isDoingRight = true;
-				isDoingLeft = false;
-			}
-			else if(dir == "left")
-			{
-				trace("isDoingLeft");
-				isDoingLeft = true;
-				isDoingRight = false;
-			}
-		}
-		
-		public function stopMoving():void{
-			isDoingLeft = false;
-			isDoingRight = false;
-		}
-		
 		override public function update(timeDelta:Number):void
 		{
 			// we get a reference to the actual velocity vector
 			var velocity:b2Vec2 = _body.GetLinearVelocity();
 			
-			//Makes the hero always on ground for testing purposes only
-			//_onGround = true;
-			//trace("OnGround =",_onGround);
-			
-			if (controlsEnabled)
+			if(controlsEnabled)
 			{
 				var moveKeyPressed:Boolean = false;
 				
-				if (isDoingRight && _onGround)
+				//Indo pra direita
+				if (_ce.input.isDoing(Controls.RIGHT, inputChannel))
 				{
 					switch(WorldUtils.getWorldRotationDeg())
 					{
@@ -92,7 +63,8 @@ package
 					moveKeyPressed = true;
 				}
 				
-				if (isDoingLeft && _onGround)
+				//Indo pra esquerda
+				if (_ce.input.isDoing(Controls.LEFT, inputChannel))
 				{
 					switch(WorldUtils.getWorldRotationDeg())
 					{
@@ -125,14 +97,24 @@ package
 					_fixture.SetFriction(_friction); //Add friction so that he stops running
 				}
 				
-				if (shouldJump)
+				//Acabei de pular
+				if (_onGround && _ce.input.justDid(Controls.JUMP, inputChannel))
 				{
+					//velocity.y = -jumpHeight;
 					var jumpVec:b2Vec2 = Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),WorldUtils.getWorldRotation());
-					//trace("JumpVec = (X:",jumpVec.x,",","Y:",jumpVec.y,")");
 					velocity.Subtract(jumpVec);
 					onJump.dispatch();
-					shouldJump = false;
 				}
+				
+				//Feedback colisao com inimigo..arrumar dps
+				/*if (_springOffEnemy != -1)
+				{
+					if (_ce.input.isDoing("jump", inputChannel))
+						velocity.y = -enemySpringJumpHeight;
+					else
+						velocity.y = -enemySpringHeight;
+					_springOffEnemy = -1;
+				}*/
 				
 				//Cap velocities
 				if(WorldUtils.getWorldRotationDeg() == 0 || WorldUtils.getWorldRotationDeg() == 180)
@@ -142,7 +124,6 @@ package
 						velocity.x = maxVelocity;
 					else if (velocity.x < (-maxVelocity))
 						velocity.x = -maxVelocity;
-					
 					//vertical
 					/*if (velocity.y > (maxVerticalVelocity))
 						velocity.y = maxVerticalVelocity;
@@ -156,15 +137,13 @@ package
 						velocity.y = maxVelocity;
 					else if (velocity.y < (-maxVelocity))
 						velocity.y = -maxVelocity;
-					
 					//vertical
 					/*if (velocity.x > (maxVerticalVelocity))
 						velocity.x = maxVerticalVelocity;
 					else if (velocity.x < (-maxVerticalVelocity))
 						velocity.x = -maxVerticalVelocity;*/
 				}
-			}
-			
+			}//End if(controlsEnabled)
 			updateAnimation();
 		}
 		
@@ -178,7 +157,8 @@ package
 				{
 					hurt();
 					
-					//fling the hero
+					//fling the hero 
+					//caio TODO> nao esta ajustado pra levar em consideracao rotacao do device
 					var hurtVelocity:b2Vec2 = _body.GetLinearVelocity();
 					hurtVelocity.y = -hurtVelocityY;
 					hurtVelocity.x = hurtVelocityX;
@@ -194,6 +174,7 @@ package
 			}
 			
 			//Collision angle if we don't touch a Sensor.
+			//Adjusted for any device rotation
 			if (contact.GetManifold().m_localPoint && !(collider is Sensor)) //The normal property doesn't come through all the time. I think doesn't come through against sensors.
 			{				
 				var collisionAngle:Number = (((new MathVector(contact.normal.x, contact.normal.y).angle) * 180 / Math.PI) + 360) % 360;// 0º <-> 360º
