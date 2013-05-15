@@ -45,42 +45,14 @@ package
 				//Indo pra direita
 				if (_ce.input.isDoing(Controls.RIGHT, inputChannel))
 				{
-					switch(WorldUtils.getWorldRotationDeg())
-					{
-						case 0://Normal
-							velocity.Add(getSlopeBasedMoveAngle());
-							break;
-						case 180:
-							velocity.Subtract(getSlopeBasedMoveAngle());
-							break;
-						case 270://right
-							velocity.Add(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),WorldUtils.getWorldRotation()));
-							break;
-						case 90://left
-							velocity.Add(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),WorldUtils.getWorldRotation()));
-							break;
-					}
+					velocity.Add(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),WorldUtils.getWorldRotation()));
 					moveKeyPressed = true;
 				}
 				
 				//Indo pra esquerda
 				if (_ce.input.isDoing(Controls.LEFT, inputChannel))
 				{
-					switch(WorldUtils.getWorldRotationDeg())
-					{
-						case 0://Normal
-							velocity.Subtract(getSlopeBasedMoveAngle());
-							break;
-						case 180:
-							velocity.Add(getSlopeBasedMoveAngle());
-							break;
-						case 270://right
-							velocity.Subtract(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),WorldUtils.getWorldRotation()));
-							break;
-						case 90://left
-							velocity.Subtract(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),WorldUtils.getWorldRotation()));
-							break;
-					}
+					velocity.Subtract(Box2DUtils.Rotateb2Vec2(getSlopeBasedMoveAngle(),WorldUtils.getWorldRotation()));
 					moveKeyPressed = true;
 				}
 				
