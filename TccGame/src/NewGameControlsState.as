@@ -7,6 +7,7 @@ package
 	
 	import Box2D.Common.Math.b2Mat22;
 	import Box2D.Common.Math.b2Transform;
+	import Box2D.Dynamics.Contacts.b2Contact;
 	
 	import citrus.core.CitrusObject;
 	import citrus.core.starling.StarlingState;
@@ -228,6 +229,8 @@ package
 				heroBodyTransform = new b2Transform(hero.body.GetPosition(), b2Mat22.FromAngle(WorldUtils.getWorldInvertedRotation()));
 			}*/
 			hero.body.SetTransform(heroBodyTransform);
+			
+			hero.recalculateGroundCollisionAngle();
 		}
 		
 		private function drawMinimap():void

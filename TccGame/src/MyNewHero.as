@@ -179,5 +179,47 @@ package
 				}
 			}
 		}
+		
+		public function recalculateGroundCollisionAngle():void
+		{
+			var collider:IBox2DPhysicsObject;
+			
+			for (var contact: b2Contact = this.body.GetContactList().contact ; contact ; contact = contact.GetNext())
+			{ 
+				collider = Box2DUtils.CollisionGetOther(this, contact);
+				if (contact.GetManifold().m_localPoint && !(collider is Sensor))
+				{
+					var collisionAngle:Number = (((new MathVector(contact.normal.x, contact.normal.y).angle) * 180 / Math.PI) + 360) % 360;// 0º <-> 360º
+					
+					var adjustedMinCollisionAngle:int;
+					var adjustedMaxCollisionAngle:int;
+					switch(WorldUtils.getWorldRotationDeg())//Defined by myself when I rotate the iPad
+					{
+						case 0://Collision Angle perpendicular to floor = 90
+							adjustedMinCollisionAngle = 45;
+							adjustedMaxCollisionAngle = 135;
+							break;
+						case 180://Collision Angle perpendicular to floor = 270
+							adjustedMinCollisionAngle = 225;
+							adjustedMaxCollisionAngle = 315;
+							break;
+						case 270://Collision Angle perpendicular to floor = 0
+							adjustedMinCollisionAngle = -45;
+							adjustedMaxCollisionAngle = 45;
+							break;
+						case 90://Collision Angle perpendicular to floor = 180
+							adjustedMinCollisionAngle = 135;
+							adjustedMaxCollisionAngle = 225;
+							break;
+					}
+					if ((collisionAngle > adjustedMinCollisionAngle && collisionAngle < adjustedMaxCollisionAngle))
+					{
+						_groundContacts.push(collider.body.GetFixtureList());
+						_onGround = true;
+						updateCombinedGroundAngle();
+					}
+				}
+			}
+		}
 	}
 }
