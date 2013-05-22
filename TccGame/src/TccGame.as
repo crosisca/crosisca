@@ -76,7 +76,7 @@ package
 			var levelSwf:MovieClip = event.target.loader.content as MovieClip;
 			//state = new GameState(levelSwf,debugSpriteRectangle);
 			//state = new ThresholdTestState(levelSwf);//FLUID LEVEL
-			state = new NewGameControlsState(debugSpriteRectangle);
+			state = new NewGameControlsState(debugSpriteRectangle,levelSwf);
 		}
 		
 		private function handleLoadError(event:IOErrorEvent):void

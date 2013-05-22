@@ -1,6 +1,7 @@
 package
 {
 	import flash.display.Bitmap;
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.geom.Rectangle;
 	
@@ -10,9 +11,11 @@ package
 	import citrus.core.CitrusObject;
 	import citrus.core.starling.StarlingState;
 	import citrus.math.MathVector;
+	import citrus.objects.CitrusSprite;
 	import citrus.objects.platformer.box2d.Platform;
 	import citrus.physics.box2d.Box2D;
 	import citrus.utils.Mobile;
+	import citrus.utils.objectmakers.ObjectMaker2D;
 	import citrus.view.starlingview.StarlingCamera;
 	
 	import controllers.AccelerometerHandler;
@@ -44,7 +47,11 @@ package
 		[Embed(source="/assets/images/consoleImg.jpg")]
 		private var ConsoleJpg:Class;
 		
-		public function NewGameControlsState(debugSprt:flash.display.Sprite)
+		[Embed(source="/assets/images/PlataformasFase1.png")]
+		private var EmbeddedPlataformasFase1:Class;
+		private var levelSwf:MovieClip;
+		
+		public function NewGameControlsState(debugSprt:flash.display.Sprite,level:MovieClip)
 		{
 			if(Mobile.isIOS())
 			{
@@ -81,12 +88,17 @@ package
 			
 			_debugSprite = debugSprt;
 			super();
-			//levelSwf = level;
+			levelSwf = level;
 		}
 		
 		override public function initialize():void
 		{
 			super.initialize();
+			var plataformasArtBitmap:Bitmap = new EmbeddedPlataformasFase1();
+			var plataformasArtTexture:Texture = Texture.fromBitmap(plataformasArtBitmap);
+			var plataformasArtImg:Image = new Image(plataformasArtTexture);
+			var plataformasArtSprite:CitrusSprite = new CitrusSprite("bgSprite",{view:plataformasArtImg});
+			add(plataformasArtSprite);
 			
 			//Create Controller
 			touchController = new TouchController("touchController");
@@ -101,7 +113,9 @@ package
 			//Initialize world with default rotation;
 			WorldUtils.setWorldRotation(0);
 			
-			addWalls();
+			//Create level from MC
+			ObjectMaker2D.FromMovieClip(levelSwf);
+			//addWalls();
 			
 			//Add Hero
 			var heroBitmap:Bitmap = new HeroPng();
@@ -113,7 +127,8 @@ package
 			add(hero);
 			
 			_camera = view.camera as StarlingCamera;
-			var _bounds:Rectangle = new Rectangle(0,0,2048,1536);
+			trace("Tamanho do leve:",levelSwf.width,levelSwf.height);
+			var _bounds:Rectangle = new Rectangle(0,0,2048,1268);//tamanho do level
 			_camera.setUp(hero, new MathVector(ScreenUtils.SCREEN_REAL_WIDTH / 2, ScreenUtils.SCREEN_REAL_HEIGHT / 2), _bounds, new MathVector(0.5, 0.5));
 			_camera.restrictZoom = true;
 			_camera.allowZoom = true;
@@ -155,6 +170,7 @@ package
 		{
 			var consoleBtmp:Bitmap = new ConsoleJpg();
 			var consoleBtn:Button = new Button(Texture.fromBitmap(consoleBtmp));
+			consoleBtn.scaleX = consoleBtn.scaleY = 0.3;
 			consoleBtn.x = ScreenUtils.SCREEN_REAL_WIDTH-consoleBtn.width;
 			consoleBtn.touchable = true;
 			addChild(consoleBtn);
