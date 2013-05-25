@@ -7,7 +7,6 @@ package
 	
 	import Box2D.Common.Math.b2Mat22;
 	import Box2D.Common.Math.b2Transform;
-	import Box2D.Dynamics.Contacts.b2Contact;
 	
 	import citrus.core.CitrusObject;
 	import citrus.core.starling.StarlingState;
@@ -124,14 +123,14 @@ package
 			var heroImg:Image = new Image(heroTexture);
 			heroImg.scaleX = heroImg.scaleY = .5;
 			addChild(heroImg);
-			hero = new MyNewHero("hero",{view:heroImg,x: 150, y: 200, width: 50, height:50});
+			hero = new MyNewHero("hero",{view:heroImg,x: 150, y: 70, width: 50, height:50});
 			add(hero);
 			
 			_camera = view.camera as StarlingCamera;
 			trace("Tamanho do leve:",levelSwf.width,levelSwf.height);
 			var _bounds:Rectangle = new Rectangle(0,0,2048,1268);//tamanho do level
 			_camera.setUp(hero, new MathVector(ScreenUtils.SCREEN_REAL_WIDTH / 2, ScreenUtils.SCREEN_REAL_HEIGHT / 2), _bounds, new MathVector(0.5, 0.5));
-			_camera.restrictZoom = true;
+			_camera.restrictZoom = false;
 			_camera.allowZoom = true;
 			_camera.zoomFit(960,640);
 			

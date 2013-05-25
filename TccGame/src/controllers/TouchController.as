@@ -21,7 +21,7 @@ package controllers
 	{
 		protected var actions:Dictionary;
 		private var _stage:Stage;
-		private var swipeLenghtNecessaryToJump:int = 100;
+		private var swipeLenghtNecessaryToJump:int = 25;
 		
 		public function TouchController(name:String, params:Object=null)
 		{
@@ -134,6 +134,7 @@ package controllers
 				}
 				
 				//Se for um SwipeUP > pula
+				//trace("SwipeForce:",adjustedMoveVector.y, " Necessary Force:",swipeLenghtNecessaryToJump);
 				if(adjustedMoveVector.y < -swipeLenghtNecessaryToJump)
 				{
 					turnOnAction(Controls.JUMP);
@@ -141,8 +142,78 @@ package controllers
 				
 				//Desliga o pulo pra n ficar ligado pra sempre
 				if(touch.phase == TouchPhase.ENDED)
+				{
 					turnOffAction(Controls.JUMP);
+					//Verificar TODO caio..fazer comcar andar pro outroo lado
+					touches.splice(i,1);
+					verificarSeInverteuMovimento(touches);
+				}
 			}
+		}
+		
+		private function verificarSeInverteuMovimento(touches:Vector.<Touch>):void
+		{
+			if(touches.length == 1)
+			{
+				var touch:Touch = touches[0];
+				switch(WorldUtils.getWorldRotationDeg())
+				{
+					case 0:
+						if(touch.globalX > ScreenUtils.SCREEN_REAL_WIDTH>>1)
+						{
+							turnOnAction(Controls.RIGHT);
+							turnOffAction(Controls.LEFT);
+						}
+						else
+						{
+							turnOnAction(Controls.LEFT);
+							turnOffAction(Controls.RIGHT);
+						}
+						break;
+					
+					case 90:
+						if(touch.globalY > ScreenUtils.SCREEN_REAL_HEIGHT>>1)
+						{
+							turnOnAction(Controls.RIGHT);
+							turnOffAction(Controls.LEFT);
+						}
+						else
+						{
+							turnOnAction(Controls.LEFT);
+							turnOffAction(Controls.RIGHT);
+						}
+						break;
+					
+					case 180:
+						if(touch.globalX < ScreenUtils.SCREEN_REAL_WIDTH>>1)
+						{
+							turnOnAction(Controls.RIGHT);
+							turnOffAction(Controls.LEFT);
+						}
+						else
+						{
+							turnOnAction(Controls.LEFT);
+							turnOffAction(Controls.RIGHT);
+						}
+						break;
+					
+					case 270:
+						if(touch.globalY < ScreenUtils.SCREEN_REAL_HEIGHT>>1)
+						{
+							turnOnAction(Controls.RIGHT);
+							turnOffAction(Controls.LEFT);
+						}
+						else
+						{
+							turnOnAction(Controls.LEFT);
+							turnOffAction(Controls.RIGHT);
+						}
+						break;
+				}//End switch
+				//Tirou o dedo da tela..desliga todas as acoes de movimento
+				if(touch.phase == TouchPhase.ENDED)
+					turnOffActions();
+			}//End if(touches.lenght == 1)
 		}
 		
 		private function turnOnAction(action:String):void
@@ -163,43 +234,14 @@ package controllers
 			}
 		}
 		
-		/*protected function turnOnActions():void
-		{
-			//Turn On
-			if (!actions.right)
-			{
-				triggerON(Controls.RIGHT, 1);
-				actions.right = true;
-			}
-			if (!actions.left)
-			{
-				triggerON(Controls.LEFT, 1);
-				actions.left = true;
-			}
-			if (!actions.jump)
-			{
-				triggerON(Controls.JUMP, 1);
-				actions.jump = true;
-			}
-		}*/
-		
 		private function turnOffActions():void
 		{
-			//if (actions.left)
-			//{
-				triggerOFF(Controls.LEFT);
-				actions.left = false;
-			//}
-			//if (actions.right)
-			//{
-				triggerOFF(Controls.RIGHT);
-				actions.right = false;
-			//}
-			//if (actions.jump)
-			//{
-				triggerOFF(Controls.JUMP);
-				actions.jump = false;
-			//}
+			triggerOFF(Controls.LEFT);
+			actions.left = false;
+			triggerOFF(Controls.RIGHT);
+			actions.right = false;
+			triggerOFF(Controls.JUMP);
+			actions.jump = false;
 		}
 	}
 }

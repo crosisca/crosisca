@@ -30,6 +30,9 @@ package controllers
 		private var minimumTimeBetweenRotations:int = 10;
 		private var delayBetweenRotations:int = minimumTimeBetweenRotations;
 		
+		private var isRotationAllowed:Boolean = true;
+		
+		
 		public function AccelerometerHandler(name:String, params:Object)
 		{
 			super(name, params);
@@ -82,12 +85,13 @@ package controllers
 			
 			if(delayBetweenRotations >= minimumTimeBetweenRotations)
 			{
-				if(gravDirection != prevGravDirection)
+				if(gravDirection != prevGravDirection && isRotationAllowed)
 				{
 					prevGravDirection = gravDirection;
 					triggerON(GravityChange, 1);
 					isGravityChangeOn = true;
 					delayBetweenRotations = 0;
+					isRotationAllowed = false;
 				}
 			}
 		}
@@ -98,6 +102,16 @@ package controllers
 				triggerOFF(GravityChange, 0);
 				isGravityChangeOn = false;
 			}
+		}
+		
+		public function getIsRotationAllowed():Boolean
+		{
+			return isRotationAllowed;
+		}
+		
+		public function setIsRotationAllowed(_isRotationAllowed:Boolean):void
+		{
+			isRotationAllowed = _isRotationAllowed;
 		}
 	}
 }
