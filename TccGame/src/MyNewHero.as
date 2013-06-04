@@ -189,6 +189,13 @@ package
 		
 		public function recalculateGroundCollisionAngle():void
 		{
+			/**TODO> caio > Quando adiciono o novo chao aqui(que é o certo), a parede lateral ainda continua na lista de chao
+			 Não sei se isso é bom, talvez deveria limpar a lista _groundContacts, pq updateCombinedGroundAngle() pode
+			 estar sendo afetado..
+			 * Testar essas 2 linhas abaixo*/
+			_onGround = false;
+			_groundContacts = [];
+			
 			var collider:IBox2DPhysicsObject;
 			
 			if(this.body.GetContactList())
@@ -223,9 +230,6 @@ package
 						}
 						if ((collisionAngle > adjustedMinCollisionAngle && collisionAngle < adjustedMaxCollisionAngle))
 						{
-							/**TODO> caio > Quando adiciono o novo chao aqui(que é o certo), a parede lateral ainda continua na lista de chao
-							Não sei se isso é bom, talvez deveria limpar a lista _groundContacts, pq updateCombinedGroundAngle() pode
-							estar sendo afetado*/
 							_groundContacts.push(collider.body.GetFixtureList());
 							_onGround = true;
 							(_ce.input.getControllerByName("accelerometerHandler") as AccelerometerHandler).setIsRotationAllowed(true);

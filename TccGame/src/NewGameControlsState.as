@@ -49,6 +49,11 @@ package
 		
 		[Embed(source="/assets/images/PlataformasFase1.png")]
 		private var EmbeddedPlataformasFase1:Class;
+		
+		[Embed(source="/assets/images/EspinhosFase1.png")]
+		private var EmbeddedEspinhosFase1:Class;
+		
+		
 		private var levelSwf:MovieClip;
 		
 		public function NewGameControlsState(debugSprt:flash.display.Sprite,level:MovieClip)
@@ -94,10 +99,19 @@ package
 		override public function initialize():void
 		{
 			super.initialize();
+			
+			//Adiciona arte dos espinhos
+			var espinhosArtBitmap:Bitmap = new EmbeddedEspinhosFase1();
+			var espinhosArtTexture:Texture = Texture.fromBitmap(espinhosArtBitmap);
+			var espinhosArtImg:Image = new Image(espinhosArtTexture);
+			var espinhosArtSprite:CitrusSprite = new CitrusSprite("espinhosFase1Sprite",{view:espinhosArtImg});
+			add(espinhosArtSprite);
+			
+			//Adiciona arte das plataformas
 			var plataformasArtBitmap:Bitmap = new EmbeddedPlataformasFase1();
 			var plataformasArtTexture:Texture = Texture.fromBitmap(plataformasArtBitmap);
 			var plataformasArtImg:Image = new Image(plataformasArtTexture);
-			var plataformasArtSprite:CitrusSprite = new CitrusSprite("bgSprite",{view:plataformasArtImg});
+			var plataformasArtSprite:CitrusSprite = new CitrusSprite("plataformasFase1Sprite",{view:plataformasArtImg});
 			add(plataformasArtSprite);
 			
 			//Create Controller
@@ -127,8 +141,8 @@ package
 			add(hero);
 			
 			_camera = view.camera as StarlingCamera;
-			trace("Tamanho do leve:",levelSwf.width,levelSwf.height);
-			var _bounds:Rectangle = new Rectangle(0,0,2048,1268);//tamanho do level
+			trace("Tamanho do level carregado:",levelSwf.width,levelSwf.height);
+			var _bounds:Rectangle = new Rectangle(0,0,levelSwf.width,levelSwf.height);//tamanho do level..
 			_camera.setUp(hero, new MathVector(ScreenUtils.SCREEN_REAL_WIDTH / 2, ScreenUtils.SCREEN_REAL_HEIGHT / 2), _bounds, new MathVector(0.5, 0.5));
 			_camera.restrictZoom = false;
 			_camera.allowZoom = true;
@@ -196,7 +210,6 @@ package
 		
 		private function handleWorldRotation():void
 		{
-			//Caio TODO> invertendo 270 e 90..o vetor de pulo funciona..mas a rotacao do objeto box2d do personagem fica invertida no eixo X
 			if(_ce.input.isDoing(AccelerometerHandler.GravityDown))
 			{
 				WorldUtils.setWorldRotation(0);
@@ -218,15 +231,7 @@ package
 				box2d.gravity.Set(0, -gravityForce);
 			}
 			
-			
-			//if(WorldUtils.getWorldRotationDeg() == 0 || WorldUtils.getWorldRotationDeg() == 180)
-			//{
-				heroBodyTransform = new b2Transform(hero.body.GetPosition(), b2Mat22.FromAngle(WorldUtils.getWorldRotation()));
-			/*}
-			else if(WorldUtils.getWorldRotationDeg() == 90 || WorldUtils.getWorldRotationDeg() == 270)
-			{
-				heroBodyTransform = new b2Transform(hero.body.GetPosition(), b2Mat22.FromAngle(WorldUtils.getWorldInvertedRotation()));
-			}*/
+			heroBodyTransform = new b2Transform(hero.body.GetPosition(), b2Mat22.FromAngle(WorldUtils.getWorldRotation()));
 			hero.body.SetTransform(heroBodyTransform);
 			
 			hero.recalculateGroundCollisionAngle();
