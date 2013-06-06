@@ -1,6 +1,7 @@
 package
 {
 	import com.gamua.flox.Flox;
+	import com.gamua.flox.Player;
 	
 	import flash.display.Loader;
 	import flash.display.MovieClip;
@@ -17,6 +18,8 @@ package
 	import citrus.core.starling.StarlingCitrusEngine;
 	
 	import starling.core.Starling;
+	
+	import utils.FloxConsoleUtils;
 	
 	[SWF(frameRate="30")]
 	public class TccGame extends StarlingCitrusEngine
@@ -35,7 +38,7 @@ package
 			Starling.multitouchEnabled = true;
 			setUpStarling(true);
 			
-			//Flox.init("caiorosisca-tccgame", "ue4aNbO8zlES1tbp","1.0");
+			Flox.init("caiorosisca-tccgame", "ue4aNbO8zlES1tbp","1.0");
 			
 			loaderInfo.uncaughtErrorEvents.addEventListener(  UncaughtErrorEvent.UNCAUGHT_ERROR, 
 				function(event:UncaughtErrorEvent):void 
@@ -44,8 +47,8 @@ package
 				}
 			);
 			
-			var email:String = "caio.rosisca@hotmail.com";
-			
+			//var email:String = "caio.rosisca@hotmail.com";
+			Player.login();
 			/*Player.loginWithEmail(email,
 				function onLoginComplete(player:Player):void {
 					Flox.logInfo("Player sucessfully logged in!"+player);

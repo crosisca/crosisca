@@ -53,6 +53,9 @@ package
 		[Embed(source="/assets/images/EspinhosFase1.png")]
 		private var EmbeddedEspinhosFase1:Class;
 		
+		[Embed(source="/assets/images/BackgroundFase1.jpg")]
+		private var EmbeddedBackgroundFase1:Class;
+		
 		
 		private var levelSwf:MovieClip;
 		
@@ -100,19 +103,13 @@ package
 		{
 			super.initialize();
 			
-			//Adiciona arte dos espinhos
-			var espinhosArtBitmap:Bitmap = new EmbeddedEspinhosFase1();
-			var espinhosArtTexture:Texture = Texture.fromBitmap(espinhosArtBitmap);
-			var espinhosArtImg:Image = new Image(espinhosArtTexture);
-			var espinhosArtSprite:CitrusSprite = new CitrusSprite("espinhosFase1Sprite",{view:espinhosArtImg});
-			add(espinhosArtSprite);
+			//Adiciona arte do background
+			var backgroundArtBitmap:Bitmap = new EmbeddedBackgroundFase1();
+			var backgroundArtTexture:Texture = Texture.fromBitmap(backgroundArtBitmap);
+			var backgroundArtImg:Image = new Image(backgroundArtTexture);
+			var backgroundArtSprite:CitrusSprite = new CitrusSprite("backgroundFase1Sprite",{view:backgroundArtImg,parallaxX:0.4,parallaxY:0.2});
+			add(backgroundArtSprite);
 			
-			//Adiciona arte das plataformas
-			var plataformasArtBitmap:Bitmap = new EmbeddedPlataformasFase1();
-			var plataformasArtTexture:Texture = Texture.fromBitmap(plataformasArtBitmap);
-			var plataformasArtImg:Image = new Image(plataformasArtTexture);
-			var plataformasArtSprite:CitrusSprite = new CitrusSprite("plataformasFase1Sprite",{view:plataformasArtImg});
-			add(plataformasArtSprite);
 			
 			//Create Controller
 			touchController = new TouchController("touchController");
@@ -129,7 +126,6 @@ package
 			
 			//Create level from MC
 			ObjectMaker2D.FromMovieClip(levelSwf);
-			//addWalls();
 			
 			//Add Hero
 			var heroBitmap:Bitmap = new HeroPng();
@@ -140,27 +136,37 @@ package
 			hero = new MyNewHero("hero",{view:heroImg,x: 150, y: 70, width: 50, height:50});
 			add(hero);
 			
+			//Adiciona arte dos espinhos
+			var espinhosArtBitmap:Bitmap = new EmbeddedEspinhosFase1();
+			var espinhosArtTexture:Texture = Texture.fromBitmap(espinhosArtBitmap);
+			var espinhosArtImg:Image = new Image(espinhosArtTexture);
+			var espinhosArtSprite:CitrusSprite = new CitrusSprite("espinhosFase1Sprite",{view:espinhosArtImg});
+			add(espinhosArtSprite);
+			
+			//Adiciona arte das plataformas
+			var plataformasArtBitmap:Bitmap = new EmbeddedPlataformasFase1();
+			var plataformasArtTexture:Texture = Texture.fromBitmap(plataformasArtBitmap);
+			var plataformasArtImg:Image = new Image(plataformasArtTexture);
+			var plataformasArtSprite:CitrusSprite = new CitrusSprite("plataformasFase1Sprite",{view:plataformasArtImg});
+			add(plataformasArtSprite);
+			
 			_camera = view.camera as StarlingCamera;
-			trace("Tamanho do level carregado:",levelSwf.width,levelSwf.height);
 			var _bounds:Rectangle = new Rectangle(0,0,levelSwf.width,levelSwf.height);//tamanho do level..
 			_camera.setUp(hero, new MathVector(ScreenUtils.SCREEN_REAL_WIDTH / 2, ScreenUtils.SCREEN_REAL_HEIGHT / 2), _bounds, new MathVector(0.5, 0.5));
 			_camera.restrictZoom = false;
 			_camera.allowZoom = true;
 			_camera.zoomFit(960,640);
 			
-			//Add move listeners
-			//Where should I add the TouchEvent listener? Keep stuff on starling.stage for now
-			//stage.addEventListener(TouchEvent.TOUCH, onTouch3);
-			//(_ce as StarlingCitrusEngine).starling.stage.addEventListener(TouchEvent.TOUCH, onTouch);
 			
 			//Create rotation handler
 			accelerometerHandler = new AccelerometerHandler("accelerometerHandler",{});
 			accelerometerHandler.triggerActions=true;
 			_ce.input.addController(accelerometerHandler);
+			
 			createConsoleInput();
 		}
 		
-		private function addWalls():void
+		/*private function addWalls():void
 		{
 			var floor:Platform = new Platform("floor",
 				{x: ScreenUtils.SCREEN_REAL_WIDTH * .5, y: ScreenUtils.SCREEN_REAL_HEIGHT/2, width: ScreenUtils.SCREEN_REAL_WIDTH,height: 20});
@@ -178,7 +184,7 @@ package
 				{x: ScreenUtils.SCREEN_REAL_WIDTH/2, y:ScreenUtils.SCREEN_REAL_HEIGHT*.5, width: 20,height: ScreenUtils.SCREEN_REAL_HEIGHT});
 			add(rightWall);
 			
-		}
+		}*/
 		
 		private function createConsoleInput():void
 		{
