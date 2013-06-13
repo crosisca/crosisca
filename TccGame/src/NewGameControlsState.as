@@ -53,7 +53,7 @@ package
 		[Embed(source="/assets/images/EspinhosFase1.png")]
 		private var EmbeddedEspinhosFase1:Class;
 		
-		[Embed(source="/assets/images/BackgroundFase1.jpg")]
+		[Embed(source="/assets/images/FLORESTAMINA.jpg")]
 		private var EmbeddedBackgroundFase1:Class;
 		
 		
