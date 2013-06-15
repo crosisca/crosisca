@@ -50,10 +50,10 @@ package
 		[Embed(source="/assets/images/PlataformasFase1.png")]
 		private var EmbeddedPlataformasFase1:Class;
 		
-		[Embed(source="/assets/images/EspinhosFase1.png")]
-		private var EmbeddedEspinhosFase1:Class;
+		/*[Embed(source="/assets/images/EspinhosFase1.png")]
+		private var EmbeddedEspinhosFase1:Class;*/
 		
-		[Embed(source="/assets/images/FLORESTAMINA.jpg")]
+		[Embed(source="/assets/images/BackgroundFase1.jpg")]
 		private var EmbeddedBackgroundFase1:Class;
 		
 		
@@ -133,15 +133,15 @@ package
 			var heroImg:Image = new Image(heroTexture);
 			heroImg.scaleX = heroImg.scaleY = .5;
 			addChild(heroImg);
-			hero = new MyNewHero("hero",{view:heroImg,x: 150, y: 70, width: 50, height:50});
+			hero = new MyNewHero("hero",{view:heroImg,x: 290, y: 1200, width: 50, height:50});
 			add(hero);
 			
 			//Adiciona arte dos espinhos
-			var espinhosArtBitmap:Bitmap = new EmbeddedEspinhosFase1();
+		/*	var espinhosArtBitmap:Bitmap = new EmbeddedEspinhosFase1();
 			var espinhosArtTexture:Texture = Texture.fromBitmap(espinhosArtBitmap);
 			var espinhosArtImg:Image = new Image(espinhosArtTexture);
 			var espinhosArtSprite:CitrusSprite = new CitrusSprite("espinhosFase1Sprite",{view:espinhosArtImg});
-			add(espinhosArtSprite);
+			add(espinhosArtSprite);*/
 			
 			//Adiciona arte das plataformas
 			var plataformasArtBitmap:Bitmap = new EmbeddedPlataformasFase1();

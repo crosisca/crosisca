@@ -29,8 +29,8 @@ package
 		public function MyNewHero(name:String, params:Object=null)
 		{
 			super(name, params);
-			jumpHeight = 15;
-			maxVelocity = 5;
+			jumpHeight = 10;
+			maxVelocity = 3;
 			
 			//Define o quanto o Hero desliza
 			friction = 150;
