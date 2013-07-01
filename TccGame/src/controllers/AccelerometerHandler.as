@@ -15,7 +15,7 @@ package controllers
 		private var idleAngleLeft:Number = Math.PI/2;
 		private var idleAngleUp:Number = Math.PI;
 		
-		public var gravDirection:String = "down";
+		public var desiredGravDirection:String = "down";
 		
 		public static var GravityDown:String = "gravDown";
 		public static var GravityLeft:String = "gravLeft";
@@ -23,12 +23,12 @@ package controllers
 		public static var GravityUp:String = "gravUp";
 		public static var GravityChange:String = "gravChange";
 		
-		private var isGravityChangeOn:Boolean = false;
-		private var prevGravDirection:String = "down";
+		//private var isGravityChangeOn:Boolean = false;
+		private var actualGravDirection:String = "down";
 		
-		/** Tempo mínimo pra mudar a gravidade entre as rotações da tela. Framerate = 1 segundo.*/
-		private var minimumTimeBetweenRotations:int = 10;
-		private var delayBetweenRotations:int = minimumTimeBetweenRotations;
+		//** Tempo mínimo pra mudar a gravidade entre as rotações da tela. Framerate = 1 segundo.*/
+		//private var minimumTimeBetweenRotations:int = 10;
+		//private var delayBetweenRotations:int = minimumTimeBetweenRotations;
 		
 		private var isRotationAllowed:Boolean = true;
 		
@@ -40,7 +40,7 @@ package controllers
 		
 		override public function update():void
 		{
-			delayBetweenRotations++;
+			//delayBetweenRotations++;
 			super.update();
 		}
 		
@@ -49,7 +49,7 @@ package controllers
 			//Default
 			if (rotation.z < rotationFactor && rotation.z > - rotationFactor)
 			{
-				gravDirection = "Down";
+				desiredGravDirection = "Down";
 				triggerON("gravDown", 1);
 				triggerOFF("gravLeft", 0);
 				triggerOFF("gravRight", 0);
@@ -58,7 +58,7 @@ package controllers
 			//Right
 			else if (rotation.z < idleAngleRight + rotationFactor && rotation.z > idleAngleRight -rotationFactor)
 			{
-				gravDirection = "Right";
+				desiredGravDirection = "Right";
 				triggerOFF("gravDown", 0);
 				triggerOFF("gravLeft", 0);
 				triggerON("gravRight", 1);
@@ -67,7 +67,7 @@ package controllers
 			//Left
 			else if (rotation.z < idleAngleLeft + rotationFactor && rotation.z > idleAngleLeft -rotationFactor)
 			{
-				gravDirection = "Left";
+				desiredGravDirection = "Left";
 				triggerOFF("gravDown", 0);
 				triggerON("gravLeft", 1);
 				triggerOFF("gravRight", 0);
@@ -76,32 +76,33 @@ package controllers
 			//Up
 			else if (rotation.z > idleAngleUp -rotationFactor || rotation.z < -idleAngleUp +rotationFactor)
 			{
-				gravDirection = "Up";
+				desiredGravDirection = "Up";
 				triggerOFF("gravDown", 0);
 				triggerOFF("gravLeft", 0);
 				triggerOFF("gravRight", 0);
 				triggerON("gravUp", 1);
 			}
 			
-			if(delayBetweenRotations >= minimumTimeBetweenRotations)
-			{
-				if(gravDirection != prevGravDirection && isRotationAllowed)
+			//if(delayBetweenRotations >= minimumTimeBetweenRotations){
+				if(desiredGravDirection != actualGravDirection && isRotationAllowed)
 				{
-					prevGravDirection = gravDirection;
+					actualGravDirection = desiredGravDirection;
 					triggerON(GravityChange, 1);
-					isGravityChangeOn = true;
-					delayBetweenRotations = 0;
+					//isGravityChangeOn = true;
+					//delayBetweenRotations = 0;
 					isRotationAllowed = false;
 				}
-			}
+			//}
 		}
 		
 		public function triggerGravityChangeOff():void
 		{
-			if(isGravityChangeOn){
+			_ce.input.isDoing(GravityChange)
+			{
 				triggerOFF(GravityChange, 0);
-				isGravityChangeOn = false;
+				//isGravityChangeOn = false;
 			}
+			//if(isGravityChangeOn){}
 		}
 		
 		public function getIsRotationAllowed():Boolean

@@ -9,9 +9,11 @@ package
 	import Box2D.Common.Math.b2Mat22;
 	import Box2D.Common.Math.b2Transform;
 	
+	import citrus.core.CitrusObject;
 	import citrus.core.starling.StarlingState;
 	import citrus.math.MathVector;
 	import citrus.objects.CitrusSprite;
+	import citrus.objects.platformer.box2d.Platform;
 	import citrus.physics.box2d.Box2D;
 	import citrus.utils.Mobile;
 	import citrus.utils.objectmakers.ObjectMaker2D;
@@ -171,10 +173,9 @@ package
 			_camera.setUp(hero,new Point(ScreenUtils.SCREEN_REAL_WIDTH / 2, ScreenUtils.SCREEN_REAL_HEIGHT / 2),cameraBounds,new Point(.5,.5));
 			//_camera.parallaxMode = ACitrusCamera.PARALLAX_MODE_DEPTH;
 			_camera.allowZoom = true;
-			_camera.baseZoom = _camera.zoomFit(960,640);
-			_camera.setZoom(_camera.zoomFit(960,640));
-			_camera.zoom(_camera.zoomFit(960,640));
-			//_camera.zoomFit(960,640);
+			_camera.baseZoom = _camera.zoomFit(960, 640);
+			_camera.setZoom(1);
+			_camera.reset();
 			
 			//Create rotation handler
 			accelerometerHandler = new AccelerometerHandler("accelerometerHandler",{});
@@ -272,7 +273,7 @@ package
 		
 		private function drawMinimap():void
 		{
-			/*_camera.renderDebug(_debugSprite);
+			_camera.renderDebug(_debugSprite);
 			_debugSprite.scaleX = 0.2 * 0.6;
 			_debugSprite.scaleY = 0.2 * 0.6;
 			_debugSprite.x = ScreenUtils.SCREEN_REAL_WIDTH-_debugSprite.width;
@@ -286,7 +287,7 @@ package
 			for each (platfrm in platforms)
 			{
 				_debugSprite.graphics.drawRect((platfrm as Platform).x - (platfrm as Platform).width / 2, (platfrm as Platform).y - (platfrm as Platform).height / 2, (platfrm as Platform).width, (platfrm as Platform).height);
-			}*/
+			}
 		}
 	}
 }
