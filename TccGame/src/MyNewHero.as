@@ -79,6 +79,7 @@ package
 					var jumpVec:b2Vec2 = Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),WorldUtils.getWorldRotation());
 					velocity.Subtract(jumpVec);
 					onJump.dispatch();
+					_ce.sound.playSound("jump");
 				}
 				
 				//Feedback colisao com inimigo..arrumar dps
@@ -121,9 +122,9 @@ package
 			}//End if(controlsEnabled)
 			updateAnimation();
 		}
-		
-		override public function handleBeginContact(contact:b2Contact):void {
-			
+
+		override public function handleBeginContact(contact:b2Contact):void 
+		{
 			var collider:IBox2DPhysicsObject = Box2DUtils.CollisionGetOther(this, contact);
 			
 			if (_enemyClass && collider is _enemyClass || collider is Missile)
@@ -180,11 +181,34 @@ package
 					_groundContacts.push(collider.body.GetFixtureList());
 					//trace("begin.groundContacts lenght:",_groundContacts.length);
 					_onGround = true;
+					_ce.sound.playSound("queda");
 					(_ce.input.getControllerByName("accelerometerHandler") as AccelerometerHandler).setIsRotationAllowed(true);
 					updateCombinedGroundAngle();
 					//trace("handleBegin -> onGround");
 				}
 			}
+			
+			//Death by fall
+			for (var i:int = 0; i < velocity.length; i++) 
+			{
+				//trace("Velocidade da queda =",velocity[i]);
+				if(Math.abs(velocity[i]) > 16)
+				{
+					/*(_ce.state as NewGameControlsState).delayer.push(function():void
+					{
+						trace("Changing Hero's postion");
+					});*/
+					(_ce.state as NewGameControlsState).delayer.push(onDeathByFall);
+				}
+			}
+			//End death by fall
+		}
+		
+		private function onDeathByFall():void
+		{
+			this.x = 290;
+			this.y = 1200;
+			_ce.sound.playSound("morte");
 		}
 		
 		public function recalculateGroundCollisionAngle():void

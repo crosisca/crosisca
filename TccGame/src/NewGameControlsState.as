@@ -3,23 +3,25 @@ package
 	import flash.display.Bitmap;
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
+	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	
 	import Box2D.Common.Math.b2Mat22;
 	import Box2D.Common.Math.b2Transform;
 	
-	import citrus.core.CitrusObject;
 	import citrus.core.starling.StarlingState;
 	import citrus.math.MathVector;
 	import citrus.objects.CitrusSprite;
-	import citrus.objects.platformer.box2d.Platform;
 	import citrus.physics.box2d.Box2D;
 	import citrus.utils.Mobile;
 	import citrus.utils.objectmakers.ObjectMaker2D;
+	import citrus.view.ACitrusCamera;
 	import citrus.view.starlingview.StarlingCamera;
 	
 	import controllers.AccelerometerHandler;
 	import controllers.TouchController;
+	
+	import customobjects.Spike;
 	
 	import starling.display.Button;
 	import starling.display.Image;
@@ -58,6 +60,11 @@ package
 		
 		
 		private var levelSwf:MovieClip;
+		
+		//Used for deathByFall
+		public var delayer:Vector.<Function> = new Vector.<Function>();
+		
+		private var objectsUsedToBuildLevel:Array = [Spike];
 		
 		public function NewGameControlsState(debugSprt:flash.display.Sprite,level:MovieClip)
 		{
@@ -103,11 +110,18 @@ package
 		{
 			super.initialize();
 			
+		/*	_ce.sound.addSound("jump","/assets/sounds/Pulo.mp3");
+			_ce.sound.addSound("bg","/assets/sounds/BackgroundMusic.mp3");
+			_ce.sound.addSound("morte","/assets/sounds/Morte.mp3");
+			_ce.sound.addSound("queda","/assets/sounds/Queda.mp3");
+			_ce.sound.playSound("bg");*/
+			
 			//Adiciona arte do background
 			var backgroundArtBitmap:Bitmap = new EmbeddedBackgroundFase1();
 			var backgroundArtTexture:Texture = Texture.fromBitmap(backgroundArtBitmap);
 			var backgroundArtImg:Image = new Image(backgroundArtTexture);
-			var backgroundArtSprite:CitrusSprite = new CitrusSprite("backgroundFase1Sprite",{view:backgroundArtImg,parallaxX:0.4,parallaxY:0.2});
+			var backgroundArtSprite:CitrusSprite = new CitrusSprite("backgroundFase1Sprite",{view:backgroundArtImg,x:ScreenUtils.SCREEN_REAL_WIDTH/2,y:ScreenUtils.SCREEN_REAL_HEIGHT/2,parallaxX:0.4,parallaxY:0.2});
+			backgroundArtSprite.registration = "center";
 			add(backgroundArtSprite);
 			
 			
@@ -127,6 +141,14 @@ package
 			//Create level from MC
 			ObjectMaker2D.FromMovieClip(levelSwf);
 			
+			//Adiciona arte das plataformas
+			var plataformasArtBitmap:Bitmap = new EmbeddedPlataformasFase1();
+			var plataformasArtTexture:Texture = Texture.fromBitmap(plataformasArtBitmap);
+			var plataformasArtImg:Image = new Image(plataformasArtTexture);
+			var plataformasArtSprite:CitrusSprite = new CitrusSprite("plataformasFase1Sprite",{view:plataformasArtImg,x:ScreenUtils.SCREEN_REAL_WIDTH/2,y:ScreenUtils.SCREEN_REAL_HEIGHT/2});
+			plataformasArtSprite.registration = "center";
+			add(plataformasArtSprite);
+			
 			//Add Hero
 			var heroBitmap:Bitmap = new HeroPng();
 			var heroTexture:Texture = Texture.fromBitmap(heroBitmap);
@@ -143,20 +165,16 @@ package
 			var espinhosArtSprite:CitrusSprite = new CitrusSprite("espinhosFase1Sprite",{view:espinhosArtImg});
 			add(espinhosArtSprite);*/
 			
-			//Adiciona arte das plataformas
-			var plataformasArtBitmap:Bitmap = new EmbeddedPlataformasFase1();
-			var plataformasArtTexture:Texture = Texture.fromBitmap(plataformasArtBitmap);
-			var plataformasArtImg:Image = new Image(plataformasArtTexture);
-			var plataformasArtSprite:CitrusSprite = new CitrusSprite("plataformasFase1Sprite",{view:plataformasArtImg});
-			add(plataformasArtSprite);
-			
+			//_camera.setUp(hero, new MathVector(ScreenUtils.SCREEN_REAL_WIDTH / 2, ScreenUtils.SCREEN_REAL_HEIGHT / 2), cameraBounds, new MathVector(0.5, 0.5));
 			_camera = view.camera as StarlingCamera;
-			var _bounds:Rectangle = new Rectangle(0,0,levelSwf.width,levelSwf.height);//tamanho do level..
-			_camera.setUp(hero, new MathVector(ScreenUtils.SCREEN_REAL_WIDTH / 2, ScreenUtils.SCREEN_REAL_HEIGHT / 2), _bounds, new MathVector(0.5, 0.5));
-			_camera.restrictZoom = false;
+			var cameraBounds:Rectangle = new Rectangle(0,0,levelSwf.width,levelSwf.height);//tamanho do level..
+			_camera.setUp(hero,new Point(ScreenUtils.SCREEN_REAL_WIDTH / 2, ScreenUtils.SCREEN_REAL_HEIGHT / 2),cameraBounds,new Point(.5,.5));
+			//_camera.parallaxMode = ACitrusCamera.PARALLAX_MODE_DEPTH;
 			_camera.allowZoom = true;
-			_camera.zoomFit(960,640);
-			
+			_camera.baseZoom = _camera.zoomFit(960,640);
+			_camera.setZoom(_camera.zoomFit(960,640));
+			_camera.zoom(_camera.zoomFit(960,640));
+			//_camera.zoomFit(960,640);
 			
 			//Create rotation handler
 			accelerometerHandler = new AccelerometerHandler("accelerometerHandler",{});
@@ -212,6 +230,15 @@ package
 				accelerometerHandler.triggerGravityChangeOff();
 			}
 			super.update(timeDelta);
+			
+			if(delayer.length > 0)
+			{
+				var delayf:Function;
+				while(delayf = delayer.pop())
+				{
+					delayf();
+				}
+			}
 		}
 		
 		private function handleWorldRotation():void
@@ -245,7 +272,7 @@ package
 		
 		private function drawMinimap():void
 		{
-			_camera.renderDebug(_debugSprite);
+			/*_camera.renderDebug(_debugSprite);
 			_debugSprite.scaleX = 0.2 * 0.6;
 			_debugSprite.scaleY = 0.2 * 0.6;
 			_debugSprite.x = ScreenUtils.SCREEN_REAL_WIDTH-_debugSprite.width;
@@ -259,7 +286,7 @@ package
 			for each (platfrm in platforms)
 			{
 				_debugSprite.graphics.drawRect((platfrm as Platform).x - (platfrm as Platform).width / 2, (platfrm as Platform).y - (platfrm as Platform).height / 2, (platfrm as Platform).width, (platfrm as Platform).height);
-			}
+			}*/
 		}
 	}
 }
