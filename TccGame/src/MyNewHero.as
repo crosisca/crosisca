@@ -4,6 +4,8 @@
 
 package
 {
+	import com.gamua.flox.Flox;
+	
 	import Box2D.Common.Math.b2Vec2;
 	import Box2D.Dynamics.Contacts.b2Contact;
 	
@@ -75,11 +77,12 @@ package
 				//Acabei de pular
 				if (_onGround && _ce.input.justDid(Controls.JUMP, inputChannel))
 				{
-					//velocity.y = -jumpHeight;
 					var jumpVec:b2Vec2 = Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),WorldUtils.getWorldRotation());
 					velocity.Subtract(jumpVec);
 					onJump.dispatch();
 					_ce.sound.playSound("jump");
+					_onGround = false;
+					//_groundContacts = [];
 				}
 				
 				//Feedback colisao com inimigo..arrumar dps
@@ -204,11 +207,42 @@ package
 			//End death by fall
 		}
 		
+		/**Dei overwrite soh pra fazer uns teste de _groundContacts, saber se eu posso zerar essa lista na funcao
+		 * recalculateGroundCollisionAngle()*/
+		override public function handleEndContact(contact:b2Contact):void {
+			
+			var collider:IBox2DPhysicsObject = Box2DUtils.CollisionGetOther(this, contact);
+			
+			//Remove from ground contacts, if it is one.
+			var index:int = _groundContacts.indexOf(collider.body.GetFixtureList());
+			if (index != -1)
+			{
+				_groundContacts.splice(index, 1);
+				if (_groundContacts.length == 0){
+					_onGround = false;
+				}
+				else
+				{
+					Flox.logWarning("[WARNING]- _groundContacts.length = ",_groundContacts.length);
+					Flox.logInfo("[WARNING]- _groundContacts.length = ",_groundContacts.length);
+					trace("[WARNING]- _groundContacts.length = ",_groundContacts.length);
+				}
+				updateCombinedGroundAngle();
+			}
+			else
+			{
+				Flox.logWarning("[WARNING]- index = -1, nao foi possivel calcular a length da lista groundContats.");
+				Flox.logInfo("[INFO]- index = -1, nao foi possivel calcular a length da lista groundContats.");
+				trace("index = -1, nao foi possivel calcular a length da lista groundContats.");
+			}
+		}
+		
 		private function onDeathByFall():void
 		{
 			this.x = 290;
 			this.y = 1200;
 			_ce.sound.playSound("morte");
+			_onGround = false;
 		}
 		
 		public function recalculateGroundCollisionAngle():void
