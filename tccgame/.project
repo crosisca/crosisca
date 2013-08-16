@@ -26,12 +26,12 @@
 		<link>
 			<name>[source path] src</name>
 			<type>2</type>
-			<location>C:/Users/Caio/git/Citrus-Engine/src</location>
+			<location>C:/GitHub/Citrus-Engine/src</location>
 		</link>
 		<link>
 			<name>[source path] srclib</name>
 			<type>2</type>
-			<location>C:/Users/Caio/git/Citrus-Engine/srclib</location>
+			<location>C:/GitHub/Citrus-Engine/srclib</location>
 		</link>
 	</linkedResources>
 </projectDescription>

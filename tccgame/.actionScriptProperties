@@ -2,8 +2,8 @@
 <actionScriptProperties analytics="false" mainApplicationPath="TccGame.as" projectUUID="bf846924-807b-4563-bcfb-2ca6fbdabf68" version="11">
   <compiler additionalCompilerArguments="-locale en_US -swf-version=19" advancedTelemetry="false" autoRSLOrdering="true" copyDependentFiles="true" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin-debug" removeUnusedRSL="true" sourceFolderPath="src" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="true" useDebugRSLSwfs="true" useFlashSDK="true" verifyDigests="true" warn="true">
     <compilerSourcePath>
-      <compilerSourcePathEntry kind="1" linkType="1" path="C:/Users/Caio/git/Citrus-Engine/src"/>
-      <compilerSourcePathEntry kind="1" linkType="1" path="C:/Users/Caio/git/Citrus-Engine/srclib"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="C:/GitHub/Citrus-Engine/src"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="C:/GitHub/Citrus-Engine/srclib"/>
     </compilerSourcePath>
     <libraryPath defaultLinkType="0">
       <libraryPathEntry kind="4" path="">
@@ -37,7 +37,7 @@
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
         </excludedEntries>
       </libraryPathEntry>
-      <libraryPathEntry kind="1" linkType="1" path="C:/Users/Caio/git/Citrus-Engine/lib"/>
+      <libraryPathEntry kind="1" linkType="1" path="C:/GitHub/Citrus-Engine/lib"/>
       <libraryPathEntry kind="1" linkType="1" path="lib"/>
     </libraryPath>
     <sourceAttachmentPath/>
@@ -52,9 +52,9 @@
   <buildCSSFiles/>
   <flashCatalyst validateFlashCatalystCompatibility="false"/>
   <buildTargets>
-    <buildTarget buildTargetName="device" iosSettingsVersion="2" isCurrent="true" platformId="com.adobe.flexide.multiplatform.ios.platform" provisioningFile="F:/GameDev/iOS Certificates/Tcc Final Stuff/TccGame.mobileprovision" releasePackageType="ipa-ad-hoc">
+    <buildTarget buildTargetName="device" iosSettingsVersion="2" isCurrent="true" platformId="com.adobe.flexide.multiplatform.ios.platform" provisioningFile="E:/GameDev/Certificates/iOS/Tcc Final Stuff/TccGame.mobileprovision" releasePackageType="ipa-ad-hoc">
       <multiPlatformSettings enabled="true" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.ios.platform" reducedSizePackaging="false" version="1"/>
-      <airSettings airCertificatePath="F:/GameDev/iOS Certificates/Tcc Final Stuff/TccGameCaioRosiscaCertificate.p12" airTimestamp="true" anePathSet="true" version="1">
+      <airSettings airCertificatePath="E:/GameDev/Certificates/iOS/Tcc Final Stuff/TccGameCaioRosiscaCertificate.p12" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes>
           <pathEntry path="Level1.fla"/>
           <pathEntry path="assets/images"/>
