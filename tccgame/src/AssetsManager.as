@@ -30,7 +30,7 @@ package
 		
 		public static function getAtlas(selectedLevel:String):TextureAtlas
 		{
-			var levelAtlas:TextureAtlas = new TextureAtlas(getDefinitionByName(selectedLevel+"png")as Texture,getDefinitionByName(selectedLevel+"xml")as XML);
+			var levelAtlas:TextureAtlas = new TextureAtlas(getDefinitionByName(selectedLevel+".png")as Texture,getDefinitionByName(selectedLevel+".xml")as XML);
 			return levelAtlas;
 		}
 	}

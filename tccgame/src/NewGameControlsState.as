@@ -122,8 +122,8 @@ package
 			var backgroundArtBitmap:Bitmap = new EmbeddedBackgroundFase1();
 			var backgroundArtTexture:Texture = Texture.fromBitmap(backgroundArtBitmap);
 			var backgroundArtImg:Image = new Image(backgroundArtTexture);
-			var backgroundArtSprite:CitrusSprite = new CitrusSprite("backgroundFase1Sprite",{view:backgroundArtImg,x:ScreenUtils.SCREEN_REAL_WIDTH/2,y:ScreenUtils.SCREEN_REAL_HEIGHT/2,parallaxX:0.4,parallaxY:0.2});
-			backgroundArtSprite.registration = "center";
+			var backgroundArtSprite:CitrusSprite = new CitrusSprite("backgroundFase1Sprite",{view:backgroundArtImg/*,x:ScreenUtils.SCREEN_REAL_WIDTH/2,y:ScreenUtils.SCREEN_REAL_HEIGHT/2*//*,parallaxX:0.4,parallaxY:0.2*/});
+			//backgroundArtSprite.registration = "center";
 			add(backgroundArtSprite);
 			
 			
@@ -147,8 +147,8 @@ package
 			var plataformasArtBitmap:Bitmap = new EmbeddedPlataformasFase1();
 			var plataformasArtTexture:Texture = Texture.fromBitmap(plataformasArtBitmap);
 			var plataformasArtImg:Image = new Image(plataformasArtTexture);
-			var plataformasArtSprite:CitrusSprite = new CitrusSprite("plataformasFase1Sprite",{view:plataformasArtImg,x:ScreenUtils.SCREEN_REAL_WIDTH/2,y:ScreenUtils.SCREEN_REAL_HEIGHT/2});
-			plataformasArtSprite.registration = "center";
+			var plataformasArtSprite:CitrusSprite = new CitrusSprite("plataformasFase1Sprite",{view:plataformasArtImg/*,x:ScreenUtils.SCREEN_REAL_WIDTH/2,y:ScreenUtils.SCREEN_REAL_HEIGHT/2*/});
+			//plataformasArtSprite.registration = "center";
 			add(plataformasArtSprite);
 			
 			//Add Hero

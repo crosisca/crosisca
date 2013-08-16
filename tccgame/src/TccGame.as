@@ -21,7 +21,7 @@ package
 	
 	import utils.FloxConsoleUtils;
 	
-	[SWF(frameRate="30")]
+	[SWF(frameRate="60")]
 	public class TccGame extends StarlingCitrusEngine
 	{
 		public var debugSpriteRectangle:Sprite = new Sprite();
