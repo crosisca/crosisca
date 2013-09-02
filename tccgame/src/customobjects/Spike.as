@@ -4,6 +4,8 @@ package customobjects
 	
 	import citrus.objects.platformer.box2d.Sensor;
 	import citrus.physics.box2d.Box2DUtils;
+	import remake.MyNewHero;
+	import remake.NewGameControlsState;
 	
 	public final class Spike extends Sensor
 	{

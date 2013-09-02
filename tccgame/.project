@@ -24,14 +24,24 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>[source path] src</name>
+			<name>[source path] Citrus-Engine-src</name>
 			<type>2</type>
 			<location>C:/GitHub/Citrus-Engine/src</location>
+		</link>
+		<link>
+			<name>[source path] GreenSock-AS3-src</name>
+			<type>2</type>
+			<location>C:/GitHub/GreenSock-AS3/src</location>
 		</link>
 		<link>
 			<name>[source path] srclib</name>
 			<type>2</type>
 			<location>C:/GitHub/Citrus-Engine/srclib</location>
+		</link>
+		<link>
+			<name>[source path] starling-src</name>
+			<type>2</type>
+			<location>C:/GitHub/Starling-Framework/starling/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

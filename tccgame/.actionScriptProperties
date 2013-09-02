@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<actionScriptProperties analytics="false" mainApplicationPath="TccGame.as" projectUUID="bf846924-807b-4563-bcfb-2ca6fbdabf68" version="11">
-  <compiler additionalCompilerArguments="-locale en_US -swf-version=19" advancedTelemetry="false" autoRSLOrdering="true" copyDependentFiles="true" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin-debug" removeUnusedRSL="true" sourceFolderPath="src" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="true" useDebugRSLSwfs="true" useFlashSDK="true" verifyDigests="true" warn="true">
+<actionScriptProperties analytics="false" mainApplicationPath="core/TccGame.as" projectUUID="bf846924-807b-4563-bcfb-2ca6fbdabf68" version="11">
+  <compiler additionalCompilerArguments="-locale en_US -swf-version=21" advancedTelemetry="true" autoRSLOrdering="true" copyDependentFiles="true" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin-debug" removeUnusedRSL="true" sourceFolderPath="src" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="true" useDebugRSLSwfs="true" useFlashSDK="true" verifyDigests="true" warn="true">
     <compilerSourcePath>
       <compilerSourcePathEntry kind="1" linkType="1" path="C:/GitHub/Citrus-Engine/src"/>
       <compilerSourcePathEntry kind="1" linkType="1" path="C:/GitHub/Citrus-Engine/srclib"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="C:/GitHub/GreenSock-AS3/src"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="C:/GitHub/Starling-Framework/starling/src"/>
     </compilerSourcePath>
     <libraryPath defaultLinkType="0">
       <libraryPathEntry kind="4" path="">
@@ -37,13 +39,12 @@
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
         </excludedEntries>
       </libraryPathEntry>
-      <libraryPathEntry kind="1" linkType="1" path="C:/GitHub/Citrus-Engine/lib"/>
       <libraryPathEntry kind="1" linkType="1" path="lib"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
   <applications>
-    <application path="TccGame.as">
+    <application path="core/TccGame.as">
       <airExcludes/>
     </application>
   </applications>
@@ -56,8 +57,15 @@
       <multiPlatformSettings enabled="true" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.ios.platform" reducedSizePackaging="false" version="1"/>
       <airSettings airCertificatePath="E:/GameDev/Certificates/iOS/Tcc Final Stuff/TccGameCaioRosiscaCertificate.p12" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes>
-          <pathEntry path="Level1.fla"/>
-          <pathEntry path="assets/images"/>
+          <pathEntry path="assets/levels/world1/level5"/>
+          <pathEntry path="assets/levels/world1/level3"/>
+          <pathEntry path="assets/levels/world2"/>
+          <pathEntry path="Default.png"/>
+          <pathEntry path="assets/levels/world4"/>
+          <pathEntry path="assets/levels/world1/level4"/>
+          <pathEntry path="assets/levels/world1/level2"/>
+          <pathEntry path="assets/levels/world3"/>
+          <pathEntry path="Default-LandscapeLeft@2x.png"/>
           <pathEntry path=".gitignore"/>
         </airExcludes>
         <anePaths/>
@@ -69,7 +77,6 @@
       <actionScriptSettings version="1"/>
     </buildTarget>
     <buildTarget buildTargetName="default" isCurrent="true" platformId="default">
-      <multiPlatformSettings enabled="false" hideAneLibSymbols="0" includePlatformLibs="false" platformID="default" reducedSizePackaging="false" version="1"/>
       <airSettings airCertificatePath="" airTimestamp="true" anePathSet="false" version="1">
         <airExcludes/>
         <anePaths/>
@@ -78,10 +85,10 @@
         <newPackagingParams/>
         <modifiedPackagingParams/>
       </airSettings>
+      <multiPlatformSettings enabled="false" hideAneLibSymbols="0" includePlatformLibs="false" platformID="default" reducedSizePackaging="false" version="1"/>
       <actionScriptSettings version="1"/>
     </buildTarget>
     <buildTarget airDownloadURL="" androidSettingsVersion="2" buildTargetName="device" isCurrent="true" platformId="com.adobe.flexide.multiplatform.android.platform">
-      <multiPlatformSettings enabled="false" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.android.platform" reducedSizePackaging="false" version="1"/>
       <airSettings airCertificatePath="" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes/>
         <anePaths/>
@@ -90,6 +97,7 @@
         <newPackagingParams/>
         <modifiedPackagingParams/>
       </airSettings>
+      <multiPlatformSettings enabled="false" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.android.platform" reducedSizePackaging="false" version="1"/>
       <actionScriptSettings version="1"/>
     </buildTarget>
   </buildTargets>
