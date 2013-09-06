@@ -13,8 +13,11 @@ package core.states
 	import citrus.view.starlingview.StarlingCamera;
 	
 	import core.art.AssetsManager;
+	import core.levels.Level5;
 	import core.states.start.StartWindow;
 	import core.utils.ScreenUtils;
+	
+	import org.osflash.signals.Signal;
 	
 	import remake.NewGameControlsState;
 	
@@ -37,6 +40,7 @@ package core.states
 		private var _camera:StarlingCamera;
 		
 		private var _startWindow:StartWindow;
+		public var onStateChange:Signal = new Signal();
 		
 		public function StartState()
 		{
@@ -64,6 +68,9 @@ package core.states
 		private function onPlayPressed():void
 		{
 			_ce.state = new WorldSelectionState();
+			//DELETAR TODO CAIO TESTE
+			//_ce.state = new Level5();
+			
 		}
 		
 		/**

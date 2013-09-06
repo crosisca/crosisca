@@ -3,6 +3,7 @@ package remake
 	import flash.display.Bitmap;
 	
 	import starling.textures.Texture;
+	import starling.textures.TextureAtlas;
 
 	public final class AssetsManagerLixo
 	{
@@ -37,13 +38,67 @@ package remake
 		{
 			return Texture.fromBitmap(new World4Png());
 		}
-		[Embed(source="../assets/levels/world1/Fase5.tmx", mimeType="application/octet-stream")]
+		
+		/*[Embed(source="../assets/levels/world1/Fase5.tmx", mimeType="application/octet-stream")]
 		private static var Level5Map:Class;
 		[Embed(source="../assets/levels/world1/TilesetWorldDebug.png")]
 		private static var Level5View1:Class;
 		
+		//TESTE 64 VS 32
 		
-		public static function getLevel5View1():Bitmap
+		[Embed(source="../assets/levels/Level1_32.tmx", mimeType="application/octet-stream")]
+		private static var Level1TMX32:Class;
+		[Embed(source="../assets/levels/Tileset32.png")]
+		private static var Tileset32PNG:Class;
+		[Embed(source="../assets/levels/Tileset32.xml", mimeType="application/octet-stream")]
+		private static var Tileset32XML:Class;
+		
+		
+		[Embed(source="../assets/levels/Level1_64.tmx", mimeType="application/octet-stream")]
+		private static var Level1TMX64:Class;
+		[Embed(source="../assets/levels/Tileset64.png")]
+		private static var Tileset64PNG:Class;
+		[Embed(source="../assets/levels/Tileset64.xml", mimeType="application/octet-stream")]
+		private static var Tileset64XML:Class;*/
+		
+		//32
+		/*public static function getLevel1Map32():XML
+		{
+			var xml:XML = XML(new Level1TMX32());
+			return xml;
+		}
+		
+		public static function getLevel1Atlas32():TextureAtlas
+		{
+			var tilesetImg:Texture = Texture.fromBitmap(new Tileset32PNG());
+			var tilesetXml:XML = XML(new Tileset32XML());
+			
+			var atlas:TextureAtlas = new TextureAtlas(tilesetImg, tilesetXml);
+			return atlas;
+		}*/
+		
+		
+		//64
+		/*public static function getLevel1Map64():XML
+		{
+			var xml:XML = XML(new Level1TMX64());
+			return xml;
+		}
+		
+		public static function getLevel1Atlas64():TextureAtlas
+		{
+			var tilesetImg:Texture = Texture.fromBitmap(new Tileset64PNG());
+			var tilesetXml:XML = XML(new Tileset64XML());
+			
+			var atlas:TextureAtlas = new TextureAtlas(tilesetImg, tilesetXml);
+			return atlas;
+		}*/
+		
+		
+		
+		//FIM TESTE 64 VS 32
+		
+		/*public static function getLevel5View1():Bitmap
 		{
 			var bitmapView:Bitmap = new Level5View1();     
 			bitmapView.name = "TilesetWorldDebug.png"; 
@@ -54,7 +109,7 @@ package remake
 		{
 			var xml:XML = XML(new Level5Map());
 			return xml;
-		}
+		}*/
 	/*	private static var _menuAtlas:TextureAtlas;
 		
 		public static function getMenuAtlas():TextureAtlas

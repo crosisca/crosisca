@@ -2,26 +2,16 @@ package core.states.worldselection
 {
 	import com.greensock.TweenNano;
 	
-	import flash.display.Loader;
-	import flash.display.MovieClip;
-	import flash.events.Event;
 	import flash.geom.Point;
-	import flash.net.URLRequest;
-	import flash.system.ApplicationDomain;
-	import flash.system.LoaderContext;
 	import flash.utils.getDefinitionByName;
 	
 	import away3d.core.math.MathConsts;
 	
+	import core.data.GameData;
 	import core.levels.AbstractLevel;
-	import core.levels.Level5;
 	import core.utils.ScreenUtils;
 	
-	import customobjects.Spike;
-	
 	import org.osflash.signals.Signal;
-	
-	import remake.NewGameControlsState;
 	
 	import starling.display.Button;
 	import starling.display.Image;
@@ -41,17 +31,18 @@ package core.states.worldselection
 		private var levelSelectionContainer:Sprite = new Sprite();
 		private var btExitLevelSelector:Button;
 		private var levelButtonsVector:Vector.<Button> = new Vector.<Button>;
-		private var currentlySelectedWorld:String = "0";
 		
-		public var testSignal:Signal = new Signal();
+		public var onLevelSelected:Signal = new Signal();
 		//fim teste
 		private var selectingWorld:Boolean = false;
 		
-		private var levels:Array = [Level5];
+		private var gameData:GameData;
 		
 		public function WorldSelectionWindow()
 		{
 			super();
+			
+			gameData = GameData.getInstance();
 			
 			_background = new Image(Texture.fromColor(2048,1536,0xFF00007F));
 			this.addChild(_background);
@@ -86,7 +77,7 @@ package core.states.worldselection
 					levelButton.x = ( ( levelSelectionContainer.width - ( levelButton.width*5 ) ) / 6) * ( i + 1 ) + ( levelButton.width * i );
 					levelButton.y = ( ( levelSelectionContainer.height - ( levelButton.height*4 ) ) / 5) * ( j + 1 ) + ( levelButton.height * j );
 					levelSelectionContainer.addChild(levelButton);
-					levelButton.addEventListener(starling.events.Event.TRIGGERED, onLevelSelected);
+					levelButton.addEventListener(starling.events.Event.TRIGGERED, onLevelButtonSelected);
 					levelButtonsVector.push(levelButton);
 				}
 			}
@@ -122,26 +113,26 @@ package core.states.worldselection
 			if(!selectingWorld)
 			{
 				var stationaryTouch:Touch = event.getTouch(this, TouchPhase.ENDED);
-				if(stationaryTouch && stationaryTouch.getMovement(this).x < 10)
+				if(stationaryTouch && stationaryTouch.getMovement(this).x < 10 && stationaryTouch.getMovement(this).y < 10)
 				{
 					if(stationaryTouch.isTouching(_worldsContainer.world1))
 					{
-						currentlySelectedWorld = "world1";
+						gameData.activeWorld = 1;
 						this.addChild(levelSelectionContainer);
 					}
 					else if(stationaryTouch.isTouching(_worldsContainer.world2))
 					{
-						currentlySelectedWorld = "world2";
+						gameData.activeWorld = 2;
 						this.addChild(levelSelectionContainer);
 					}
 					else if(stationaryTouch.isTouching(_worldsContainer.world3))
 					{
-						currentlySelectedWorld = "world3";
+						gameData.activeWorld = 3;
 						this.addChild(levelSelectionContainer);
 					}
 					else if(stationaryTouch.isTouching(_worldsContainer.world4))
 					{
-						currentlySelectedWorld = "world4";
+						gameData.activeWorld = 4;
 						this.addChild(levelSelectionContainer);
 					}
 				}
@@ -160,21 +151,16 @@ package core.states.worldselection
 			this.removeChild(levelSelectionContainer);
 		}
 		
-		private function onLevelSelected(event:starling.events.Event):void
+		private function onLevelButtonSelected(event:starling.events.Event):void
 		{
-			var selectedLevelNumber:int;
 			for (var i:int = 0; i < levelButtonsVector.length; i++) 
 			{
 				if(event.currentTarget == levelButtonsVector[i])
 				{
-					selectedLevelNumber = i+1;
+					gameData.activeLevelNumber = i+1;
 				}
 			}
-			
-			
-//			var level:AbstractLevel = getDefinitionByName("Level"+selectedLevelNumber) as AbstractLevel; 
-			var level:AbstractLevel = new Level5(); 
-			testSignal.dispatch(level);
+			onLevelSelected.dispatch(gameData.activeWorld,gameData.activeLevelNumber);
 		}
 	}
 }

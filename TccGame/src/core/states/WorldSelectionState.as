@@ -3,18 +3,24 @@ package core.states
 	import citrus.core.starling.StarlingState;
 	import citrus.objects.CitrusSprite;
 	
-	import core.levels.AbstractLevel;
+	import core.TccGame;
+	import core.data.GameData;
 	import core.states.worldselection.WorldSelectionWindow;
+	
+	import org.osflash.signals.Signal;
+	
+	import starling.core.Starling;
 	
 	public final class WorldSelectionState extends StarlingState
 	{
 		private var worldSelectionWindow:WorldSelectionWindow;
+		public var onLevelSelected:Signal = new Signal();
 		
 		public function WorldSelectionState()
 		{
 			super();
 			worldSelectionWindow = new WorldSelectionWindow();
-			worldSelectionWindow.testSignal.addOnce(playLevelTest);
+			worldSelectionWindow.onLevelSelected.addOnce(onLevelChosen);
 		}
 		
 		override public function initialize():void
@@ -26,11 +32,16 @@ package core.states
 			
 		}
 		
-		private function playLevelTest(level:AbstractLevel):void
+		private function onLevelChosen(worldNumber:int,levelNumber:int):void
 		{
-			_ce.state = level;
+			//Go to the level
+			//_ce.levelManager.gotoLevel(level.lvlIndex);
+			var lvlIndex:int = (worldNumber-1) * GameData.getInstance().LevelsQuantityByWorld +levelNumber;
+			_ce.levelManager.gotoLevel(lvlIndex); 
+			//onLevelSelected.dispatch(level);
+			
+			//Adds loading screen
+			Starling.current.nativeOverlay.addChild(TccGame.loadImage);
 		}
-		
-		
 	}
 }

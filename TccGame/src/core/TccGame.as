@@ -5,12 +5,20 @@ package core
 	import flash.display.StageOrientation;
 	import flash.display.StageQuality;
 	import flash.display3D.Context3DProfile;
+	import flash.system.ApplicationDomain;
 	import flash.system.Capabilities;
 	import flash.system.System;
 	
+	import citrus.core.IState;
 	import citrus.core.starling.StarlingCitrusEngine;
+	import citrus.utils.LevelManager;
 	
 	import core.art.AssetsManager;
+	import core.data.GameData;
+	import core.interfaces.IMenuStates;
+	import core.levels.AbstractLevel;
+	import core.levels.world1.World1Level1;
+	import core.levels.world1.World1Level2;
 	import core.states.StartState;
 	
 	import starling.core.Starling;
@@ -24,7 +32,7 @@ package core
 
 		[Embed(source="../Default-LandscapeRight@2x.png")]
 		private var LoadImageClass:Class;
-		private var loadImage:Bitmap;
+		public static var loadImage:Bitmap;
 		private var assets:AssetsManager;
 		
 		public function TccGame()
@@ -53,16 +61,38 @@ package core
 			assets.verbose = Capabilities.isDebugger;
 			//var appDir:File = File.applicationDirectory;
 			//assets.enqueue(appDir.resolvePath("../../assets/images/menu"));
-			assets.enqueue("../assets/menu/MenuAtlas.png");
-			assets.enqueue("../assets/menu/MenuAtlas.xml");
 			
+			//state = new StartState();
+			
+			levelManager = new LevelManager(AbstractLevel);
+			levelManager.applicationDomain = ApplicationDomain.currentDomain;
+			levelManager.onLevelChanged.add(_onLevelChanged);
+			levelManager.levels = GameData.getInstance().allLevels;
+									
+						
 			state = new StartState();
 			
 			//Testar o garbage collector aki
-			//System.pauseForGCIfCollectionImminent(0);
-			//System.gc();
+			System.pauseForGCIfCollectionImminent(0);
+			System.gc();
+		}
+		
+		private function _onLevelChanged(lvl:AbstractLevel):void {
 			
+			state = lvl;
 			
+			lvl.lvlEnded.add(_nextLevel);
+			lvl.restartLevel.add(_restartLevel);
+		}
+		
+		private function _nextLevel():void {
+			
+			levelManager.nextLevel();
+		}
+		
+		private function _restartLevel():void {
+			
+			state = levelManager.currentLevel as IState;
 		}
 	}
 }

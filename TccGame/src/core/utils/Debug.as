@@ -4,15 +4,13 @@ package core.utils
 	{
 		private static var debug:Boolean = true;
 		
-		public function Debug()
-		{
-		}
+		private static var date:Date = new Date();
 		
-		public static function log(msg:String):void
+		public static function log(...msg):void
 		{
 			if(debug)
 			{
-				trace("[DEBUG]",msg);
+				trace("[DEBUG]",date,msg);
 			}
 		}
 	}
