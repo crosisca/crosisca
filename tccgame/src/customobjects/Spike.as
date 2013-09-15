@@ -1,11 +1,15 @@
 package customobjects
 {
+	import flash.utils.setTimeout;
+	
 	import Box2D.Dynamics.Contacts.b2Contact;
 	
 	import citrus.objects.platformer.box2d.Sensor;
 	import citrus.physics.box2d.Box2DUtils;
+	
+	import core.objects.SpawnPoint;
+	
 	import remake.MyNewHero;
-	import remake.NewGameControlsState;
 	
 	public final class Spike extends Sensor
 	{
@@ -24,16 +28,18 @@ package customobjects
 			if(obj is MyNewHero)
 			{
 				hero = obj;
-				(_ce.state as NewGameControlsState).delayer.push(onDeath);
-				
+				//(_ce.state as NewGameControlsState).delayer.push(onDeath);
+				//setimeout faz o papel do delayer
+				setTimeout(onDeath,0);
 			}
 		}
 		
 		private function onDeath():void
 		{
-			hero.x = 290;
-			hero.y = 1200;
-			_ce.sound.playSound("morte");
+			//Pause, run dying animation..set hero's pos(after 1 sec maybe)
+			hero.x = (_ce.state.getFirstObjectByType(SpawnPoint) as SpawnPoint).x;
+			hero.y = (_ce.state.getFirstObjectByType(SpawnPoint) as SpawnPoint).y;
+			//_ce.sound.playSound("morte");
 		}
 	}
 }

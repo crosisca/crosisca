@@ -68,9 +68,9 @@ package core.states.worldselection
 			
 			//Cria todos os botoes dos levels
 			var levelNumber:int = 0;
-			for (var i:int = 0; i < 5; i++) 
+			for (var j:int = 0; j < 2; j++) 
 			{
-				for (var j:int = 0; j < 4; j++) 
+				for (var i:int = 0; i < 5; i++) 
 				{
 					levelNumber++;
 					var levelButton:Button = new Button(Texture.fromColor(64,64,0xFFFF00FF),levelNumber.toString());

@@ -29,7 +29,7 @@ package remake
 		public function MyNewHero(name:String, params:Object=null)
 		{
 			super(name, params);
-			jumpHeight = 10;
+			jumpHeight = 15;
 			maxVelocity = 3;
 			
 			//Define o quanto o Hero desliza

@@ -36,7 +36,8 @@ package core.states
 		{
 			//Go to the level
 			//_ce.levelManager.gotoLevel(level.lvlIndex);
-			var lvlIndex:int = (worldNumber-1) * GameData.getInstance().LevelsQuantityByWorld +levelNumber;
+			//TODO> level errado
+			var lvlIndex:int = ((worldNumber-1) * GameData.getInstance().LevelsQuantityByWorld) +levelNumber;
 			_ce.levelManager.gotoLevel(lvlIndex); 
 			//onLevelSelected.dispatch(level);
 			

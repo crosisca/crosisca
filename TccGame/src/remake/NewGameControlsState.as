@@ -43,7 +43,7 @@ package remake
 		private var HeroPng:Class;
 		private var heroBodyTransform:b2Transform;
 		
-		[Embed(source="../../assetsNopack/images/consoleImg.jpg")]
+		//[Embed(source="../../assetsNopack/images/consoleImg.jpg")]
 		private var ConsoleJpg:Class;
 		
 		//[Embed(source="../assets/media/images/PlataformasFase1.png")]

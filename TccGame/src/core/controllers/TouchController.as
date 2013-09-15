@@ -145,7 +145,6 @@ package core.controllers
 				if(touch.phase == TouchPhase.ENDED)
 				{
 					turnOffAction(Controls.JUMP);
-					//Verificar TODO caio..fazer comcar andar pro outroo lado
 					touches.splice(i,1);
 					verificarSeInverteuMovimento(touches);
 				}

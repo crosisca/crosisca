@@ -68,7 +68,6 @@ package core
 			levelManager.applicationDomain = ApplicationDomain.currentDomain;
 			levelManager.onLevelChanged.add(_onLevelChanged);
 			levelManager.levels = GameData.getInstance().allLevels;
-									
 						
 			state = new StartState();
 			
@@ -81,18 +80,18 @@ package core
 			
 			state = lvl;
 			
-			lvl.lvlEnded.add(_nextLevel);
-			lvl.restartLevel.add(_restartLevel);
+			//lvl.lvlEnded.add(_nextLevel);
+			//lvl.restartLevel.add(_restartLevel);
 		}
 		
 		private function _nextLevel():void {
 			
-			levelManager.nextLevel();
+			//levelManager.nextLevel();
 		}
 		
 		private function _restartLevel():void {
 			
-			state = levelManager.currentLevel as IState;
+			//state = levelManager.currentLevel as IState;
 		}
 	}
 }

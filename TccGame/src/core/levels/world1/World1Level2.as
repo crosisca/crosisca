@@ -4,9 +4,9 @@ package core.levels.world1
 	
 	public final class World1Level2 extends AbstractLevel
 	{
-		public function World1Level2()
+		public function World1Level2(level:XML)
 		{
-			super();
+			super(level);
 		}
 	}
 }

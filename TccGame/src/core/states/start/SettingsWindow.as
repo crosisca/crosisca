@@ -149,6 +149,7 @@ package core.states.start
 			onClose.dispatch();
 		}
 		
+		//TODO> enviar signal para o state pra setar mute e unmute
 		private function onMusicPressed():void
 		{
 			//TODO> Checkar e setar o mute e unmute da sound manager 
