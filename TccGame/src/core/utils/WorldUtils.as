@@ -5,7 +5,7 @@ package core.utils
 
 	public final class WorldUtils
 	{
-		private static var _worldRotation:Number;
+		private static var _worldRotation:Number = 0;
 		
 		public static function setWorldRotation(worldRotation:int):void
 		{

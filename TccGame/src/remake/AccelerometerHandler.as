@@ -2,6 +2,8 @@ package remake
 {
 	import citrus.input.controllers.Accelerometer;
 	
+	import core.utils.Debug;
+	
 	public final class AccelerometerHandler extends Accelerometer
 	{
 		/** Quanto menor for esse número, mais o device precisa rodar.
@@ -33,7 +35,7 @@ package remake
 		private var isRotationAllowed:Boolean = true;
 		
 		
-		public function AccelerometerHandler(name:String, params:Object)
+		public function AccelerometerHandler(name:String, params:Object = null)
 		{
 			super(name, params);
 		}
@@ -83,6 +85,7 @@ package remake
 				triggerON("gravUp", 1);
 			}
 			
+			Debug.log("Desired Gravity:",desiredGravDirection);
 			//if(delayBetweenRotations >= minimumTimeBetweenRotations){
 				if(desiredGravDirection != actualGravDirection && isRotationAllowed)
 				{
@@ -91,6 +94,7 @@ package remake
 					//isGravityChangeOn = true;
 					//delayBetweenRotations = 0;
 					isRotationAllowed = false;
+					Debug.log("GravityChange TRIGGERED ON!");
 				}
 			//}
 		}

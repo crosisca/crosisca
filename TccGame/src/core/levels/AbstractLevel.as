@@ -6,6 +6,9 @@ package core.levels
 	import flash.geom.Rectangle;
 	import flash.utils.setTimeout;
 	
+	import Box2D.Common.Math.b2Mat22;
+	import Box2D.Common.Math.b2Transform;
+	
 	import citrus.core.CitrusObject;
 	import citrus.core.starling.StarlingState;
 	import citrus.objects.platformer.awayphysics.Platform;
@@ -87,6 +90,10 @@ package core.levels
 		private var HeroPng:Class;
 		private var spawnPoint:SpawnPoint;
 		
+		//Teste.. TODO> tirar daqui
+		private var gravityForce:int = 10;
+		private var heroBodyTransform:b2Transform;
+		
 		public function AbstractLevel(level:XML)
 		{
 			super();
@@ -119,7 +126,7 @@ package core.levels
 			WorldUtils.setWorldRotation(0);
 			
 			//Create rotation handler
-			accelerometerHandler = new AccelerometerHandler("accelerometerHandler",{});
+			accelerometerHandler = new AccelerometerHandler("accelerometerHandler");
 			accelerometerHandler.triggerActions=true;
 			_ce.input.addController(accelerometerHandler);
 			
@@ -181,7 +188,14 @@ package core.levels
 		 */
 		override public function update(timeDelta:Number):void {
 			super.update(timeDelta);
-			
+			if(_ce.input.isDoing(AccelerometerHandler.GravityChange))
+				Debug.log("I'm doing gravity change------");
+			if(_ce.input.justDid(AccelerometerHandler.GravityChange))
+			{
+				Debug.log("A gravity change just happened!!!!!");
+				handleWorldRotation();
+				accelerometerHandler.triggerGravityChangeOff();
+			}
 			//Trace views load progress
 			/*var percent:uint = view.loadManager.bytesLoaded / view.loadManager.bytesTotal * 100;
 			if (percent < 99)
@@ -198,6 +212,39 @@ package core.levels
 				
 				//init
 			}*/
+		}
+		
+		private function handleWorldRotation():void
+		{
+			Debug.log("Handling World Rotation!");
+			if(_ce.input.isDoing(AccelerometerHandler.GravityDown))
+			{
+				WorldUtils.setWorldRotation(0);
+				box2d.gravity.Set(0, gravityForce);
+			}
+			if(_ce.input.isDoing(AccelerometerHandler.GravityLeft))
+			{
+				WorldUtils.setWorldRotation(90);
+				box2d.gravity.Set(-gravityForce,0);
+			}
+			if(_ce.input.isDoing(AccelerometerHandler.GravityRight))
+			{
+				WorldUtils.setWorldRotation(270);
+				box2d.gravity.Set(gravityForce,0);
+			}
+			if(_ce.input.isDoing(AccelerometerHandler.GravityUp))
+			{
+				WorldUtils.setWorldRotation(180);
+				box2d.gravity.Set(0, -gravityForce);
+			}
+			
+			if(hero)
+			{
+				heroBodyTransform = new b2Transform(hero.body.GetPosition(), b2Mat22.FromAngle(WorldUtils.getWorldRotation()));
+				hero.body.SetTransform(heroBodyTransform);
+				
+				hero.recalculateGroundCollisionAngle();
+			}
 		}
 		
 		/**

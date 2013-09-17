@@ -9,21 +9,17 @@ package core
 	import flash.system.Capabilities;
 	import flash.system.System;
 	
-	import citrus.core.IState;
 	import citrus.core.starling.StarlingCitrusEngine;
 	import citrus.utils.LevelManager;
 	
 	import core.art.AssetsManager;
 	import core.data.GameData;
-	import core.interfaces.IMenuStates;
 	import core.levels.AbstractLevel;
-	import core.levels.world1.World1Level1;
-	import core.levels.world1.World1Level2;
 	import core.states.StartState;
 	
 	import starling.core.Starling;
 	
-	[SWF(width="2048",height="1536",frameRate="60")]
+	[SWF(width="2048",height="1536",frameRate="30")]
 	public class TccGame extends StarlingCitrusEngine
 	{
 		/**
