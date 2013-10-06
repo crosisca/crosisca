@@ -1,6 +1,9 @@
 package core.states.start
 {
 	
+	import citrus.core.CitrusEngine;
+	import citrus.sounds.CitrusSoundGroup;
+	
 	import core.buttons.FxButton;
 	import core.buttons.LanguageButton;
 	import core.buttons.MusicButton;
@@ -30,11 +33,6 @@ package core.states.start
 		
 		public var onClose:Signal = new Signal(); 
 		
-		////TESTES DELETAR TODO>
-		
-		private var musicMuted:Boolean;
-		private var fxMuted:Boolean;
-
 		public function SettingsWindow()
 		{
 			super();
@@ -153,35 +151,37 @@ package core.states.start
 		private function onMusicPressed():void
 		{
 			//TODO> Checkar e setar o mute e unmute da sound manager 
-			if(musicMuted)
+			if(CitrusEngine.getInstance().sound.getGroup(CitrusSoundGroup.BGM).mute)
 			{
 				//Unmute music sound manager
 				_musicBtn.unMute();
-				musicMuted = false;
+				//musicMuted = false;
 			}
 			else
 			{
 				//Mute music sound manager
 				_musicBtn.mute();
-				musicMuted = true;
+				//musicMuted = true;
 			}
+			CitrusEngine.getInstance().sound.getGroup(CitrusSoundGroup.BGM).mute = !CitrusEngine.getInstance().sound.getGroup(CitrusSoundGroup.BGM).mute;
 		}
 		
 		private function onFxPressed():void
 		{
 			//TODO> Checkar e setar o mute e unmute da sound manager 
-			if(fxMuted)
+			if(CitrusEngine.getInstance().sound.getGroup(CitrusSoundGroup.SFX).mute)
 			{
 				//Unmute fx sound manager
 				_fxBtn.unMute();
-				fxMuted = false;
+				//fxMuted = false;
 			}
 			else
 			{
 				//Mute fx sound manager
 				_fxBtn.mute();
-				fxMuted = true;
+				//fxMuted = true;
 			}
+			CitrusEngine.getInstance().sound.getGroup(CitrusSoundGroup.SFX).mute = !CitrusEngine.getInstance().sound.getGroup(CitrusSoundGroup.SFX).mute;
 		}
 		
 		private function onResetDataPressed():void

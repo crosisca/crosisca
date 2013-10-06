@@ -40,9 +40,6 @@ package core.states.start
 		 */
 		private var _giftButton:Button;
 		
-		/**
-		 * Janela de opçÕes
-		 */
 		private var _settingsWindow:SettingsWindow;
 		private var screenBlocker:Image;
 		
@@ -161,6 +158,15 @@ package core.states.start
 			_settingsWindow = null;
 			
 		}
+
+		/**
+		 * Janela de opçÕes
+		 */
+		public function get settingsWindow():SettingsWindow
+		{
+			return _settingsWindow;
+		}
+
 	}
 }
 

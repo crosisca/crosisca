@@ -1,6 +1,9 @@
 package core.data
 {
+	import flash.utils.Dictionary;
+	
 	import core.levels.world1.World1Level1;
+	import core.levels.world1.World1Level10;
 	import core.levels.world1.World1Level2;
 	import core.levels.world1.World1Level3;
 	import core.levels.world1.World1Level4;
@@ -9,9 +12,8 @@ package core.data
 	import core.levels.world1.World1Level7;
 	import core.levels.world1.World1Level8;
 	import core.levels.world1.World1Level9;
-	import core.levels.world1.World1Level10;
-
 	import core.levels.world2.World2Level1;
+	import core.levels.world2.World2Level10;
 	import core.levels.world2.World2Level2;
 	import core.levels.world2.World2Level3;
 	import core.levels.world2.World2Level4;
@@ -20,9 +22,8 @@ package core.data
 	import core.levels.world2.World2Level7;
 	import core.levels.world2.World2Level8;
 	import core.levels.world2.World2Level9;
-	import core.levels.world2.World2Level10;
-
 	import core.levels.world3.World3Level1;
+	import core.levels.world3.World3Level10;
 	import core.levels.world3.World3Level2;
 	import core.levels.world3.World3Level3;
 	import core.levels.world3.World3Level4;
@@ -31,9 +32,8 @@ package core.data
 	import core.levels.world3.World3Level7;
 	import core.levels.world3.World3Level8;
 	import core.levels.world3.World3Level9;
-	import core.levels.world3.World3Level10;
-
 	import core.levels.world4.World4Level1;
+	import core.levels.world4.World4Level10;
 	import core.levels.world4.World4Level2;
 	import core.levels.world4.World4Level3;
 	import core.levels.world4.World4Level4;
@@ -42,13 +42,21 @@ package core.data
 	import core.levels.world4.World4Level7;
 	import core.levels.world4.World4Level8;
 	import core.levels.world4.World4Level9;
-	import core.levels.world4.World4Level10;
+	import core.utils.Debug;
+	import core.utils.LevelInfo;
 
 	public final class GameData
 	{
 		private static var _instance:GameData;
 		private var _activeWorld:int
+		private var _previousActiveWorld:int;
+		
 		private var _activeLevelNumber:int;
+		
+		public static var levelsInfo:Array = [];
+		
+		public const LevelsQuantityByWorld:int = 10;
+		
 		private var _allLevels:Array = [[World1Level1, "../../assets/levels/world1/world1level1.tmx"],
 										[World1Level2, "../../assets/levels/world1/world1level2.tmx"],
 										[World1Level3, "../../assets/levels/world1/world1level3.tmx"],
@@ -93,7 +101,6 @@ package core.data
 										[World4Level9, "../../assets/levels/world4/world4level9.tmx"],
 										[World4Level10,"../../assets/levels/world4/world4level10.tmx"]];
 		
-		public const LevelsQuantityByWorld:int = 10;
 		
 		public function GameData()
 		{
@@ -108,6 +115,33 @@ package core.data
 		{
 			if(!_instance){
 				new GameData();
+				for (var i:int = 0; i < 40; i++) 
+				{
+					levelsInfo.push(new LevelInfo());
+					if(i <10)
+					{
+						levelsInfo[i].worldNumber = 1;
+					}
+					else if(i >=10 && i < 20)
+					{
+						levelsInfo[i].worldNumber = 2;
+					}
+					else if(i >=20 &&i < 30)
+					{
+						levelsInfo[i].worldNumber = 3;
+					}
+					else if(i >= 30 && i <40)
+					{
+						levelsInfo[i].worldNumber = 4;
+					}
+					levelsInfo[i].levelNumber = (i%10)+1;
+					if(i%10 == 0)
+					{
+						Debug.log("Uncloked the 1st level of a world!");
+						Debug.log("World: " + levelsInfo[i].worldNumber , "Level: "+ levelsInfo[i].levelNumber);
+						levelsInfo[i].locked = false;
+					}
+				}
 			} 
 			return _instance;
 		}
@@ -119,6 +153,7 @@ package core.data
 
 		public function set activeWorld(value:int):void
 		{
+			_previousActiveWorld = _activeWorld;
 			_activeWorld = value;
 		}
 
@@ -135,6 +170,11 @@ package core.data
 		public function set activeLevelNumber(value:int):void
 		{
 			_activeLevelNumber = value;
+		}
+
+		public function get previousActiveWorld():int
+		{
+			return _previousActiveWorld;
 		}
 
 

@@ -1,42 +1,41 @@
 package core.states.worldselection
 {
-	import com.greensock.TweenNano;
-	
 	import flash.geom.Point;
-	import flash.utils.getDefinitionByName;
 	
-	import away3d.core.math.MathConsts;
-	
+	import core.art.AssetsManager;
 	import core.data.GameData;
-	import core.levels.AbstractLevel;
-	import core.utils.ScreenUtils;
 	
 	import org.osflash.signals.Signal;
 	
 	import starling.display.Button;
+	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.display.Sprite;
-	import starling.events.Event;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
-	import starling.textures.Texture;
 	
 	public final class WorldSelectionWindow extends Sprite
 	{
 		private var _background:Image;
-		private var _worldsContainer:WorldsContainer;
+		//private var _worldsContainer:WorldsContainer;
 		
 		//TEste
-		private var levelSelectionContainer:Sprite = new Sprite();
+		private var levelSelectionContainer:LevelSelectionContainer;
 		private var btExitLevelSelector:Button;
-		private var levelButtonsVector:Vector.<Button> = new Vector.<Button>;
 		
 		public var onLevelSelected:Signal = new Signal();
 		//fim teste
 		private var selectingWorld:Boolean = false;
 		
 		private var gameData:GameData;
+		private var _assets:AssetsManager;
+		
+		private var world1Button:Button;
+		private var world2Button:Button;
+		private var world3Button:Button;
+		private var world4Button:Button;
+		private var helperPoint:Point = new Point();
 		
 		public function WorldSelectionWindow()
 		{
@@ -44,18 +43,51 @@ package core.states.worldselection
 			
 			gameData = GameData.getInstance();
 			
-			_background = new Image(Texture.fromColor(2048,1536,0xFF00007F));
+			_assets = AssetsManager.getInstance();
+			
+			_background = new Image(_assets.getTextureAtlas("MenuAtlas").getTexture("backgroundMenu"));
 			this.addChild(_background);
 			
-			_worldsContainer = new WorldsContainer();
+			world1Button = new Button(_assets.getTextureAtlas("MenuAtlas").getTexture("world1button"));
+			world1Button.pivotX = world1Button.width * .5;
+			world1Button.pivotY = world1Button.height * .5;
+			world1Button.x = _background.x + _background.width * .2;
+			world1Button.y = _background.y + _background.height * .5;
+			this.addChild(world1Button);
+			
+			world2Button = new Button(_assets.getTextureAtlas("MenuAtlas").getTexture("world2button"));
+			world2Button.pivotX = world2Button.width * .5;
+			world2Button.pivotY = world2Button.height * .5;
+			world2Button.x = _background.x + _background.width * .4;
+			world2Button.y = _background.y + _background.height * .5;
+			this.addChild(world2Button);
+			
+			world3Button = new Button(_assets.getTextureAtlas("MenuAtlas").getTexture("world3button"));
+			world3Button.pivotX = world3Button.width * .5;
+			world3Button.pivotY = world3Button.height * .5;
+			world3Button.x = _background.x + _background.width * .6;
+			world3Button.y = _background.y + _background.height * .5;
+			this.addChild(world3Button);8;
+			
+			world4Button = new Button(_assets.getTextureAtlas("MenuAtlas").getTexture("world4button"));
+			world4Button.pivotX = world4Button.width * .5;
+			world4Button.pivotY = world4Button.height * .5;
+			world4Button.x = _background.x + _background.width * .8;
+			world4Button.y = _background.y + _background.height * .5;
+			this.addChild(world4Button);
+			
+			/*_worldsContainer = new WorldsContainer();
 			_worldsContainer.x = ScreenUtils.SCREEN_REAL_WIDTH * .5;
 			_worldsContainer.y = ScreenUtils.SCREEN_REAL_HEIGHT;
-			this.addChild(_worldsContainer);
+			this.addChild(_worldsContainer);*/
 			
+			levelSelectionContainer = new LevelSelectionContainer(_assets.getTextureAtlas("MenuAtlas").getTexture("backgroundLevelSelection"));
+			levelSelectionContainer.onLevelChosen.add(onLevelChosen);
+			levelSelectionContainer.onClose.add(onCloseLevelSelection);
 			this.addEventListener(TouchEvent.TOUCH, onTouch);
 			
 			//teste
-			var fundoLevelSelectionContainer:Image = new Image(Texture.fromColor(1024,768,0xFF0000FF));
+			/*var fundoLevelSelectionContainer:Image = new Image(Texture.fromColor(1024,768,0xFF0000FF));
 			levelSelectionContainer.addChild(fundoLevelSelectionContainer);
 			levelSelectionContainer.x = (ScreenUtils.SCREEN_REAL_WIDTH - levelSelectionContainer.width)/2;
 			levelSelectionContainer.y = (ScreenUtils.SCREEN_REAL_HEIGHT - levelSelectionContainer.height)/2;
@@ -80,11 +112,48 @@ package core.states.worldselection
 					levelButton.addEventListener(starling.events.Event.TRIGGERED, onLevelButtonSelected);
 					levelButtonsVector.push(levelButton);
 				}
-			}
-			//fimteste
+			}*/
 		}
 		
 		private function onTouch(event:TouchEvent):void
+		{
+			var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
+			
+			if(touch)
+			{
+				helperPoint.x = touch.globalX;
+				helperPoint.y = touch.globalY;
+				var hitObject:DisplayObject = this.stage.hitTest(helperPoint, true);
+				
+				if(world1Button.contains(hitObject))
+					selectWorld(1);
+				else if(world2Button.contains(hitObject))
+					selectWorld(2);
+				else if(world3Button.contains(hitObject))
+					selectWorld(3);
+				else if(world4Button.contains(hitObject))
+					selectWorld(4);
+			}
+		}
+		
+		private function selectWorld(worldNumber:int):void
+		{
+			gameData.activeWorld = worldNumber;
+			levelSelectionContainer.updateInfo(worldNumber);
+			this.addChild(levelSelectionContainer);
+		}
+		
+		private function onLevelChosen(worldNumber:int,levelNumber:int):void
+		{
+			onLevelSelected.dispatch(worldNumber,levelNumber);
+		}
+		
+		private function onCloseLevelSelection():void
+		{
+			this.removeChild(levelSelectionContainer);
+		}
+		
+		/*private function onTouch(event:TouchEvent):void
 		{
 			var touch:Touch = event.getTouch(this, TouchPhase.MOVED);
 			
@@ -146,10 +215,7 @@ package core.states.worldselection
 		
 		
 		//Testes
-		private function onCloseLevelSelector(event:starling.events.Event):void
-		{
-			this.removeChild(levelSelectionContainer);
-		}
+		
 		
 		private function onLevelButtonSelected(event:starling.events.Event):void
 		{
@@ -161,6 +227,6 @@ package core.states.worldselection
 				}
 			}
 			onLevelSelected.dispatch(gameData.activeWorld,gameData.activeLevelNumber);
-		}
+		}*/
 	}
 }

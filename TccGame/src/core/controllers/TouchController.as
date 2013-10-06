@@ -146,7 +146,7 @@ package core.controllers
 				{
 					turnOffAction(Controls.JUMP);
 					touches.splice(i,1);
-					verificarSeInverteuMovimento(touches);
+					//verificarSeInverteuMovimento(touches);
 				}
 			}
 		}

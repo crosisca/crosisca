@@ -1,11 +1,16 @@
 package core.states.ingame
 {
-	import core.buttons.LanguageButton;
-	import core.utils.Languages;
+	import flash.geom.Point;
+	
+	import org.osflash.signals.Signal;
 	
 	import starling.display.Button;
+	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.display.Sprite;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	import starling.text.TextField;
 	import starling.textures.Texture;
 	
@@ -17,6 +22,12 @@ package core.states.ingame
 		private var _quitBtn:Button;
 		private var _secretItem:SecretItemImage;
 		private var _levelTime:TextField;
+		
+		public var onRestartLevel:Signal;
+		public var onQuitLevel:Signal;
+		public var onNextLevel:Signal;
+		
+		private var helperPoint:Point = new Point();
 		
 		public function VictoryWindow()
 		{
@@ -59,6 +70,36 @@ package core.states.ingame
 			_quitBtn.x =_background.x + _background.width * .5;
 			_quitBtn.y = _background.y + _background.height * .9;
 			this.addChild(_quitBtn);
+			
+			onRestartLevel = new Signal();
+			onQuitLevel = new Signal();
+			onNextLevel = new Signal();
+			
+			
+			this.addEventListener(TouchEvent.TOUCH, onTouch);
+		}
+	
+		private function onTouch(event:TouchEvent):void
+		{
+			var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
+			if(touch)
+			{
+				helperPoint.x = touch.globalX;
+				helperPoint.y = touch.globalY;
+				var hitObject:DisplayObject = this.stage.hitTest(helperPoint, true);
+				
+				//Touched Resume Button
+				if(_nextLvlBtn.contains(hitObject))
+					onNextLevel.dispatch();
+				
+				//Touched Music Button
+				if(_restartBtn.contains(hitObject))
+					onRestartLevel.dispatch();
+				
+				//Touched FX Button
+				if(_quitBtn.contains(hitObject))
+					onQuitLevel.dispatch();
+			}
 		}
 	}
 }

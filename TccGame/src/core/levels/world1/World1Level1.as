@@ -8,5 +8,11 @@ package core.levels.world1
 		{
 			super(level);
 		}
+		
+		override public function initialize():void
+		{
+			super.initialize();
+			_ce.sound.playSound("World1Music");
+		}
 	}
 }

@@ -17,15 +17,11 @@ package remake
 	import citrus.physics.box2d.IBox2DPhysicsObject;
 	
 	import core.utils.Controls;
+	import core.utils.Debug;
 	import core.utils.WorldUtils;
 	
 	public class MyNewHero extends Hero
 	{
-		private var _worldRotation:int;
-		private var isDoingRight:Boolean;
-		private var isDoingLeft:Boolean;
-		//private var maxVerticalVelocity:Number;
-		
 		public function MyNewHero(name:String, params:Object=null)
 		{
 			super(name, params);
@@ -65,7 +61,7 @@ package remake
 					_playerMovingHero = true;
 					_fixture.SetFriction(0); //Take away friction so he can accelerate.
 				}
-					//Player just stopped moving the hero this tick.
+				//Player just stopped moving the hero this tick.
 				else if (!moveKeyPressed && _playerMovingHero)
 				{
 					_playerMovingHero = false;
@@ -75,23 +71,39 @@ package remake
 				//Acabei de pular
 				if (_onGround && _ce.input.justDid(Controls.JUMP, inputChannel))
 				{
-					var jumpVec:b2Vec2 = Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),WorldUtils.getWorldRotation());
+					//var jumpVec:b2Vec2 = Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),WorldUtils.getWorldRotation());
+					var jumpVec:b2Vec2 =new b2Vec2();
+					trace("Rotation Deg =", WorldUtils.getWorldRotationDeg());
+					switch(WorldUtils.getWorldRotationDeg())
+					{
+						case 0:
+							jumpVec.x = 0;
+							jumpVec.y = jumpHeight;
+							break;
+						case 90:
+							jumpVec.x = -jumpHeight;
+							jumpVec.y = 0;
+							break;
+						case 180:
+							jumpVec.x = 0;
+							jumpVec.y = -jumpHeight;
+							break;
+						case 270:
+							jumpVec.x = jumpHeight;
+							jumpVec.y = 0;
+							break;
+					}
+					
+					Debug.log("####################################");
+					Debug.log("jumpVec = "+jumpVec.x , jumpVec.y);
+					Debug.log("velocidade antes do pulo = "+velocity.x , velocity.y);
 					velocity.Subtract(jumpVec);
+					Debug.log("velocidade depois do pulo = "+velocity.x, velocity.y);
+					Debug.log("####################################");
 					onJump.dispatch();
 					_ce.sound.playSound("jump");
 					_onGround = false;
-					//_groundContacts = [];
 				}
-				
-				//Feedback colisao com inimigo..arrumar dps
-				/*if (_springOffEnemy != -1)
-				{
-					if (_ce.input.isDoing("jump", inputChannel))
-						velocity.y = -enemySpringJumpHeight;
-					else
-						velocity.y = -enemySpringHeight;
-					_springOffEnemy = -1;
-				}*/
 				
 				//Cap velocities
 				if(WorldUtils.getWorldRotationDeg() == 0 || WorldUtils.getWorldRotationDeg() == 180)
@@ -101,11 +113,6 @@ package remake
 						velocity.x = maxVelocity;
 					else if (velocity.x < (-maxVelocity))
 						velocity.x = -maxVelocity;
-					//vertical
-					/*if (velocity.y > (maxVerticalVelocity))
-						velocity.y = maxVerticalVelocity;
-					else if (velocity.y < (-maxVerticalVelocity))
-						velocity.y = -maxVerticalVelocity;*/
 				}
 				else if(WorldUtils.getWorldRotationDeg() == 90 || WorldUtils.getWorldRotationDeg() == 270)
 				{
@@ -114,11 +121,6 @@ package remake
 						velocity.y = maxVelocity;
 					else if (velocity.y < (-maxVelocity))
 						velocity.y = -maxVelocity;
-					//vertical
-					/*if (velocity.x > (maxVerticalVelocity))
-						velocity.x = maxVerticalVelocity;
-					else if (velocity.x < (-maxVerticalVelocity))
-						velocity.x = -maxVerticalVelocity;*/
 				}
 			}//End if(controlsEnabled)
 			updateAnimation();
@@ -199,11 +201,6 @@ package remake
 					{
 						trace("Changing Hero's postion");
 					});*/
-					try
-					{
-						(_ce.state as NewGameControlsState).delayer.push(onDeathByFall);
-					}
-					catch(e:Error){trace("nao morreu pq n tme no state");};
 				}
 			}
 			//End death by fall
@@ -225,17 +222,9 @@ package remake
 				}
 				else
 				{
-					Flox.logWarning("[WARNING]- _groundContacts.length = ",_groundContacts.length);
-					Flox.logInfo("[WARNING]- _groundContacts.length = ",_groundContacts.length);
 					trace("[WARNING]- _groundContacts.length = ",_groundContacts.length);
 				}
 				updateCombinedGroundAngle();
-			}
-			else
-			{
-				Flox.logWarning("[WARNING]- index = -1, nao foi possivel calcular a length da lista groundContats.");
-				Flox.logInfo("[INFO]- index = -1, nao foi possivel calcular a length da lista groundContats.");
-				trace("index = -1, nao foi possivel calcular a length da lista groundContats.");
 			}
 		}
 		
@@ -254,7 +243,7 @@ package remake
 			 estar sendo afetado..
 			 * Testar essas 2 linhas abaixo*/
 			_onGround = false;
-			_groundContacts = [];
+			//_groundContacts = [];
 			
 			var collider:IBox2DPhysicsObject;
 			

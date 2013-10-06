@@ -1,35 +1,37 @@
 package core.levels
 {
 	import flash.display.Bitmap;
-	import flash.display.DisplayObject;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
-	import flash.utils.setTimeout;
 	
 	import Box2D.Common.Math.b2Mat22;
 	import Box2D.Common.Math.b2Transform;
 	
-	import citrus.core.CitrusObject;
 	import citrus.core.starling.StarlingState;
 	import citrus.objects.platformer.awayphysics.Platform;
 	import citrus.physics.box2d.Box2D;
+	import citrus.sounds.CitrusSoundGroup;
 	import citrus.utils.objectmakers.ObjectMakerStarling;
 	import citrus.view.starlingview.StarlingCamera;
 	
 	import core.TccGame;
 	import core.art.AssetsManager;
-	import core.controllers.TouchController;
 	import core.data.GameData;
 	import core.data.GameSettings;
+	import core.objects.SecretItem;
 	import core.objects.SpawnPoint;
 	import core.states.WorldSelectionState;
 	import core.states.ingame.PauseWindow;
 	import core.states.ingame.VictoryWindow;
 	import core.utils.Debug;
+	import core.utils.LevelInfo;
 	import core.utils.ScreenBlocker;
 	import core.utils.ScreenUtils;
 	import core.utils.WorldUtils;
 	
+	import customobjects.FinalFase;
+	import customobjects.PlataformaAndante;
+	import customobjects.PlataformaDesaparece;
 	import customobjects.Spike;
 	
 	import org.osflash.signals.Signal;
@@ -45,7 +47,6 @@ package core.levels
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 	import starling.textures.Texture;
-	import starling.textures.TextureAtlas;
 	
 	public class AbstractLevel extends StarlingState
 	{
@@ -62,10 +63,8 @@ package core.levels
 		private var victoryWindow:VictoryWindow = new VictoryWindow();
 		
 		//Setup
-		private var touchController:TouchController;
 		private var box2d:Box2D;
 		private var _camera:StarlingCamera;
-		private var accelerometerHandler:AccelerometerHandler;
 
 		//HUD
 		private var pauseBtn:Button;
@@ -79,20 +78,25 @@ package core.levels
 		 */
 		private var _assets:AssetsManager = AssetsManager.getInstance();
 		
-		/**
-		 * Boolean flag so init() is only called once;
-		 */
-		private var isInitiated:Boolean = false;
-		
 		//teste
 		private var hero:MyNewHero;
 		[Embed(source="../../../assetsNopack/images/robotHero.png")]
 		private var HeroPng:Class;
 		private var spawnPoint:SpawnPoint;
 		
+		private var finalPoint:FinalFase;
+		
 		//Teste.. TODO> tirar daqui
 		private var gravityForce:int = 10;
 		private var heroBodyTransform:b2Transform;
+		
+		private var objectsUsed:Array = [MyNewHero, Platform, Spike, PlataformaAndante, PlataformaDesaparece, FinalFase, SpawnPoint, SecretItem];
+		private var myZoom:Number = 1;
+		
+		private var accelerometerHandler:AccelerometerHandler;
+		private var maximoDeFase:int = 5;
+		private var levelInfo:LevelInfo;
+		private var secretItem:SecretItem;
 		
 		public function AbstractLevel(level:XML)
 		{
@@ -104,17 +108,22 @@ package core.levels
 			restartLevel = new Signal();
 			
 			// Useful for not forgetting to import object from the Level Editor
-			var objectsUsed:Array = [MyNewHero, Platform, Spike];
+			
 		}
 		
 		override public function initialize():void {
 			super.initialize();
 			
-			//Level Setup
+			var index:int = ((gameData.activeWorld-1) * gameData.LevelsQuantityByWorld) + gameData.activeLevelNumber -1;
+			levelInfo = GameData.levelsInfo[index];
 			
-			//Create Controller
-			touchController = new TouchController("touchController");
-			_ce.input.addController(touchController);
+			//levelInfo.gotSecretItem = false;
+			levelInfo.levelNumber = gameData.activeLevelNumber;
+			//levelInfo.locked = ;
+			levelInfo.worldNumber = gameData.activeWorld;
+			
+			//Level Setup
+			_ce.sound.stopAllPlayingSounds();
 			
 			//Create physics engine
 			box2d = new Box2D("box2d");
@@ -125,20 +134,33 @@ package core.levels
 			//Initialize world with default rotation;
 			WorldUtils.setWorldRotation(0);
 			
-			//Create rotation handler
-			accelerometerHandler = new AccelerometerHandler("accelerometerHandler");
-			accelerometerHandler.triggerActions=true;
-			_ce.input.addController(accelerometerHandler);
+			//HAbilitar os controles..
+			_ce.input.enabled =  true;
 			
 			//Create screen blocker
 			screenBlocker = new ScreenBlocker();
 			
 			//Load the Tileset
 			_assets = AssetsManager.getInstance();
-			_assets.enqueue("../assets/levels/world"+gameData.activeWorld+"/TilesetWorld"+gameData.activeWorld+".png"/*.toString()*//*,"TilesetWorld"+gameData.activeWorld/*+"Img"*/);
-			_assets.enqueue("../assets/levels/world"+gameData.activeWorld+"/TilesetWorld"+gameData.activeWorld+".xml"/*.toString()*//*,"TilesetWorld"+gameData.activeWorld+"Xml"*/);
+			if(gameData.activeWorld != gameData.previousActiveWorld)
+			{
+				//Dispose previous world texture atlas
+				_assets.removeTextureAtlas("TilesetWorld"+gameData.previousActiveWorld);
+				
+				//Load new world texture atlas
+				_assets.enqueue("../assets/levels/world"+gameData.activeWorld+"/TilesetWorld"+gameData.activeWorld+".png"/*.toString()*//*,"TilesetWorld"+gameData.activeWorld/*+"Img"*/);
+				_assets.enqueue("../assets/levels/world"+gameData.activeWorld+"/TilesetWorld"+gameData.activeWorld+".xml"/*.toString()*//*,"TilesetWorld"+gameData.activeWorld+"Xml"*/);
+				_assets.loadQueue(onAssetsManagerLoadProgress);
+			}
+			else
+			{
+				init();
+			}
 		//	_assets.enqueueWithName("../assets/levels/world"+gameData.activeWorld+"/level"+gameData.activeLevelNumber+"/world"+gameData.activeWorld+"level"+gameData.activeLevelNumber+".xml".toString(),"TilesetWorld"+gameData.activeWorld+"Xml");
-			_assets.loadQueue(onAssetsManagerLoadProgress);
+			
+			
+			accelerometerHandler = _ce.input.getControllerByName("accelerometerHandler") as AccelerometerHandler;
+			accelerometerHandler.onGravityChange.add(onGravityChange);
 			
 			//Tells me when all views are finished loading
 			//view.loadManager.onLoadComplete.addOnce(handleLoadComplete);
@@ -165,8 +187,6 @@ package core.levels
 				//_assets.addTextureAtlas("AtlasWorld"+gameData.activeWorld, new TextureAtlas(tilesetImg, tilesetXml));
 				
 				//Descobrir pq magica "TilesetWorld"+gamedata.active world ja existe..o assetmanager fez isso sozinho sei la pq
-				ObjectMakerStarling.FromTiledMap(_level, _assets.getTextureAtlas("TilesetWorld"+gameData.activeWorld));
-				
 				//Initiation of the level
 				init();
 				
@@ -188,51 +208,35 @@ package core.levels
 		 */
 		override public function update(timeDelta:Number):void {
 			super.update(timeDelta);
-			if(_ce.input.isDoing(AccelerometerHandler.GravityChange))
+			/*if(_ce.input.isDoing(AccelerometerHandler.GravityChange))
 				Debug.log("I'm doing gravity change------");
 			if(_ce.input.justDid(AccelerometerHandler.GravityChange))
 			{
 				Debug.log("A gravity change just happened!!!!!");
 				handleWorldRotation();
-				accelerometerHandler.triggerGravityChangeOff();
-			}
-			//Trace views load progress
-			/*var percent:uint = view.loadManager.bytesLoaded / view.loadManager.bytesTotal * 100;
-			if (percent < 99)
-			{
-				//Debug.log("Views Loading Progress:",percent.toString() + "%");
-			}*/
-			
-			/*if(/*viewsLoaded && assetsLoaded && !isInitiated)
-			{
-				isInitiated = true;
-				
-				//Remove the loading screen
-				Starling.current.nativeOverlay.removeChild(TccGame.loadImage);
-				
-				//init
+				AccelerometerHandler(_ce.input.getControllerByName("accelerometerHandler")).triggerGravityChangeOff();
 			}*/
 		}
 		
-		private function handleWorldRotation():void
+		private function onGravityChange(gravityDirection:String):void
 		{
-			Debug.log("Handling World Rotation!");
-			if(_ce.input.isDoing(AccelerometerHandler.GravityDown))
+			Debug.log("[AbstractLevel]OnGravityChange: "+gravityDirection);
+			if(gravityDirection == AccelerometerHandler.GravityDown)
 			{
 				WorldUtils.setWorldRotation(0);
 				box2d.gravity.Set(0, gravityForce);
 			}
-			if(_ce.input.isDoing(AccelerometerHandler.GravityLeft))
+			if(gravityDirection == AccelerometerHandler.GravityLeft)
 			{
 				WorldUtils.setWorldRotation(90);
 				box2d.gravity.Set(-gravityForce,0);
 			}
-			if(_ce.input.isDoing(AccelerometerHandler.GravityRight))
+			if(gravityDirection == AccelerometerHandler.GravityRight)
 			{
 				WorldUtils.setWorldRotation(270);
 				box2d.gravity.Set(gravityForce,0);
 			}
-			if(_ce.input.isDoing(AccelerometerHandler.GravityUp))
+			if(gravityDirection == AccelerometerHandler.GravityUp)
 			{
 				WorldUtils.setWorldRotation(180);
 				box2d.gravity.Set(0, -gravityForce);
@@ -252,12 +256,23 @@ package core.levels
 		 */
 		private function init():void
 		{
+			ObjectMakerStarling.FromTiledMap(_level, _assets.getTextureAtlas("TilesetWorld"+gameData.activeWorld));
+			
 			Debug.log("Ready to play - Init()");
 			Debug.log("Touch screen to unpause and start playing");
+			
+			//Secret Item
+			Debug.log("Adicionar Item secreto nas fases!");
+			secretItem = this.getFirstObjectByType(SecretItem) as SecretItem;
+			secretItem.onFound.addOnce(onSecretItemFound);
+			
 			
 			//Hero's Spawn Point
 			spawnPoint = this.getFirstObjectByType(SpawnPoint) as SpawnPoint;
 			
+			//final point
+			finalPoint = this.getFirstObjectByType(FinalFase) as FinalFase;
+			finalPoint.onCollision.add(onCompleteLevel);
 			//hero = _ce.state.getObjectByName("Hero");
 			var heroBitmap:Bitmap = new HeroPng();
 			var heroTexture:Texture = Texture.fromBitmap(heroBitmap);
@@ -275,7 +290,7 @@ package core.levels
 			//var cameraBounds:Rectangle = new Rectangle(0,0,3840,2816);//tamanho do level..
 			_camera.setUp(hero,new Point(ScreenUtils.SCREEN_REAL_WIDTH /2,ScreenUtils.SCREEN_REAL_HEIGHT / 2),cameraBounds,new Point(.5,.5));
 			_camera.allowZoom = true;
-			_camera.baseZoom = _camera.zoomFit(2048, 1536);
+			_camera.baseZoom = _camera.zoomFit(1230, 920);
 			_camera.setZoom(1);
 			_camera.reset();
 			
@@ -285,6 +300,37 @@ package core.levels
 			createHud();
 			
 			addScreenBlocker();		
+		}
+		
+		private function onSecretItemFound():void
+		{
+			levelInfo.gotSecretItem = true;
+			Debug.log("[AbstractLevel] levelInfo.index :",GameData.levelsInfo.indexOf(levelInfo),"secret item has been found.");
+		}
+		
+		private function onCompleteLevel():void{
+			
+			var nextLevelIndex:int = ((gameData.activeWorld-1) * gameData.LevelsQuantityByWorld) + gameData.activeLevelNumber;
+			Debug.log("[AbstractLevel] Unlocking levelsInfo["+nextLevelIndex+"]");
+			LevelInfo(GameData.levelsInfo[nextLevelIndex]).locked = false;
+			
+			this.addChild(victoryWindow);
+			victoryWindow.onRestartLevel.addOnce(restart);
+			victoryWindow.onNextLevel.addOnce(nextLevel);
+			victoryWindow.onQuitLevel.addOnce(quit);
+			_ce.playing = false;
+		}
+		
+		private function nextLevel():void{
+			var gameData:GameData = GameData.getInstance();
+			if(gameData.activeLevelNumber >= maximoDeFase){
+				quit();
+				return;
+			}
+			var lvlIndex:int = ((gameData.activeWorld-1) * gameData.LevelsQuantityByWorld) +(gameData.activeLevelNumber+1);
+			gameData.activeLevelNumber++;
+			_ce.levelManager.gotoLevel(lvlIndex);
+			Starling.current.nativeOverlay.addChild(TccGame.loadImage);
 		}
 		
 		private function addScreenBlocker():void
@@ -333,6 +379,24 @@ package core.levels
 			
 			//TODO> Janela de pause é recriada todo level..poderia ficar salva em algum lugar
 			pauseWindow = new PauseWindow();
+			
+			var zoomInBtn:Button = new Button(Texture.fromColor(100,100,0xFFFF0000),"ZOOM+");
+			zoomInBtn.pivotX = zoomInBtn.width * .5;
+			zoomInBtn.pivotY = zoomInBtn.height * .5;
+			zoomInBtn.x = ScreenUtils.SCREEN_REAL_WIDTH - zoomInBtn.width * 1.5 - 300;
+			zoomInBtn.y = zoomInBtn.height * 1.5;
+			zoomInBtn.touchable = true;
+			addChild(zoomInBtn);
+			zoomInBtn.addEventListener(Event.TRIGGERED, zoomIn);
+			
+			var zoomOutBtn:Button = new Button(Texture.fromColor(100,100,0xFFFF0000),"ZOOM-");
+			zoomOutBtn.pivotX = zoomOutBtn.width * .5;
+			zoomOutBtn.pivotY = zoomOutBtn.height * .5;
+			zoomOutBtn.x = ScreenUtils.SCREEN_REAL_WIDTH - zoomOutBtn.width * 1.5 - 400;
+			zoomOutBtn.y = zoomOutBtn.height * 1.5;
+			zoomOutBtn.touchable = true;
+			addChild(zoomOutBtn);
+			zoomOutBtn.addEventListener(Event.TRIGGERED, zoomOut);
 		}
 		
 		private function onTouchRestart(event:Event):void
@@ -346,8 +410,8 @@ package core.levels
 		{
 			this.addChild(pauseWindow);
 			pauseWindow.onResume.addOnce(resume);
-			pauseWindow.onMuteMusic.addOnce(muteMusic);
-			pauseWindow.onMuteFx.addOnce(muteFx);
+			pauseWindow.onMuteMusic.add(muteMusic);
+			pauseWindow.onMuteFx.add(muteFx);
 			pauseWindow.onRestart.addOnce(restart);
 			pauseWindow.onQuit.addOnce(quit);
 			_ce.playing = false;
@@ -361,14 +425,14 @@ package core.levels
 		
 		private function muteMusic():void
 		{
-			//TODO> Mute/Unmute MUSIC
-			Debug.log("Music muted/unmuted!");
+			_ce.sound.getGroup(CitrusSoundGroup.BGM).mute = !_ce.sound.getGroup(CitrusSoundGroup.BGM).mute;
+			Debug.log("Music Muted: "+_ce.sound.getGroup(CitrusSoundGroup.BGM).mute);
 		}
 		
 		private function muteFx():void
 		{
-			//TODO> Mute/Unmute Fx
-			Debug.log("FX muted/unmuted!");
+			_ce.sound.getGroup(CitrusSoundGroup.SFX).mute = !_ce.sound.getGroup(CitrusSoundGroup.SFX).mute;
+			Debug.log("FX Muted: "+_ce.sound.getGroup(CitrusSoundGroup.SFX).mute);
 		}
 		
 		private function restart():void
@@ -386,6 +450,8 @@ package core.levels
 			
 			if(this.contains(pauseWindow))
 				this.removeChild(pauseWindow);
+			if(this.contains(victoryWindow))
+				this.removeChild(victoryWindow);
 			
 			addScreenBlocker();
 		}
@@ -394,6 +460,7 @@ package core.levels
 		{
 			//TODO> Voltar para selecao de fases // dar um jeito de resolver isso aqui..nao da pra importar worldselection state aqui dentro
 			Debug.log("Quiting level. Going back to level selection screen");
+			Starling.current.nativeOverlay.addChild(TccGame.loadImage);
 			_ce.state = new WorldSelectionState();
 		}
 		
@@ -404,6 +471,11 @@ package core.levels
 		{
 			super.destroy();
 
+			_ce.sound.stopAllPlayingSounds();
+			
+			//Desabilitar os controles ingame
+			_ce.input.enabled = false;
+			
 			this.removeChild(pauseBtn);
 			pauseBtn.removeEventListener(Event.TRIGGERED, onTouchPause);
 			
@@ -418,22 +490,32 @@ package core.levels
 				this.removeChild(screenBlocker);
 			screenBlocker = null;
 			
-			/*lvlEnded.removeAll();
-			lvlEnded = null;
-			restartLevel.removeAll();//signal
-			restartLevel = null;*/
+			finalPoint.onCollision.removeAll();
+			
 			_level = null;
 			gameData = null;
 			victoryWindow.dispose();
 			victoryWindow = null;
-			touchController = null;
 			box2d = null;
 			_camera = null;
-			accelerometerHandler = null;
 			_assets = null;
-			//assetsLoaded = false;
-			isInitiated = false;
 			_ce.playing = true;
+		}
+		
+		///Teste camera zoom
+		private function zoomIn():void
+		{
+			//_camera.baseZoom = _camera.zoomFit(1280, 960);
+			//_camera.setZoom(1);
+			//_camera.reset();
+			myZoom += 0.1;
+			_camera.zoom(myZoom);
+		}
+		
+		private function zoomOut():void
+		{
+			myZoom -= 0.1;
+			_camera.zoom(myZoom);
 		}
 	}
 }

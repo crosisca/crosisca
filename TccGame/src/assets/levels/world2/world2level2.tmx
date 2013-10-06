@@ -3661,16 +3661,16 @@
   </data>
  </layer>
  <objectgroup name="Plataformas" width="58" height="41">
-  <object type="citrus.objects.platformer.box2d.Platform" x="640" y="2368" width="2816" height="192"/>
+  <object type="citrus.objects.platformer.box2d.Platform" x="640" y="2432" width="2816" height="192"/>
   <object type="citrus.objects.platformer.box2d.Platform" x="192" y="2176" width="448" height="256"/>
-  <object type="citrus.objects.platformer.box2d.Platform" x="64" y="1088" width="192" height="1088"/>
+  <object type="citrus.objects.platformer.box2d.Platform" x="68" y="1088" width="128" height="1088"/>
   <object type="citrus.objects.platformer.box2d.Platform" x="64" y="768" width="1920" height="320"/>
   <object type="citrus.objects.platformer.box2d.Platform" x="1152" y="448" width="512" height="320"/>
   <object type="citrus.objects.platformer.box2d.Platform" x="1600" y="128" width="704" height="320"/>
-  <object type="citrus.objects.platformer.box2d.Platform" x="2304" y="128" width="192" height="128"/>
+  <object type="citrus.objects.platformer.box2d.Platform" x="2304" y="128" width="192" height="64"/>
   <object type="citrus.objects.platformer.box2d.Platform" x="2496" y="192" width="768" height="256"/>
   <object type="citrus.objects.platformer.box2d.Platform" x="3264" y="384" width="256" height="448"/>
-  <object type="citrus.objects.platformer.box2d.Platform" x="3456" y="832" width="128" height="1600"/>
+  <object type="citrus.objects.platformer.box2d.Platform" x="3520" y="832" width="64" height="1600"/>
   <object type="citrus.objects.platformer.box2d.Platform" x="2944" y="1472" width="64" height="256"/>
   <object type="citrus.objects.platformer.box2d.Platform" x="2688" y="704" width="64" height="256"/>
   <object type="citrus.objects.platformer.box2d.Platform" x="704" y="1984" width="256" height="64"/>
@@ -3678,5 +3678,36 @@
  </objectgroup>
  <objectgroup name="Objects" width="58" height="41">
   <object type="core.objects.SpawnPoint" x="320" y="1984" width="128" height="128"/>
+  <object type="customobjects.Spike" x="192" y="1216" width="64" height="512"/>
+  <object type="citrus.objects.platformer.box2d.Platform" x="1792" y="2368" width="1664" height="64"/>
+  <object type="customobjects.Spike" x="640" y="2368" width="1152" height="64"/>
+  <object type="citrus.objects.platformer.box2d.Platform" x="192" y="1728" width="64" height="448"/>
+  <object type="citrus.objects.platformer.box2d.Platform" x="192" y="1088" width="64" height="128"/>
+  <object type="customobjects.Spike" x="2304" y="192" width="192" height="64"/>
+  <object type="customobjects.Spike" x="3456" y="1216" width="64" height="704"/>
+  <object type="citrus.objects.platformer.box2d.Platform" x="3456" y="832" width="64" height="384"/>
+  <object type="citrus.objects.platformer.box2d.Platform" x="3456" y="1920" width="64" height="512"/>
+  <object type="customobjects.PlataformaDesaparece" x="1152" y="1920" width="256" height="64">
+   <properties>
+    <property name="tempo" value="5"/>
+   </properties>
+  </object>
+  <object type="customobjects.PlataformaDesaparece" x="1600" y="1856" width="256" height="64">
+   <properties>
+    <property name="tempo" value="5"/>
+   </properties>
+  </object>
+  <object type="customobjects.PlataformaDesaparece" x="2048" y="1792" width="256" height="64">
+   <properties>
+    <property name="tempo" value="5"/>
+   </properties>
+  </object>
+  <object type="customobjects.PlataformaDesaparece" x="2816" y="1088" width="64" height="256">
+   <properties>
+    <property name="tempo" value="5"/>
+   </properties>
+  </object>
+  <object type="customobjects.Coletavel" x="1728" y="448" width="64" height="64"/>
+  <object type="customobjects.FinalFase" x="3008" y="448" width="128" height="128"/>
  </objectgroup>
 </map>
