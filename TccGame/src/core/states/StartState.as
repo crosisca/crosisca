@@ -82,6 +82,8 @@ package core.states
 			//Iniciar soms principais
 			_ce.sound.addSound("World1Music", { sound:"../../../assets/audio/World1Music.mp3", timesToPlay:-1, group:CitrusSoundGroup.BGM } );
 			_ce.sound.addSound("World2Music", { sound:"../../../assets/audio/World2Music.mp3", timesToPlay:-1, group:CitrusSoundGroup.BGM } );
+			_ce.sound.addSound("World3Music", { sound:"../../../assets/audio/World3Music.mp3", timesToPlay:-1, group:CitrusSoundGroup.BGM } );
+			_ce.sound.addSound("World4Music", { sound:"../../../assets/audio/World4Music.mp3", timesToPlay:-1, group:CitrusSoundGroup.BGM } );
 			_ce.sound.addSound("MenuMusic", { sound:"../../../assets/audio/MenuMusic.mp3", timesToPlay:-1, group:CitrusSoundGroup.BGM } );
 			
 			_ce.sound.playSound("MenuMusic");

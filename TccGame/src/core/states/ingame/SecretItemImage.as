@@ -1,5 +1,7 @@
 package core.states.ingame
 {
+	import core.art.AssetsManager;
+	
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.textures.Texture;
@@ -13,7 +15,7 @@ package core.states.ingame
 		{
 			super();		
 			
-			itemFound = new Image(Texture.fromColor(60,60,0xFF0000FF));
+			itemFound = new Image(AssetsManager.getInstance().getTextureAtlas("MenuAtlas").getTexture("secretItem"));
 			itemFound.pivotX = itemFound.width * .5;
 			itemFound.pivotY = itemFound.height * .5;
 			itemFound.visible = false;

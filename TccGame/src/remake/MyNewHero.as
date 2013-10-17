@@ -4,8 +4,6 @@
 
 package remake
 {
-	import com.gamua.flox.Flox;
-	
 	import Box2D.Common.Math.b2Vec2;
 	import Box2D.Dynamics.Contacts.b2Contact;
 	
@@ -15,10 +13,15 @@ package remake
 	import citrus.objects.platformer.box2d.Sensor;
 	import citrus.physics.box2d.Box2DUtils;
 	import citrus.physics.box2d.IBox2DPhysicsObject;
+	import citrus.view.starlingview.AnimationSequence;
+	import citrus.view.starlingview.StarlingArt;
 	
+	import core.art.AssetsManager;
 	import core.utils.Controls;
 	import core.utils.Debug;
 	import core.utils.WorldUtils;
+	
+	import starling.display.MovieClip;
 	
 	public class MyNewHero extends Hero
 	{
@@ -30,6 +33,12 @@ package remake
 			
 			//Define o quanto o Hero desliza
 			friction = 150;
+			view = new AnimationSequence(AssetsManager.getInstance().getFlixAltas(), ["parado", "correndo", "pulo"], "parado", 24, true);
+			
+			/**
+			 * Set all animation that loop.
+			 */
+			StarlingArt.setLoopAnimations(["parado", "correndo"]);
 		}
 		
 		override public function update(timeDelta:Number):void
@@ -73,7 +82,7 @@ package remake
 				{
 					//var jumpVec:b2Vec2 = Box2DUtils.Rotateb2Vec2(new b2Vec2(0,jumpHeight),WorldUtils.getWorldRotation());
 					var jumpVec:b2Vec2 =new b2Vec2();
-					trace("Rotation Deg =", WorldUtils.getWorldRotationDeg());
+					//trace("Rotation Deg =", WorldUtils.getWorldRotationDeg());
 					switch(WorldUtils.getWorldRotationDeg())
 					{
 						case 0:
@@ -94,14 +103,14 @@ package remake
 							break;
 					}
 					
-					Debug.log("####################################");
-					Debug.log("jumpVec = "+jumpVec.x , jumpVec.y);
-					Debug.log("velocidade antes do pulo = "+velocity.x , velocity.y);
+					//Debug.log("####################################");
+					//Debug.log("jumpVec = "+jumpVec.x , jumpVec.y);
+					//Debug.log("velocidade antes do pulo = "+velocity.x , velocity.y);
 					velocity.Subtract(jumpVec);
-					Debug.log("velocidade depois do pulo = "+velocity.x, velocity.y);
-					Debug.log("####################################");
+					//Debug.log("velocidade depois do pulo = "+velocity.x, velocity.y);
+					//Debug.log("####################################");
 					onJump.dispatch();
-					_ce.sound.playSound("jump");
+					//_ce.sound.playSound("jump");
 					_onGround = false;
 				}
 				
@@ -125,7 +134,68 @@ package remake
 			}//End if(controlsEnabled)
 			updateAnimation();
 		}
+		
+		override protected function updateAnimation():void {
+			
+			var prevAnimation:String = _animation;
+			
+			//var walkingSpeed:Number = getWalkingSpeed();
+			
+			var sidewaysSpeed:Number;
+			switch(WorldUtils.getWorldRotationDeg())
+			{
+				case 0:
+					sidewaysSpeed = velocity[0];
+					break;
+				case 90:
+					sidewaysSpeed = velocity[1];
+					break;
+				case 180:
+					sidewaysSpeed = -velocity[0];
+					break;
+				case 270:
+					sidewaysSpeed = -velocity[1];
+					break;
+			}
+			
+			/*if (_hurt)
+				_animation = "hurt";
+				
+			else */
+			//Pulando
+			if (!_onGround) {
+				
+				_animation = "pulo";
+				
+				if (sidewaysSpeed < -acceleration)
+					_inverted = true;
+				else if (sidewaysSpeed > acceleration)
+					_inverted = false;
+				
+			}//No chao
+			else {
+				if(sidewaysSpeed > acceleration)
+				{
+					_inverted = false;
+					_animation = "correndo";
+				}
+				else if(sidewaysSpeed < -acceleration)
+				{
+					_inverted = true;
+					_animation = "correndo";
+				}
+				else if (sidewaysSpeed > -acceleration && sidewaysSpeed < acceleration) {
+					_animation = "parado";
+				} 
+			}
+			
+			
+			if (prevAnimation != _animation)
+				onAnimationChange.dispatch();
+		}
 
+		
+		
 		override public function handleBeginContact(contact:b2Contact):void 
 		{
 			var collider:IBox2DPhysicsObject = Box2DUtils.CollisionGetOther(this, contact);
@@ -184,8 +254,10 @@ package remake
 					_groundContacts.push(collider.body.GetFixtureList());
 					//trace("begin.groundContacts lenght:",_groundContacts.length);
 					_onGround = true;
-					_ce.sound.playSound("queda");
+					//_ce.sound.playSound("queda");
+					Debug.log("[BeginContact] Set rotation allowed: TRUE)");
 					(_ce.input.getControllerByName("accelerometerHandler") as AccelerometerHandler).setIsRotationAllowed(true);
+					KeyboardGravityHandler.isRotAllowed = true;
 					updateCombinedGroundAngle();
 					//trace("handleBegin -> onGround");
 				}
@@ -232,7 +304,7 @@ package remake
 		{
 			this.x = 290;
 			this.y = 1200;
-			_ce.sound.playSound("morte");
+			//_ce.sound.playSound("morte");
 			_onGround = false;
 		}
 		
@@ -240,7 +312,7 @@ package remake
 		{
 			/**TODO> caio > Quando adiciono o novo chao aqui(que é o certo), a parede lateral ainda continua na lista de chao
 			 Não sei se isso é bom, talvez deveria limpar a lista _groundContacts, pq updateCombinedGroundAngle() pode
-			 estar sendo afetado..
+			 estar sendo afetado.. OU NAO
 			 * Testar essas 2 linhas abaixo*/
 			_onGround = false;
 			//_groundContacts = [];
@@ -281,7 +353,9 @@ package remake
 						{
 							_groundContacts.push(collider.body.GetFixtureList());
 							_onGround = true;
+							Debug.log("[RecalculateGroundCollisionAngle] Set rotation allowed: TRUE");
 							(_ce.input.getControllerByName("accelerometerHandler") as AccelerometerHandler).setIsRotationAllowed(true);
+							KeyboardGravityHandler.isRotAllowed = true;
 							updateCombinedGroundAngle();
 						}//End if collision Angle> adjustedMin && > AdjustedMax
 					}//End if(contact.GetManifold())

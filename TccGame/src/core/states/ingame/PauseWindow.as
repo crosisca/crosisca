@@ -1,11 +1,10 @@
 package core.states.ingame
 {
-	import flash.events.Event;
 	import flash.geom.Point;
 	
+	import core.art.AssetsManager;
 	import core.buttons.FxButton;
 	import core.buttons.MusicButton;
-	import core.utils.Languages;
 	
 	import org.osflash.signals.Signal;
 	
@@ -13,8 +12,6 @@ package core.states.ingame
 	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.display.Sprite;
-	import starling.events.EnterFrameEvent;
-	import starling.events.Event;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
@@ -68,7 +65,7 @@ package core.states.ingame
 			this.addChild(_fxBtn);
 			//_fxBtn.addEventListener(Event.TRIGGERED, onTouchFx);
 			
-			_restartBtn = new Button(Texture.fromColor(50,50,0xFFFF0000),"RESTART");
+			_restartBtn = new Button(AssetsManager.getInstance().getHudAltas().getTexture("resetButton"));
 			_restartBtn.pivotX = _restartBtn.width * .5;
 			_restartBtn.pivotY = _restartBtn.height * .5;
 			_restartBtn.x = _background.x + _background.width * .5;
@@ -76,7 +73,7 @@ package core.states.ingame
 			this.addChild(_restartBtn);
 			//_restartBtn.addEventListener(Event.TRIGGERED, onTouchRestart);
 			
-			_quitBtn = new Button(Texture.fromColor(50,50,0xFFFF0000),"QUIT");
+			_quitBtn = new Button(AssetsManager.getInstance().getHudAltas().getTexture("pauseWindowsQuitButton"));
 			_quitBtn.pivotX = _quitBtn.width * .5;
 			_quitBtn.pivotY = _quitBtn.height * .5;
 			_quitBtn.x =_background.x + _background.width * .5;

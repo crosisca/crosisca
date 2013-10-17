@@ -80,7 +80,9 @@ package core.states
 		
 		override public function destroy():void
 		{
-			_assets.removeTextureAtlas("MenuAtlas");
+			//TODO > Tirar itens usados no jogo do atlas do menu e sumir com ele aqui
+			
+			//_assets.removeTextureAtlas("MenuAtlas");
 			super.destroy();
 		}
 	}

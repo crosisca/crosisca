@@ -3707,7 +3707,7 @@
     <property name="tempo" value="5"/>
    </properties>
   </object>
-  <object type="customobjects.Coletavel" x="1728" y="448" width="64" height="64"/>
+  <object type="core.objects.SecretItem" x="1728" y="448" width="64" height="64"/>
   <object type="customobjects.FinalFase" x="3008" y="448" width="128" height="128"/>
  </objectgroup>
 </map>

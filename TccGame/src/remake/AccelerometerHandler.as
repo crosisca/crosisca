@@ -66,8 +66,9 @@ package remake
 			if(desiredGravDirection != actualGravDirection && isRotationAllowed)
 			{
 				actualGravDirection = desiredGravDirection;
-				onGravityChange.dispatch(actualGravDirection);
+				//Nao mudar a ordem > isRotAloowed=false > onGravChange.dispatch()
 				isRotationAllowed = false;
+				onGravityChange.dispatch(actualGravDirection);
 			}
 		}
 		

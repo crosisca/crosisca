@@ -12,7 +12,6 @@ package core.levels.world1
 		override public function initialize():void
 		{
 			super.initialize();
-			_ce.sound.playSound("World1Music");
 		}
 	}
 }

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:be4ac3dfffb3bf6fdf3c6702e2e7cb17:1/1$ -->
+<TextureAtlas imagePath="World1TilesetTiled.png">
+    <SubTexture name="Mundo_1_Tile__0000_-" x="0" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0001_-" x="64" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0002_-" x="128" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0003_-" x="192" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0004_-" x="256" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0005_-" x="320" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0006_-" x="384" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0007_-" x="448" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0008_-" x="512" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0009_-" x="576" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0010_-" x="640" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0011_-" x="704" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0012_-" x="768" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0013_-" x="832" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0014_-" x="896" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0015_-" x="960" y="0" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0016_-" x="0" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0017_-" x="64" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0018_-" x="128" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0019_-" x="192" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0020_-" x="256" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0021_-" x="320" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0022_-" x="384" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0023_-" x="448" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0024_-" x="512" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0025_-" x="576" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0026_-" x="640" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0027_-" x="704" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0028_-" x="768" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0029_-" x="832" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0030_-" x="896" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0031_-" x="960" y="64" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0032_-" x="0" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0033_-" x="64" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0034_-" x="128" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0035_-" x="192" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0036_-" x="256" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0037_-" x="320" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0038_-" x="384" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0039_-" x="448" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0040_-" x="512" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0041_-" x="576" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0042_-" x="640" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0043_-" x="704" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0044_-" x="768" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0045_-" x="832" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0046_-" x="896" y="128" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0047_-" x="960" y="128" width="62" height="64" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0048_-" x="0" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0049_-" x="64" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0050_-" x="128" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0051_-" x="192" y="192" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0052_-" x="256" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0053_-" x="320" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0054_-" x="384" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0055_-" x="448" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0056_-" x="512" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0057_-" x="576" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0058_-" x="640" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0059_-" x="704" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0060_-" x="768" y="192" width="62" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0061_-" x="830" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0062_-" x="894" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0063_-" x="958" y="192" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0064_-" x="0" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0065_-" x="64" y="256" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0066_-" x="128" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0067_-" x="192" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0068_-" x="256" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0069_-" x="320" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0070_-" x="384" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0071_-" x="448" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0072_-" x="512" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0073_-" x="576" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0074_-" x="640" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0075_-" x="704" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0076_-" x="768" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0077_-" x="832" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0078_-" x="896" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0079_-" x="960" y="256" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0080_-" x="0" y="320" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0081_-" x="64" y="320" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0082_-" x="128" y="320" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0083_-" x="192" y="320" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0084_-" x="256" y="320" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0085_-" x="320" y="320" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0086_-" x="384" y="320" width="64" height="48" frameX="0" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0087_-" x="448" y="320" width="48" height="64" frameX="-8" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0088_-" x="496" y="320" width="48" height="64" frameX="-8" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0089_-" x="544" y="320" width="64" height="48" frameX="0" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0090_-" x="608" y="320" width="52" height="64" frameX="-12" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0091_-" x="660" y="320" width="52" height="64" frameX="-12" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0092_-" x="712" y="320" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0093_-" x="776" y="320" width="64" height="52" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0094_-" x="840" y="320" width="64" height="52" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0095_-" x="904" y="320" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0096_-" x="968" y="320" width="52" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0097_-" x="0" y="384" width="64" height="52" frameX="0" frameY="-12" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0098_-" x="64" y="384" width="52" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0099_-" x="116" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0100_-" x="180" y="384" width="64" height="52" frameX="0" frameY="-12" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0101_-" x="244" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0102_-" x="308" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0103_-" x="372" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0104_-" x="436" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0105_-" x="500" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0106_-" x="564" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0107_-" x="628" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0108_-" x="692" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0109_-" x="756" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0110_-" x="820" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0111_-" x="884" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0112_-" x="948" y="384" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0113_-" x="0" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0114_-" x="64" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0115_-" x="128" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0116_-" x="192" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0117_-" x="256" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0118_-" x="320" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0119_-" x="384" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0120_-" x="448" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0121_-" x="512" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0122_-" x="576" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0123_-" x="640" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0124_-" x="704" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0125_-" x="768" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0126_-" x="832" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0127_-" x="896" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0128_-" x="960" y="448" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0129_-" x="0" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0130_-" x="64" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0131_-" x="128" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0132_-" x="192" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0133_-" x="256" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0134_-" x="320" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0135_-" x="384" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0136_-" x="448" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0137_-" x="512" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0138_-" x="576" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0139_-" x="640" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0140_-" x="704" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0141_-" x="768" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0142_-" x="832" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0143_-" x="896" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0144_-" x="960" y="512" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0145_-" x="0" y="576" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0146_-" x="64" y="576" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0147_-" x="124" y="576" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0148_-" x="184" y="576" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0149_-" x="244" y="576" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0150_-" x="304" y="576" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0151_-" x="364" y="576" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0152_-" x="424" y="576" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0153_-" x="484" y="576" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0154_-" x="544" y="576" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0155_-" x="608" y="576" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0156_-" x="672" y="576" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0157_-" x="736" y="576" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0158_-" x="800" y="576" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0159_-" x="864" y="576" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0160_-" x="928" y="576" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0161_-" x="0" y="640" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0162_-" x="64" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0163_-" x="128" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0164_-" x="192" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0165_-" x="256" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0166_-" x="320" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0167_-" x="384" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0168_-" x="448" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0169_-" x="512" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0170_-" x="576" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0171_-" x="640" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0172_-" x="704" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0173_-" x="768" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0174_-" x="832" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0175_-" x="896" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0176_-" x="960" y="640" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0177_-" x="0" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0178_-" x="64" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0179_-" x="128" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0180_-" x="192" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0181_-" x="256" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0182_-" x="320" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0183_-" x="384" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0184_-" x="448" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0185_-" x="512" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0186_-" x="576" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0187_-" x="640" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0188_-" x="704" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0189_-" x="768" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0190_-" x="832" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0191_-" x="896" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0192_-" x="960" y="704" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0193_-" x="0" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0194_-" x="64" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0195_-" x="128" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0196_-" x="192" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0197_-" x="256" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0198_-" x="320" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0199_-" x="384" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0200_-" x="448" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0201_-" x="512" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0202_-" x="576" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0203_-" x="640" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0204_-" x="704" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0205_-" x="768" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0206_-" x="832" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0207_-" x="896" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0208_-" x="960" y="768" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0209_-" x="0" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0210_-" x="64" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0211_-" x="128" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0212_-" x="192" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0213_-" x="256" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0214_-" x="320" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0215_-" x="384" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0216_-" x="448" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0217_-" x="512" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0218_-" x="576" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0219_-" x="640" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0220_-" x="704" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0221_-" x="768" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0222_-" x="832" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0223_-" x="896" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0224_-" x="960" y="832" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0225_-" x="0" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0226_-" x="64" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0227_-" x="128" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0228_-" x="192" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0229_-" x="256" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0230_-" x="320" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0231_-" x="384" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0232_-" x="448" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0233_-" x="512" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0234_-" x="576" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0235_-" x="640" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0236_-" x="704" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0237_-" x="768" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0238_-" x="832" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0239_-" x="896" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0240_-" x="960" y="896" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0241_-" x="0" y="960" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0242_-" x="64" y="960" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0243_-" x="128" y="960" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0244_-" x="192" y="960" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0245_-" x="256" y="960" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0246_-" x="320" y="960" width="60" height="56" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0247_-" x="380" y="960" width="60" height="56" frameX="-4" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0248_-" x="440" y="960" width="60" height="56" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0249_-" x="500" y="960" width="60" height="56" frameX="0" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0250_-" x="560" y="960" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0251_-" x="624" y="960" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0252_-" x="688" y="960" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0253_-" x="752" y="960" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0254_-" x="816" y="960" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0255_-" x="880" y="960" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0256_-" x="944" y="960" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0257_-" x="0" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0258_-" x="64" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0259_-" x="128" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0260_-" x="192" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0261_-" x="256" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0262_-" x="320" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0263_-" x="384" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0264_-" x="448" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0265_-" x="512" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0266_-" x="576" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0267_-" x="640" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0268_-" x="704" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0269_-" x="768" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0270_-" x="832" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0271_-" x="896" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0272_-" x="960" y="1024" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0273_-" x="0" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0274_-" x="64" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0275_-" x="128" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0276_-" x="192" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0277_-" x="256" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0278_-" x="320" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0279_-" x="384" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0280_-" x="448" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0281_-" x="512" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0282_-" x="576" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0283_-" x="640" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0284_-" x="704" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0285_-" x="768" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0286_-" x="832" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0287_-" x="896" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0288_-" x="960" y="1088" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0289_-" x="0" y="1152" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0290_-" x="64" y="1152" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0291_-" x="128" y="1152" width="56" height="64" frameX="-8" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0292_-" x="184" y="1152" width="62" height="64" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0293_-" x="246" y="1152" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0294_-" x="306" y="1152" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0295_-" x="366" y="1152" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0296_-" x="426" y="1152" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0297_-" x="486" y="1152" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0298_-" x="546" y="1152" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0299_-" x="606" y="1152" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0300_-" x="666" y="1152" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0301_-" x="730" y="1152" width="64" height="56" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0302_-" x="794" y="1152" width="64" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0303_-" x="858" y="1152" width="64" height="56" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0304_-" x="922" y="1152" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0305_-" x="0" y="1216" width="64" height="56" frameX="0" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0306_-" x="64" y="1216" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0307_-" x="128" y="1216" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0308_-" x="192" y="1216" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0309_-" x="256" y="1216" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0310_-" x="320" y="1216" width="48" height="50" frameX="-16" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0311_-" x="368" y="1216" width="48" height="50" frameX="-16" frameY="-14" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0312_-" x="416" y="1216" width="48" height="50" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0313_-" x="464" y="1216" width="48" height="50" frameX="0" frameY="-14" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0314_-" x="512" y="1216" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0315_-" x="576" y="1216" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0316_-" x="640" y="1216" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0317_-" x="704" y="1216" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0318_-" x="768" y="1216" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0319_-" x="832" y="1216" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0320_-" x="896" y="1216" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0321_-" x="960" y="1216" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0322_-" x="0" y="1280" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0323_-" x="64" y="1280" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0324_-" x="128" y="1280" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0325_-" x="192" y="1280" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0326_-" x="256" y="1280" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0327_-" x="320" y="1280" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0328_-" x="384" y="1280" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0329_-" x="448" y="1280" width="50" height="64" frameX="-14" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0330_-" x="498" y="1280" width="50" height="64" frameX="-14" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0331_-" x="548" y="1280" width="50" height="64" frameX="-14" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0332_-" x="598" y="1280" width="50" height="64" frameX="-14" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0333_-" x="648" y="1280" width="50" height="64" frameX="-14" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0334_-" x="698" y="1280" width="50" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0335_-" x="748" y="1280" width="50" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0336_-" x="798" y="1280" width="50" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0337_-" x="848" y="1280" width="50" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0338_-" x="898" y="1280" width="48" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0339_-" x="946" y="1280" width="64" height="50" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0340_-" x="0" y="1344" width="64" height="50" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0341_-" x="64" y="1344" width="64" height="50" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0342_-" x="128" y="1344" width="64" height="50" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0343_-" x="192" y="1344" width="64" height="50" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0344_-" x="256" y="1344" width="64" height="50" frameX="0" frameY="-14" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0345_-" x="320" y="1344" width="64" height="50" frameX="0" frameY="-14" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0346_-" x="384" y="1344" width="64" height="50" frameX="0" frameY="-14" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0347_-" x="448" y="1344" width="64" height="50" frameX="0" frameY="-14" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0348_-" x="512" y="1344" width="64" height="48" frameX="0" frameY="-16" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="Mundo_1_Tile__0349_-" x="576" y="1344" width="64" height="64"/>
+    <SubTexture name="Mundo_1_Tile__0350_-" x="640" y="1344" width="64" height="64"/>
+</TextureAtlas>

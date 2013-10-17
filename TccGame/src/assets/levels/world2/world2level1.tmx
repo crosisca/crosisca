@@ -2552,7 +2552,7 @@
    </properties>
   </object>
   <object type="customobjects.PlataformaDesaparece" x="2560" y="384" width="256" height="64"/>
-  <object type="customobjects.Coletavel" x="2112" y="448" width="64" height="64"/>
+  <object type="core.objects.SecretItem" x="2110" y="454" width="64" height="64"/>
   <object type="customobjects.FinalFase" x="3200" y="576" width="128" height="128"/>
  </objectgroup>
 </map>

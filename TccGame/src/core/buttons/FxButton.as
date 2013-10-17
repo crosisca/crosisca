@@ -1,10 +1,10 @@
 package core.buttons
 {
+	import core.art.AssetsManager;
 	import core.utils.Debug;
 	
 	import starling.display.Image;
 	import starling.display.Sprite;
-	import starling.textures.Texture;
 	
 	public final class FxButton extends Sprite
 	{
@@ -15,10 +15,10 @@ package core.buttons
 		{
 			super();
 			
-			fxOnImg = new Image(Texture.fromColor(50,50,0xFF0000FF));
+			fxOnImg = new Image(AssetsManager.getInstance().getHudAltas().getTexture("fxButtonOn"));
 			this.addChild(fxOnImg);
 			
-			fxOffImg = new Image(Texture.fromColor(50,50,0xFFFF0000));
+			fxOffImg = new Image(AssetsManager.getInstance().getHudAltas().getTexture("fxButtonOff"));
 			fxOffImg.visible = false;
 			this.addChild(fxOffImg);
 		}

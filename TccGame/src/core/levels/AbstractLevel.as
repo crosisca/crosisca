@@ -3,15 +3,18 @@ package core.levels
 	import flash.display.Bitmap;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
+	import flash.ui.Keyboard;
 	
 	import Box2D.Common.Math.b2Mat22;
 	import Box2D.Common.Math.b2Transform;
 	
 	import citrus.core.starling.StarlingState;
+	import citrus.objects.CitrusSprite;
 	import citrus.objects.platformer.awayphysics.Platform;
 	import citrus.physics.box2d.Box2D;
 	import citrus.sounds.CitrusSoundGroup;
 	import citrus.utils.objectmakers.ObjectMakerStarling;
+	import citrus.view.ACitrusCamera;
 	import citrus.view.starlingview.StarlingCamera;
 	
 	import core.TccGame;
@@ -37,12 +40,14 @@ package core.levels
 	import org.osflash.signals.Signal;
 	
 	import remake.AccelerometerHandler;
+	import remake.KeyboardGravityHandler;
 	import remake.MyNewHero;
 	
 	import starling.core.Starling;
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.events.Event;
+	import starling.events.KeyboardEvent;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
@@ -80,8 +85,6 @@ package core.levels
 		
 		//teste
 		private var hero:MyNewHero;
-		[Embed(source="../../../assetsNopack/images/robotHero.png")]
-		private var HeroPng:Class;
 		private var spawnPoint:SpawnPoint;
 		
 		private var finalPoint:FinalFase;
@@ -98,6 +101,13 @@ package core.levels
 		private var levelInfo:LevelInfo;
 		private var secretItem:SecretItem;
 		
+		/**
+		 * KEYBOARD TESTS
+		 */
+		public var desiredGravDirection:String = "gravDown";
+		private var actualGravDirection:String = "gravDown";
+		private var levelNumber:int;
+		
 		public function AbstractLevel(level:XML)
 		{
 			super();
@@ -107,12 +117,16 @@ package core.levels
 			lvlEnded = new Signal();
 			restartLevel = new Signal();
 			
-			// Useful for not forgetting to import object from the Level Editor
-			
+			/**
+			 * GRAVITY WITH KEYBOARD TEST
+			 */
+			this.addEventListener(KeyboardEvent.KEY_DOWN, changeGrav);
 		}
 		
 		override public function initialize():void {
 			super.initialize();
+
+			_ce.sound.stopAllPlayingSounds();
 			
 			var index:int = ((gameData.activeWorld-1) * gameData.LevelsQuantityByWorld) + gameData.activeLevelNumber -1;
 			levelInfo = GameData.levelsInfo[index];
@@ -150,11 +164,16 @@ package core.levels
 				//Load new world texture atlas
 				_assets.enqueue("../assets/levels/world"+gameData.activeWorld+"/TilesetWorld"+gameData.activeWorld+".png"/*.toString()*//*,"TilesetWorld"+gameData.activeWorld/*+"Img"*/);
 				_assets.enqueue("../assets/levels/world"+gameData.activeWorld+"/TilesetWorld"+gameData.activeWorld+".xml"/*.toString()*//*,"TilesetWorld"+gameData.activeWorld+"Xml"*/);
+				levelNumber = ((gameData.activeWorld-1) * 5) +gameData.activeLevelNumber;
+				_assets.enqueue("../assets/levels/world"+gameData.activeWorld+"/backgroundLevel"+levelNumber+".jpg");
 				_assets.loadQueue(onAssetsManagerLoadProgress);
 			}
 			else
 			{
-				init();
+				levelNumber = ((gameData.activeWorld-1) * 5) +gameData.activeLevelNumber;
+				_assets.enqueue("../assets/levels/world"+gameData.activeWorld+"/backgroundLevel"+levelNumber+".jpg");
+				_assets.loadQueue(onAssetsManagerLoadProgress);
+				//init();
 			}
 		//	_assets.enqueueWithName("../assets/levels/world"+gameData.activeWorld+"/level"+gameData.activeLevelNumber+"/world"+gameData.activeWorld+"level"+gameData.activeLevelNumber+".xml".toString(),"TilesetWorld"+gameData.activeWorld+"Xml");
 			
@@ -208,6 +227,12 @@ package core.levels
 		 */
 		override public function update(timeDelta:Number):void {
 			super.update(timeDelta);
+			
+			/**
+			 * deletar
+			 */
+			updateGrav();
+			
 			/*if(_ce.input.isDoing(AccelerometerHandler.GravityChange))
 				Debug.log("I'm doing gravity change------");
 			if(_ce.input.justDid(AccelerometerHandler.GravityChange))
@@ -256,6 +281,15 @@ package core.levels
 		 */
 		private function init():void
 		{
+			_ce.sound.playSound("World"+gameData.activeWorld+"Music");
+			
+			var bgTexture:Texture = _assets.getTexture("backgroundLevel"+levelNumber);
+			var bgImg:Image = new Image(bgTexture);
+			var backgroundSprite:CitrusSprite = new CitrusSprite("bgSprite",{view:bgImg,z:-50});
+			backgroundSprite.parallaxX = .5;
+			backgroundSprite.parallaxY = .5;
+			add(backgroundSprite);
+			
 			ObjectMakerStarling.FromTiledMap(_level, _assets.getTextureAtlas("TilesetWorld"+gameData.activeWorld));
 			
 			Debug.log("Ready to play - Init()");
@@ -274,12 +308,7 @@ package core.levels
 			finalPoint = this.getFirstObjectByType(FinalFase) as FinalFase;
 			finalPoint.onCollision.add(onCompleteLevel);
 			//hero = _ce.state.getObjectByName("Hero");
-			var heroBitmap:Bitmap = new HeroPng();
-			var heroTexture:Texture = Texture.fromBitmap(heroBitmap);
-			var heroImg:Image = new Image(heroTexture);
-			heroImg.scaleX = heroImg.scaleY = .5;
-			addChild(heroImg);
-			hero = new MyNewHero("hero",{view:heroImg,x: spawnPoint.x, y: spawnPoint.y, width: 62, height:64});
+			hero = new MyNewHero("hero",{/*view:heroImg,*/x: spawnPoint.x, y: spawnPoint.y, width: 62, height:64});
 			add(hero);
 			
 			//TODO> FIX CAMERA
@@ -292,6 +321,7 @@ package core.levels
 			_camera.allowZoom = true;
 			_camera.baseZoom = _camera.zoomFit(1230, 920);
 			_camera.setZoom(1);
+			//_camera.parallaxMode = ACitrusCamera.PARALLAX_MODE_DEPTH;
 			_camera.reset();
 			
 			//Remove the loading screen
@@ -305,6 +335,7 @@ package core.levels
 		private function onSecretItemFound():void
 		{
 			levelInfo.gotSecretItem = true;
+			secretItem.kill = true;
 			Debug.log("[AbstractLevel] levelInfo.index :",GameData.levelsInfo.indexOf(levelInfo),"secret item has been found.");
 		}
 		
@@ -359,20 +390,20 @@ package core.levels
 		
 		private function createHud():void
 		{
-			pauseBtn = new Button(Texture.fromColor(50,50,0xFFFF0000),"PAUSE");
+			pauseBtn = new Button(AssetsManager.getInstance().getHudAltas().getTexture("pauseButton"));
 			pauseBtn.pivotX = pauseBtn.width * .5;
 			pauseBtn.pivotY = pauseBtn.height * .5;
-			pauseBtn.x = ScreenUtils.SCREEN_REAL_WIDTH - pauseBtn.width * 1.5 - 500;
+			pauseBtn.x = ScreenUtils.SCREEN_REAL_WIDTH - pauseBtn.width * 1.5;
 			pauseBtn.y = pauseBtn.height * 1.5;
 			pauseBtn.touchable = true;
 			addChild(pauseBtn);
 			pauseBtn.addEventListener(Event.TRIGGERED, onTouchPause);
 			
-			restartBtn = new Button(Texture.fromColor(50,50,0xFF0000FF),"RESTART");
-			restartBtn.pivotX = pauseBtn.width * .5;
-			restartBtn.pivotY = pauseBtn.height * .5;
-			restartBtn.x = pauseBtn.width * 1.5;
-			restartBtn.y = pauseBtn.height * 1.5;
+			restartBtn = new Button(AssetsManager.getInstance().getHudAltas().getTexture("resetButton"));
+			restartBtn.pivotX = restartBtn.width * .5;
+			restartBtn.pivotY = restartBtn.height * .5;
+			restartBtn.x = restartBtn.width * 1.5;
+			restartBtn.y = restartBtn.height * 1.5;
 			restartBtn.touchable = true;
 			addChild(restartBtn);
 			restartBtn.addEventListener(Event.TRIGGERED, onTouchRestart);
@@ -380,7 +411,7 @@ package core.levels
 			//TODO> Janela de pause é recriada todo level..poderia ficar salva em algum lugar
 			pauseWindow = new PauseWindow();
 			
-			var zoomInBtn:Button = new Button(Texture.fromColor(100,100,0xFFFF0000),"ZOOM+");
+			/*var zoomInBtn:Button = new Button(Texture.fromColor(100,100,0xFFFF0000),"ZOOM+");
 			zoomInBtn.pivotX = zoomInBtn.width * .5;
 			zoomInBtn.pivotY = zoomInBtn.height * .5;
 			zoomInBtn.x = ScreenUtils.SCREEN_REAL_WIDTH - zoomInBtn.width * 1.5 - 300;
@@ -396,7 +427,7 @@ package core.levels
 			zoomOutBtn.y = zoomOutBtn.height * 1.5;
 			zoomOutBtn.touchable = true;
 			addChild(zoomOutBtn);
-			zoomOutBtn.addEventListener(Event.TRIGGERED, zoomOut);
+			zoomOutBtn.addEventListener(Event.TRIGGERED, zoomOut);*/
 		}
 		
 		private function onTouchRestart(event:Event):void
@@ -471,6 +502,9 @@ package core.levels
 		{
 			super.destroy();
 
+			_assets.removeTexture("backgroundLevel"+levelNumber);
+			//_assets.removeTexture("../assets/levels/world"+gameData.activeWorld+"/backgroundLevel"+gameData.activeLevelNumber+".jpg");
+			
 			_ce.sound.stopAllPlayingSounds();
 			
 			//Desabilitar os controles ingame
@@ -516,6 +550,44 @@ package core.levels
 		{
 			myZoom -= 0.1;
 			_camera.zoom(myZoom);
+		}
+		
+		/**
+		 * 
+		 * KEYBOARD TESTS...DELETAR TD DAQUI PRA BAIXO DPS
+		 * 
+		 */
+		
+		private function updateGrav():void
+		{
+			//If gravity is different from last frame
+			if(desiredGravDirection != actualGravDirection && KeyboardGravityHandler.isRotAllowed)
+			{
+				actualGravDirection = desiredGravDirection;
+				Debug.log("[UpdateGrav] Set rotation allowed: FALSE - newG"+desiredGravDirection+" oldG:"+actualGravDirection);
+				KeyboardGravityHandler.isRotAllowed = false;
+				onGravityChange(actualGravDirection);
+			}
+		}
+		
+		private function changeGrav(event:KeyboardEvent):void
+		{
+			if(event.keyCode == Keyboard.DOWN)
+			{
+				desiredGravDirection = AccelerometerHandler.GravityDown;
+			}
+			if(event.keyCode == Keyboard.LEFT)
+			{
+				desiredGravDirection =  AccelerometerHandler.GravityLeft;
+			}
+			if(event.keyCode == Keyboard.RIGHT)
+			{
+				desiredGravDirection =  AccelerometerHandler.GravityRight;
+			}
+			if(event.keyCode == Keyboard.UP)
+			{
+				desiredGravDirection =  AccelerometerHandler.GravityUp;
+			}
 		}
 	}
 }

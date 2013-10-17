@@ -1,10 +1,10 @@
 package core.buttons
 {
+	import core.art.AssetsManager;
 	import core.utils.Debug;
 	
 	import starling.display.Image;
 	import starling.display.Sprite;
-	import starling.textures.Texture;
 	
 	public final class MusicButton extends Sprite
 	{
@@ -15,10 +15,10 @@ package core.buttons
 		{
 			super();
 			
-			musicOnImg = new Image(Texture.fromColor(50,50,0xFF00FF00));
+			musicOnImg = new Image(AssetsManager.getInstance().getHudAltas().getTexture("soundButtonOn"));
 			this.addChild(musicOnImg);
 
-			musicOffImg = new Image(Texture.fromColor(50,50,0xFFFF0000));
+			musicOffImg = new Image(AssetsManager.getInstance().getHudAltas().getTexture("soundButtonOff"));
 			musicOffImg.visible = false;
 			this.addChild(musicOffImg);
 		}

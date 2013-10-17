@@ -2,6 +2,8 @@ package core.states.ingame
 {
 	import flash.geom.Point;
 	
+	import core.art.AssetsManager;
+	
 	import org.osflash.signals.Signal;
 	
 	import starling.display.Button;
@@ -57,14 +59,14 @@ package core.states.ingame
 			_levelTime.y = _background.y + _background.height * .5;
 			this.addChild(_levelTime);
 			
-			_restartBtn = new Button(Texture.fromColor(50,50,0xFFFF0000),"RESTART");
+			_restartBtn = new Button(AssetsManager.getInstance().getHudAltas().getTexture("resetButton"),"RESTART");
 			_restartBtn.pivotX = _restartBtn.width * .5;
 			_restartBtn.pivotY = _restartBtn.height * .5;
 			_restartBtn.x = _background.x + _background.width * .5;
 			_restartBtn.y = _background.y + _background.height * .7;
 			this.addChild(_restartBtn);
 			
-			_quitBtn = new Button(Texture.fromColor(50,50,0xFFFF0000),"QUIT");
+			_quitBtn = new Button(AssetsManager.getInstance().getHudAltas().getTexture("quitButton"),"QUIT");
 				_quitBtn.pivotX = _quitBtn.width * .5;
 			_quitBtn.pivotY = _quitBtn.height * .5;
 			_quitBtn.x =_background.x + _background.width * .5;

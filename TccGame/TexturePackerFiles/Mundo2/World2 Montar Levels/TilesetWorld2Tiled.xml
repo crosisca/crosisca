@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:089e467b98a4dee5724b5ee71515acf5:1/1$ -->
+<TextureAtlas imagePath="TilesetWorld2Tiled.png">
+    <SubTexture name="1_0000_Estalactite" x="0" y="0" width="24" height="56" frameX="0" frameY="-3" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0001_Corpo" x="24" y="0" width="64" height="64"/>
+    <SubTexture name="1_0002_Estalactite" x="88" y="0" width="24" height="56" frameX="-40" frameY="-3" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0003_Corpo" x="112" y="0" width="64" height="64"/>
+    <SubTexture name="1_0004_Estalactite" x="176" y="0" width="56" height="24" frameX="-3" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0005_Corpo" x="232" y="0" width="64" height="64"/>
+    <SubTexture name="1_0006_Estalactite" x="296" y="0" width="56" height="24" frameX="-3" frameY="-40" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0007_Corpo" x="352" y="0" width="64" height="64"/>
+    <SubTexture name="1_0008_Cristais-5" x="416" y="0" width="56" height="58" frameX="0" frameY="-3" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0009_Cristais-4" x="472" y="0" width="56" height="60" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0010_Cristais-3" x="528" y="0" width="52" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0011_Cristais-2" x="580" y="0" width="58" height="58" frameX="0" frameY="-3" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0012_Cristais-1" x="638" y="0" width="64" height="62" frameX="0" frameY="-1" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0013_Meio-3.5" x="702" y="0" width="64" height="64"/>
+    <SubTexture name="1_0014_Meio-3.4" x="766" y="0" width="64" height="64"/>
+    <SubTexture name="1_0015_Meio-3.3" x="830" y="0" width="64" height="64"/>
+    <SubTexture name="1_0016_Meio-3.2" x="894" y="0" width="64" height="64"/>
+    <SubTexture name="1_0017_Meio-3" x="958" y="0" width="64" height="64"/>
+    <SubTexture name="1_0018_Meio-2.4" x="1022" y="0" width="64" height="64"/>
+    <SubTexture name="1_0019_Meio-2.3" x="1086" y="0" width="64" height="64"/>
+    <SubTexture name="1_0020_Meio-2.2" x="1150" y="0" width="64" height="64"/>
+    <SubTexture name="1_0021_Meio-2.1" x="1214" y="0" width="64" height="64"/>
+    <SubTexture name="1_0022_Meio-2" x="1278" y="0" width="64" height="64"/>
+    <SubTexture name="1_0023_Meio-1.5" x="1342" y="0" width="64" height="64"/>
+    <SubTexture name="1_0024_Meio-1.4" x="1406" y="0" width="64" height="64"/>
+    <SubTexture name="1_0025_Meio-1.3" x="1470" y="0" width="64" height="64"/>
+    <SubTexture name="1_0026_Meio-1.2" x="1534" y="0" width="64" height="64"/>
+    <SubTexture name="1_0027_Meio-1" x="1598" y="0" width="64" height="64"/>
+    <SubTexture name="1_0028_Lado-Dir" x="1662" y="0" width="64" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0029_Lado-ESQ" x="1726" y="0" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0030_Cristais-5" x="1790" y="0" width="56" height="58" frameX="-8" frameY="-3" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0031_Cristais-4" x="1846" y="0" width="56" height="60" frameX="-8" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0032_Cristais-3" x="1902" y="0" width="52" height="62" frameX="-12" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0033_Cristais-2" x="1954" y="0" width="58" height="58" frameX="-6" frameY="-3" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0034_Cristais-1" x="0" y="64" width="64" height="62" frameX="0" frameY="-1" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0035_Meio-3.5" x="64" y="64" width="64" height="64"/>
+    <SubTexture name="1_0036_Meio-3.4" x="128" y="64" width="64" height="64"/>
+    <SubTexture name="1_0037_Meio-3.3" x="192" y="64" width="64" height="64"/>
+    <SubTexture name="1_0038_Meio-3.2" x="256" y="64" width="64" height="64"/>
+    <SubTexture name="1_0039_Meio-3" x="320" y="64" width="64" height="64"/>
+    <SubTexture name="1_0040_Meio-2.4" x="384" y="64" width="64" height="64"/>
+    <SubTexture name="1_0041_Meio-2.3" x="448" y="64" width="64" height="64"/>
+    <SubTexture name="1_0042_Meio-2.2" x="512" y="64" width="64" height="64"/>
+    <SubTexture name="1_0043_Meio-2.1" x="576" y="64" width="64" height="64"/>
+    <SubTexture name="1_0044_Meio-2" x="640" y="64" width="64" height="64"/>
+    <SubTexture name="1_0045_Meio-1.5" x="704" y="64" width="64" height="64"/>
+    <SubTexture name="1_0046_Meio-1.4" x="768" y="64" width="64" height="64"/>
+    <SubTexture name="1_0047_Meio-1.3" x="832" y="64" width="64" height="64"/>
+    <SubTexture name="1_0048_Meio-1.2" x="896" y="64" width="64" height="64"/>
+    <SubTexture name="1_0049_Meio-1" x="960" y="64" width="64" height="64"/>
+    <SubTexture name="1_0050_Lado-Dir" x="1024" y="64" width="64" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0051_Lado-ESQ" x="1088" y="64" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0052_Cristais-5" x="1152" y="64" width="58" height="56" frameX="-3" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0053_Cristais-4" x="1210" y="64" width="60" height="56" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0054_Cristais-3" x="1270" y="64" width="62" height="52" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0055_Cristais-2" x="1332" y="64" width="58" height="58" frameX="-3" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0056_Cristais-1" x="1390" y="64" width="62" height="64" frameX="-1" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0057_Meio-3.5" x="1452" y="64" width="64" height="64"/>
+    <SubTexture name="1_0058_Meio-3.4" x="1516" y="64" width="64" height="64"/>
+    <SubTexture name="1_0059_Meio-3.3" x="1580" y="64" width="64" height="64"/>
+    <SubTexture name="1_0060_Meio-3.2" x="1644" y="64" width="64" height="64"/>
+    <SubTexture name="1_0061_Meio-3" x="1708" y="64" width="64" height="64"/>
+    <SubTexture name="1_0062_Meio-2.4" x="1772" y="64" width="64" height="64"/>
+    <SubTexture name="1_0063_Meio-2.3" x="1836" y="64" width="64" height="64"/>
+    <SubTexture name="1_0064_Meio-2.2" x="1900" y="64" width="64" height="64"/>
+    <SubTexture name="1_0065_Meio-2.1" x="1964" y="64" width="64" height="64"/>
+    <SubTexture name="1_0066_Meio-2" x="0" y="128" width="64" height="64"/>
+    <SubTexture name="1_0067_Meio-1.5" x="64" y="128" width="64" height="64"/>
+    <SubTexture name="1_0068_Meio-1.4" x="128" y="128" width="64" height="64"/>
+    <SubTexture name="1_0069_Meio-1.3" x="192" y="128" width="64" height="64"/>
+    <SubTexture name="1_0070_Meio-1.2" x="256" y="128" width="64" height="64"/>
+    <SubTexture name="1_0071_Meio-1" x="320" y="128" width="64" height="64"/>
+    <SubTexture name="1_0072_Lado-Dir" x="384" y="128" width="62" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0073_Lado-ESQ" x="446" y="128" width="62" height="64" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0074_Cristais-5" x="508" y="128" width="58" height="56" frameX="-3" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0075_Cristais-4" x="566" y="128" width="60" height="56" frameX="-2" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0076_Cristais-3" x="626" y="128" width="62" height="52" frameX="0" frameY="-12" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0077_Cristais-2" x="688" y="128" width="58" height="58" frameX="-3" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0078_Cristais-1" x="746" y="128" width="62" height="64" frameX="-1" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0079_Meio-3.5" x="808" y="128" width="64" height="64"/>
+    <SubTexture name="1_0080_Meio-3.4" x="872" y="128" width="64" height="64"/>
+    <SubTexture name="1_0081_Meio-3.3" x="936" y="128" width="64" height="64"/>
+    <SubTexture name="1_0082_Meio-3.2" x="1000" y="128" width="64" height="64"/>
+    <SubTexture name="1_0083_Meio-3" x="1064" y="128" width="64" height="64"/>
+    <SubTexture name="1_0084_Meio-2.4" x="1128" y="128" width="64" height="64"/>
+    <SubTexture name="1_0085_Meio-2.3" x="1192" y="128" width="64" height="64"/>
+    <SubTexture name="1_0086_Meio-2.2" x="1256" y="128" width="64" height="64"/>
+    <SubTexture name="1_0087_Meio-2.1" x="1320" y="128" width="64" height="64"/>
+    <SubTexture name="1_0088_Meio-2" x="1384" y="128" width="64" height="64"/>
+    <SubTexture name="1_0089_Meio-1.5" x="1448" y="128" width="64" height="64"/>
+    <SubTexture name="1_0090_Meio-1.4" x="1512" y="128" width="64" height="64"/>
+    <SubTexture name="1_0091_Meio-1.3" x="1576" y="128" width="64" height="64"/>
+    <SubTexture name="1_0092_Meio-1.2" x="1640" y="128" width="64" height="64"/>
+    <SubTexture name="1_0093_Meio-1" x="1704" y="128" width="64" height="64"/>
+    <SubTexture name="1_0094_Lado-Dir" x="1768" y="128" width="62" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0095_Lado-ESQ" x="1830" y="128" width="62" height="64" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0096_Roda-4" x="1892" y="128" width="64" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0097_Roda-3" x="1956" y="128" width="62" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0098_Roda-2" x="0" y="192" width="62" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0099_Roda-1" x="62" y="192" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0100_Roda-4" x="126" y="192" width="64" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0101_Roda-3" x="190" y="192" width="62" height="62" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0102_Roda-2" x="252" y="192" width="62" height="62" frameX="-2" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0103_Roda-1" x="314" y="192" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0104_Roda-4" x="378" y="192" width="62" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0105_Roda-3" x="440" y="192" width="62" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0106_Roda-2" x="502" y="192" width="62" height="62" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0107_Roda-1" x="564" y="192" width="62" height="64" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0108_Roda-4" x="626" y="192" width="62" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0109_Roda-3" x="688" y="192" width="62" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0110_Roda-2" x="750" y="192" width="62" height="62" frameX="-2" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0111_Roda-1" x="812" y="192" width="62" height="64" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0112_Meio-3" x="874" y="192" width="64" height="64"/>
+    <SubTexture name="1_0113_Meio-2" x="938" y="192" width="64" height="64"/>
+    <SubTexture name="1_0114_Meio-1" x="1002" y="192" width="64" height="64"/>
+    <SubTexture name="1_0115_Meio-3" x="1066" y="192" width="64" height="64"/>
+    <SubTexture name="1_0116_Meio-2" x="1130" y="192" width="64" height="64"/>
+    <SubTexture name="1_0117_Meio-1" x="1194" y="192" width="64" height="64"/>
+    <SubTexture name="1_0118_Lado-ESQ-3" x="1258" y="192" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0119_Lado-ESQ-2" x="1322" y="192" width="64" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0120_Lado-ESQ-1" x="1386" y="192" width="64" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0121_Lado-ESQ-3" x="1450" y="192" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0122_Lado-ESQ-2" x="1514" y="192" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0123_Lado-ESQ-1" x="1578" y="192" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0124_Meio-3" x="1642" y="192" width="64" height="64"/>
+    <SubTexture name="1_0125_Meio-2" x="1706" y="192" width="64" height="64"/>
+    <SubTexture name="1_0126_Meio-1" x="1770" y="192" width="64" height="64"/>
+    <SubTexture name="1_0127_Meio-3" x="1834" y="192" width="64" height="64"/>
+    <SubTexture name="1_0128_Meio-2" x="1898" y="192" width="64" height="64"/>
+    <SubTexture name="1_0129_Meio-1" x="1962" y="192" width="64" height="64"/>
+    <SubTexture name="1_0130_Lado-ESQ-3" x="0" y="256" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0131_Lado-ESQ-2" x="64" y="256" width="64" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0132_Lado-ESQ-1" x="128" y="256" width="64" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0133_Lado-ESQ-3" x="192" y="256" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0134_Lado-ESQ-2" x="256" y="256" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0135_Lado-ESQ-1" x="320" y="256" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0136_Meio-3" x="384" y="256" width="64" height="64"/>
+    <SubTexture name="1_0137_Meio-2" x="448" y="256" width="64" height="64"/>
+    <SubTexture name="1_0138_Meio-1" x="512" y="256" width="64" height="64"/>
+    <SubTexture name="1_0139_Meio-3" x="576" y="256" width="64" height="64"/>
+    <SubTexture name="1_0140_Meio-2" x="640" y="256" width="64" height="64"/>
+    <SubTexture name="1_0141_Meio-1" x="704" y="256" width="64" height="64"/>
+    <SubTexture name="1_0142_Lado-ESQ-3" x="768" y="256" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0143_Lado-ESQ-2" x="828" y="256" width="62" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0144_Lado-ESQ-1" x="890" y="256" width="62" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0145_Lado-ESQ-3" x="952" y="256" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0146_Lado-ESQ-2" x="1012" y="256" width="62" height="64" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0147_Lado-ESQ-1" x="1074" y="256" width="62" height="64" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0148_Meio-3" x="1136" y="256" width="64" height="64"/>
+    <SubTexture name="1_0149_Meio-2" x="1200" y="256" width="64" height="64"/>
+    <SubTexture name="1_0150_Meio-1" x="1264" y="256" width="64" height="64"/>
+    <SubTexture name="1_0151_Meio-3" x="1328" y="256" width="64" height="64"/>
+    <SubTexture name="1_0152_Meio-2" x="1392" y="256" width="64" height="64"/>
+    <SubTexture name="1_0153_Meio-1" x="1456" y="256" width="64" height="64"/>
+    <SubTexture name="1_0154_Lado-ESQ-3" x="1520" y="256" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0155_Lado-ESQ-2" x="1580" y="256" width="62" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0156_Lado-ESQ-1" x="1642" y="256" width="62" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0157_Lado-ESQ-3" x="1704" y="256" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0158_Lado-ESQ-2" x="1764" y="256" width="62" height="64" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0159_Lado-ESQ-1" x="1826" y="256" width="62" height="64" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0160_Meio-4" x="1888" y="256" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0161_Meio-3" x="1946" y="256" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0162_Meio-2" x="0" y="320" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0163_Meio-1" x="58" y="320" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0164_Meio-4" x="116" y="320" width="56" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0165_Meio-3" x="172" y="320" width="56" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0166_Meio-2" x="228" y="320" width="56" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0167_Meio-1" x="284" y="320" width="56" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0168_Meio-4" x="340" y="320" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0169_Meio-3" x="398" y="320" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0170_Meio-2" x="456" y="320" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0171_Meio-1" x="514" y="320" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0172_Meio-4" x="572" y="320" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0173_Meio-3" x="630" y="320" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0174_Meio-2" x="688" y="320" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0175_Meio-1" x="746" y="320" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0176_Meio-4" x="804" y="320" width="56" height="64" frameX="-8" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0177_Meio-3" x="860" y="320" width="56" height="64" frameX="-8" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0178_Meio-2" x="916" y="320" width="56" height="64" frameX="-8" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0179_Meio-1" x="972" y="320" width="56" height="64" frameX="-8" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0180_Meio-4" x="1028" y="320" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0181_Meio-3" x="1086" y="320" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0182_Meio-2" x="1144" y="320" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0183_Meio-1" x="1202" y="320" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0184_Meio-4" x="1260" y="320" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0185_Meio-3" x="1324" y="320" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0186_Meio-2" x="1388" y="320" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0187_Meio-1" x="1452" y="320" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0188_Meio-4" x="1516" y="320" width="64" height="56" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0189_Meio-3" x="1580" y="320" width="64" height="56" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0190_Meio-2" x="1644" y="320" width="64" height="56" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0191_Meio-1" x="1708" y="320" width="64" height="56" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0192_Meio-4" x="1772" y="320" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0193_Meio-3" x="1836" y="320" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0194_Meio-2" x="1900" y="320" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0195_Meio-1" x="1964" y="320" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0196_Meio-4" x="0" y="384" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0197_Meio-3" x="64" y="384" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0198_Meio-2" x="128" y="384" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0199_Meio-1" x="192" y="384" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0200_Meio-4" x="256" y="384" width="64" height="56" frameX="0" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0201_Meio-3" x="320" y="384" width="64" height="56" frameX="0" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0202_Meio-2" x="384" y="384" width="64" height="56" frameX="0" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0203_Meio-1" x="448" y="384" width="64" height="56" frameX="0" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0204_Meio-4" x="512" y="384" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0205_Meio-3" x="576" y="384" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0206_Meio-2" x="640" y="384" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0207_Meio-1" x="704" y="384" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="1_0208_Meio-1-cópia-14" x="768" y="384" width="64" height="64"/>
+    <SubTexture name="1_0209_Meio-1-cópia-13" x="832" y="384" width="64" height="64"/>
+    <SubTexture name="1_0210_Meio-1-cópia-12" x="896" y="384" width="64" height="64"/>
+    <SubTexture name="1_0211_Meio-1-cópia-11" x="960" y="384" width="64" height="64"/>
+    <SubTexture name="1_0212_Meio-1-cópia-7" x="1024" y="384" width="64" height="64"/>
+    <SubTexture name="1_0213_Meio-1-cópia-9" x="1088" y="384" width="64" height="64"/>
+    <SubTexture name="1_0214_Meio-1-cópia-8" x="1152" y="384" width="64" height="64"/>
+    <SubTexture name="1_0215_Meio-1" x="1216" y="384" width="64" height="64"/>
+    <SubTexture name="1_0216_Meio-1-cópia-10" x="1280" y="384" width="64" height="64"/>
+    <SubTexture name="2_0000_Meio-4" x="1344" y="384" width="64" height="64"/>
+    <SubTexture name="2_0001_Meio-3" x="1408" y="384" width="64" height="64"/>
+    <SubTexture name="2_0002_Meio-2" x="1472" y="384" width="64" height="64"/>
+    <SubTexture name="2_0003_Meio-1" x="1536" y="384" width="64" height="64"/>
+    <SubTexture name="2_0004_Meio-1-cópia-6" x="1600" y="384" width="64" height="64"/>
+    <SubTexture name="2_0005_Meio-1-cópia-5" x="1664" y="384" width="64" height="64"/>
+    <SubTexture name="2_0006_Meio-1-cópia-4" x="1728" y="384" width="64" height="64"/>
+    <SubTexture name="2_0007_Meio-1-cópia-3" x="1792" y="384" width="64" height="64"/>
+    <SubTexture name="2_0008_Meio-1-cópia" x="1856" y="384" width="64" height="64"/>
+    <SubTexture name="2_0009_Meio-1-cópia-6" x="1920" y="384" width="64" height="64"/>
+    <SubTexture name="2_0010_Meio-1-cópia-5" x="1984" y="384" width="64" height="64"/>
+    <SubTexture name="2_0011_Meio-1-cópia-4" x="0" y="448" width="64" height="64"/>
+    <SubTexture name="2_0012_Meio-1-cópia-3" x="64" y="448" width="64" height="64"/>
+    <SubTexture name="2_0013_Meio-1-cópia" x="128" y="448" width="64" height="64"/>
+    <SubTexture name="2_0014_Meio-4" x="192" y="448" width="64" height="64"/>
+    <SubTexture name="2_0015_Meio-3" x="256" y="448" width="64" height="64"/>
+    <SubTexture name="2_0016_Meio-2" x="320" y="448" width="64" height="64"/>
+    <SubTexture name="2_0017_Meio" x="384" y="448" width="64" height="64"/>
+    <SubTexture name="2_0018_Dir-5" x="448" y="448" width="64" height="64"/>
+    <SubTexture name="2_0019_Dir-4" x="512" y="448" width="64" height="64"/>
+    <SubTexture name="2_0020_Dir-3" x="576" y="448" width="64" height="64"/>
+    <SubTexture name="2_0021_Dir-2" x="640" y="448" width="64" height="64"/>
+    <SubTexture name="2_0022_Dir" x="704" y="448" width="64" height="64"/>
+    <SubTexture name="2_0023_Dir-3-cópia-3" x="768" y="448" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0024_Dir-3-cópia-2" x="828" y="448" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0025_Dir-3-cópia" x="888" y="448" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0026_Dir-3" x="946" y="448" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0027_Dir-2" x="1004" y="448" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0028_Dir-cópia" x="1062" y="448" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0029_Dir" x="1120" y="448" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0030_Meio-4" x="1178" y="448" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0031_Meio-3" x="1238" y="448" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0032_Meio-2" x="1298" y="448" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0033_Meio-1" x="1358" y="448" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0034_Dir-3-cópia-3" x="1418" y="448" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0035_Dir-3-cópia-2" x="1478" y="448" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0036_Dir-3-cópia" x="1538" y="448" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0037_Dir-3" x="1596" y="448" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0038_Dir-2" x="1654" y="448" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0039_Dir-cópia" x="1712" y="448" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0040_Dir" x="1770" y="448" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0041_Meio-1-cópia-2" x="1828" y="448" width="64" height="64"/>
+    <SubTexture name="2_0042_Meio-1-cópia" x="1892" y="448" width="64" height="64"/>
+    <SubTexture name="2_0043_Meio" x="1956" y="448" width="64" height="64"/>
+    <SubTexture name="2_0044_Dir" x="0" y="512" width="64" height="64"/>
+    <SubTexture name="2_0045_Esq" x="64" y="512" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0046_Meio" x="124" y="512" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0047_Dir" x="184" y="512" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0048_Meio-1-cópia-6" x="242" y="512" width="64" height="64"/>
+    <SubTexture name="2_0049_Meio-1-cópia-5" x="306" y="512" width="64" height="64"/>
+    <SubTexture name="2_0050_Meio-1-cópia-4" x="370" y="512" width="64" height="64"/>
+    <SubTexture name="2_0051_Meio-1-cópia-3" x="434" y="512" width="64" height="64"/>
+    <SubTexture name="2_0052_Meio-1-cópia" x="498" y="512" width="64" height="64"/>
+    <SubTexture name="2_0053_Meio-1-cópia-6" x="562" y="512" width="64" height="64"/>
+    <SubTexture name="2_0054_Meio-1-cópia-5" x="626" y="512" width="64" height="64"/>
+    <SubTexture name="2_0055_Meio-1-cópia-4" x="690" y="512" width="64" height="64"/>
+    <SubTexture name="2_0056_Meio-1-cópia-3" x="754" y="512" width="64" height="64"/>
+    <SubTexture name="2_0057_Meio-1-cópia" x="818" y="512" width="64" height="64"/>
+    <SubTexture name="2_0058_Meio-4" x="882" y="512" width="64" height="64"/>
+    <SubTexture name="2_0059_Meio-3" x="946" y="512" width="64" height="64"/>
+    <SubTexture name="2_0060_Meio-2" x="1010" y="512" width="64" height="64"/>
+    <SubTexture name="2_0061_Meio" x="1074" y="512" width="64" height="64"/>
+    <SubTexture name="2_0062_Dir-5" x="1138" y="512" width="64" height="64"/>
+    <SubTexture name="2_0063_Dir-4" x="1202" y="512" width="64" height="64"/>
+    <SubTexture name="2_0064_Dir-3" x="1266" y="512" width="64" height="64"/>
+    <SubTexture name="2_0065_Dir-2" x="1330" y="512" width="64" height="64"/>
+    <SubTexture name="2_0066_Dir" x="1394" y="512" width="64" height="64"/>
+    <SubTexture name="2_0067_Dir-3-cópia-3" x="1458" y="512" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0068_Dir-3-cópia-2" x="1522" y="512" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0069_Dir-3-cópia" x="1586" y="512" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0070_Dir-3" x="1650" y="512" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0071_Dir-2" x="1714" y="512" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0072_Dir-cópia" x="1778" y="512" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0073_Dir" x="1842" y="512" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0074_Meio-4" x="1906" y="512" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0075_Meio-3" x="1970" y="512" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0076_Meio-2" x="0" y="576" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0077_Meio-1" x="64" y="576" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0078_Dir-3-cópia-3" x="128" y="576" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0079_Dir-3-cópia-2" x="192" y="576" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0080_Dir-3-cópia" x="256" y="576" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0081_Dir-3" x="320" y="576" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0082_Dir-2" x="384" y="576" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0083_Dir-cópia" x="448" y="576" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0084_Dir" x="512" y="576" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0085_Meio-1-cópia-2" x="576" y="576" width="64" height="64"/>
+    <SubTexture name="2_0086_Meio-1-cópia" x="640" y="576" width="64" height="64"/>
+    <SubTexture name="2_0087_Meio" x="704" y="576" width="64" height="64"/>
+    <SubTexture name="2_0088_Dir" x="768" y="576" width="64" height="64"/>
+    <SubTexture name="2_0089_Esq" x="832" y="576" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0090_Meio" x="896" y="576" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0091_Dir" x="960" y="576" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0092_Meio-1-cópia-6" x="1024" y="576" width="64" height="64"/>
+    <SubTexture name="2_0093_Meio-1-cópia-5" x="1088" y="576" width="64" height="64"/>
+    <SubTexture name="2_0094_Meio-1-cópia-4" x="1152" y="576" width="64" height="64"/>
+    <SubTexture name="2_0095_Meio-1-cópia-3" x="1216" y="576" width="64" height="64"/>
+    <SubTexture name="2_0096_Meio-1-cópia" x="1280" y="576" width="64" height="64"/>
+    <SubTexture name="2_0097_Meio-1-cópia-6" x="1344" y="576" width="64" height="64"/>
+    <SubTexture name="2_0098_Meio-1-cópia-5" x="1408" y="576" width="64" height="64"/>
+    <SubTexture name="2_0099_Meio-1-cópia-4" x="1472" y="576" width="64" height="64"/>
+    <SubTexture name="2_0100_Meio-1-cópia-3" x="1536" y="576" width="64" height="64"/>
+    <SubTexture name="2_0101_Meio-1-cópia" x="1600" y="576" width="64" height="64"/>
+    <SubTexture name="2_0102_Meio-4" x="1664" y="576" width="64" height="64"/>
+    <SubTexture name="2_0103_Meio-3" x="1728" y="576" width="64" height="64"/>
+    <SubTexture name="2_0104_Meio-2" x="1792" y="576" width="64" height="64"/>
+    <SubTexture name="2_0105_Meio" x="1856" y="576" width="64" height="64"/>
+    <SubTexture name="2_0106_Dir-5" x="1920" y="576" width="64" height="64"/>
+    <SubTexture name="2_0107_Dir-4" x="1984" y="576" width="64" height="64"/>
+    <SubTexture name="2_0108_Dir-3" x="0" y="640" width="64" height="64"/>
+    <SubTexture name="2_0109_Dir-2" x="64" y="640" width="64" height="64"/>
+    <SubTexture name="2_0110_Dir" x="128" y="640" width="64" height="64"/>
+    <SubTexture name="2_0111_Dir-3-cópia-3" x="192" y="640" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0112_Dir-3-cópia-2" x="252" y="640" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0113_Dir-3-cópia" x="312" y="640" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0114_Dir-3" x="370" y="640" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0115_Dir-2" x="428" y="640" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0116_Dir-cópia" x="486" y="640" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0117_Dir" x="544" y="640" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0118_Meio-4" x="602" y="640" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0119_Meio-3" x="662" y="640" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0120_Meio-2" x="722" y="640" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0121_Meio-1" x="782" y="640" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0122_Dir-3-cópia-3" x="842" y="640" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0123_Dir-3-cópia-2" x="902" y="640" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0124_Dir-3-cópia" x="962" y="640" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0125_Dir-3" x="1020" y="640" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0126_Dir-2" x="1078" y="640" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0127_Dir-cópia" x="1136" y="640" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0128_Dir" x="1194" y="640" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0129_Meio-1-cópia-2" x="1252" y="640" width="64" height="64"/>
+    <SubTexture name="2_0130_Meio-1-cópia" x="1316" y="640" width="64" height="64"/>
+    <SubTexture name="2_0131_Meio" x="1380" y="640" width="64" height="64"/>
+    <SubTexture name="2_0132_Dir" x="1444" y="640" width="64" height="64"/>
+    <SubTexture name="2_0133_Esq" x="1508" y="640" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0134_Meio" x="1568" y="640" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0135_Dir" x="1628" y="640" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0136_Meio-1-cópia-6" x="1686" y="640" width="64" height="64"/>
+    <SubTexture name="2_0137_Meio-1-cópia-5" x="1750" y="640" width="64" height="64"/>
+    <SubTexture name="2_0138_Meio-1-cópia-4" x="1814" y="640" width="64" height="64"/>
+    <SubTexture name="2_0139_Meio-1-cópia-3" x="1878" y="640" width="64" height="64"/>
+    <SubTexture name="2_0140_Meio-1-cópia" x="1942" y="640" width="64" height="64"/>
+    <SubTexture name="2_0141_Meio-1-cópia-6" x="0" y="704" width="64" height="64"/>
+    <SubTexture name="2_0142_Meio-1-cópia-5" x="64" y="704" width="64" height="64"/>
+    <SubTexture name="2_0143_Meio-1-cópia-4" x="128" y="704" width="64" height="64"/>
+    <SubTexture name="2_0144_Meio-1-cópia-3" x="192" y="704" width="64" height="64"/>
+    <SubTexture name="2_0145_Meio-1-cópia" x="256" y="704" width="64" height="64"/>
+    <SubTexture name="2_0146_Meio-4" x="320" y="704" width="64" height="64"/>
+    <SubTexture name="2_0147_Meio-3" x="384" y="704" width="64" height="64"/>
+    <SubTexture name="2_0148_Meio-2" x="448" y="704" width="64" height="64"/>
+    <SubTexture name="2_0149_Meio" x="512" y="704" width="64" height="64"/>
+    <SubTexture name="2_0150_Dir-5" x="576" y="704" width="64" height="64"/>
+    <SubTexture name="2_0151_Dir-4" x="640" y="704" width="64" height="64"/>
+    <SubTexture name="2_0152_Dir-3" x="704" y="704" width="64" height="64"/>
+    <SubTexture name="2_0153_Dir-2" x="768" y="704" width="64" height="64"/>
+    <SubTexture name="2_0154_Dir" x="832" y="704" width="64" height="64"/>
+    <SubTexture name="2_0155_Dir-3-cópia-3" x="896" y="704" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0156_Dir-3-cópia-2" x="960" y="704" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0157_Dir-3-cópia" x="1024" y="704" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0158_Dir-3" x="1088" y="704" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0159_Dir-2" x="1152" y="704" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0160_Dir-cópia" x="1216" y="704" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0161_Dir" x="1280" y="704" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0162_Meio-4" x="1344" y="704" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0163_Meio-3" x="1408" y="704" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0164_Meio-2" x="1472" y="704" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0165_Meio-1" x="1536" y="704" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0166_Dir-3-cópia-3" x="1600" y="704" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0167_Dir-3-cópia-2" x="1664" y="704" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0168_Dir-3-cópia" x="1728" y="704" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0169_Dir-3" x="1792" y="704" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0170_Dir-2" x="1856" y="704" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0171_Dir-cópia" x="1920" y="704" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0172_Dir" x="1984" y="704" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0173_Meio-1-cópia-2" x="0" y="768" width="64" height="64"/>
+    <SubTexture name="2_0174_Meio-1-cópia" x="64" y="768" width="64" height="64"/>
+    <SubTexture name="2_0175_Meio" x="128" y="768" width="64" height="64"/>
+    <SubTexture name="2_0176_Dir" x="192" y="768" width="64" height="64"/>
+    <SubTexture name="2_0177_Esq" x="256" y="768" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0178_Meio" x="320" y="768" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0179_Dir" x="384" y="768" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0180_Superior-3" x="448" y="768" width="60" height="60" frameX="-4" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0181_Superior-2-cópia-3" x="508" y="768" width="60" height="54" frameX="-4" frameY="-5" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0182_Superior-2-cópia-2" x="568" y="768" width="60" height="54" frameX="-4" frameY="-5" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0183_Superior-2-cópia" x="628" y="768" width="60" height="54" frameX="-4" frameY="-5" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0184_Superior-2" x="688" y="768" width="60" height="54" frameX="-4" frameY="-5" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0185_Superior-1" x="748" y="768" width="60" height="56" frameX="-4" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0186_Meio-3-cópia-11" x="808" y="768" width="64" height="56" frameX="0" frameY="-3" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0187_Meio-3-cópia-10" x="872" y="768" width="64" height="56" frameX="0" frameY="-3" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0188_Meio-3-cópia-9" x="936" y="768" width="64" height="56" frameX="0" frameY="-3" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0189_Meio-3-cópia-8" x="1000" y="768" width="64" height="54" frameX="0" frameY="-5" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0190_Meio-3" x="1064" y="768" width="64" height="54" frameX="0" frameY="-5" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0191_Meio-3-cópia-6" x="1128" y="768" width="64" height="52" frameX="0" frameY="-7" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0192_Meio-3-cópia-5" x="1192" y="768" width="64" height="52" frameX="0" frameY="-5" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0193_Meio-3-cópia-4" x="1256" y="768" width="64" height="52" frameX="0" frameY="-7" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0194_Meio-3-cópia-3" x="1320" y="768" width="64" height="52" frameX="0" frameY="-7" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0195_Meio-3-cópia-2" x="1384" y="768" width="64" height="54" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0196_Meio-2-cópia" x="1448" y="768" width="64" height="52" frameX="0" frameY="-7" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0197_Meio-3-cópia" x="1512" y="768" width="64" height="52" frameX="0" frameY="-5" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0198_Meio-3" x="1576" y="768" width="64" height="54" frameX="0" frameY="-3" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0199_Meio-2" x="1640" y="768" width="64" height="52" frameX="0" frameY="-5" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0200_Meio-1" x="1704" y="768" width="64" height="56" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0201_Inferior-3" x="1768" y="768" width="64" height="54" frameX="0" frameY="-5" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0202_Inferior-2-cópia-3" x="1832" y="768" width="60" height="52" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0203_Inferior-2-cópia" x="1892" y="768" width="60" height="52" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0204_Inferior-2-cópia-2" x="1952" y="768" width="60" height="52" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0205_Inferior-2" x="0" y="832" width="60" height="52" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0206_Inferior-1" x="60" y="832" width="60" height="52" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0207_Superior-3" x="120" y="832" width="58" height="56" frameX="-6" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0208_Superior-2" x="178" y="832" width="58" height="52" frameX="-6" frameY="-7" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0209_Superior-1" x="236" y="832" width="58" height="54" frameX="-6" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0210_Meio-3" x="294" y="832" width="64" height="52" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0211_Meio-2" x="358" y="832" width="64" height="52" frameX="0" frameY="-5" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0212_Meio-1" x="422" y="832" width="64" height="56" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0213_Inferior-3" x="486" y="832" width="62" height="54" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0214_Inferior-2" x="548" y="832" width="60" height="52" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0215_Inferior-1" x="608" y="832" width="60" height="50" frameX="0" frameY="-7" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0216_Superior-3" x="668" y="832" width="60" height="60" frameX="-1" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0217_Superior-2-cópia-3" x="728" y="832" width="54" height="60" frameX="-4" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0218_Superior-2-cópia-2" x="782" y="832" width="54" height="60" frameX="-4" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0219_Superior-2-cópia" x="836" y="832" width="54" height="60" frameX="-4" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0220_Superior-2" x="890" y="832" width="54" height="60" frameX="-4" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0221_Superior-1" x="944" y="832" width="56" height="60" frameX="-3" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0222_Meio-3-cópia-11" x="1000" y="832" width="56" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0223_Meio-3-cópia-10" x="1056" y="832" width="56" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0224_Meio-3-cópia-9" x="1112" y="832" width="56" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0225_Meio-3-cópia-8" x="1168" y="832" width="54" height="64" frameX="-5" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0226_Meio-3" x="1222" y="832" width="54" height="64" frameX="-5" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0227_Meio-3-cópia-7" x="1276" y="832" width="52" height="64" frameX="-7" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0228_Meio-3-cópia-6" x="1328" y="832" width="52" height="64" frameX="-5" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0229_Meio-3-cópia-5" x="1380" y="832" width="52" height="64" frameX="-7" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0230_Meio-3-cópia-4" x="1432" y="832" width="52" height="64" frameX="-5" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0231_Meio-3-cópia-3" x="1484" y="832" width="52" height="64" frameX="-5" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0232_Meio-3-cópia-2" x="1536" y="832" width="54" height="64" frameX="-3" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0233_Meio-2-cópia" x="1590" y="832" width="52" height="64" frameX="-5" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0234_Meio-3-cópia" x="1642" y="832" width="52" height="64" frameX="-7" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0235_Meio-3" x="1694" y="832" width="54" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0236_Meio-2" x="1748" y="832" width="52" height="64" frameX="-7" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0237_Meio-1" x="1800" y="832" width="56" height="64" frameX="-3" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0238_Inferior-3" x="1856" y="832" width="54" height="64" frameX="-5" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0239_Inferior-2-cópia-3" x="1910" y="832" width="52" height="60" frameX="-5" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0240_Inferior-2-cópia" x="1962" y="832" width="52" height="60" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0241_Inferior-2-cópia-2" x="0" y="896" width="52" height="60" frameX="-5" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0242_Inferior-2" x="52" y="896" width="52" height="60" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0243_Inferior-1" x="104" y="896" width="52" height="60" frameX="-5" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0244_Superior-3" x="156" y="896" width="56" height="58" frameX="-3" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0245_Superior-2" x="212" y="896" width="52" height="58" frameX="-5" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0246_Superior-1" x="264" y="896" width="54" height="58" frameX="-5" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0247_Meio-3" x="318" y="896" width="52" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0248_Meio-2" x="370" y="896" width="52" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0249_Meio-1" x="422" y="896" width="56" height="64" frameX="-3" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0250_Inferior-3" x="478" y="896" width="54" height="62" frameX="-5" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0251_Inferior-2" x="532" y="896" width="52" height="60" frameX="-5" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="2_0252_Inferior-1" x="584" y="896" width="50" height="60" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0000_Meio-4" x="634" y="896" width="64" height="64"/>
+    <SubTexture name="3_0001_Meio-3" x="698" y="896" width="64" height="64"/>
+    <SubTexture name="3_0002_Meio-2" x="762" y="896" width="64" height="64"/>
+    <SubTexture name="3_0003_Meio-1" x="826" y="896" width="64" height="64"/>
+    <SubTexture name="3_0004_Cor" x="890" y="896" width="64" height="64"/>
+    <SubTexture name="3_0005_Meio-4" x="954" y="896" width="64" height="64"/>
+    <SubTexture name="3_0006_Meio-3" x="1018" y="896" width="64" height="64"/>
+    <SubTexture name="3_0007_Meio-2" x="1082" y="896" width="64" height="64"/>
+    <SubTexture name="3_0008_Meio-4" x="1146" y="896" width="64" height="64"/>
+    <SubTexture name="3_0009_Meio-3" x="1210" y="896" width="64" height="64"/>
+    <SubTexture name="3_0010_Meio-2" x="1274" y="896" width="64" height="64"/>
+    <SubTexture name="3_0011_Meio-4" x="1338" y="896" width="64" height="64"/>
+    <SubTexture name="3_0012_Meio-2" x="1402" y="896" width="64" height="64"/>
+    <SubTexture name="3_0013_Meio-4" x="1466" y="896" width="64" height="64"/>
+    <SubTexture name="3_0014_Meio-3" x="1530" y="896" width="64" height="64"/>
+    <SubTexture name="3_0015_Meio-2" x="1594" y="896" width="64" height="64"/>
+    <SubTexture name="3_0016_Meio-4" x="1658" y="896" width="64" height="64"/>
+    <SubTexture name="3_0017_Meio-3" x="1722" y="896" width="64" height="64"/>
+    <SubTexture name="3_0018_Meio-2" x="1786" y="896" width="64" height="64"/>
+    <SubTexture name="3_0019_Meio-4" x="1850" y="896" width="64" height="64"/>
+    <SubTexture name="3_0020_Meio-3" x="1914" y="896" width="64" height="64"/>
+    <SubTexture name="3_0021_Meio-2" x="1978" y="896" width="64" height="64"/>
+    <SubTexture name="3_0022_Meio-4" x="0" y="960" width="64" height="64"/>
+    <SubTexture name="3_0023_Meio-3" x="64" y="960" width="64" height="64"/>
+    <SubTexture name="3_0024_Meio-2" x="128" y="960" width="64" height="64"/>
+    <SubTexture name="3_0025_Meio-4" x="192" y="960" width="64" height="64"/>
+    <SubTexture name="3_0026_Meio-3" x="256" y="960" width="64" height="64"/>
+    <SubTexture name="3_0027_Meio-2" x="320" y="960" width="64" height="64"/>
+    <SubTexture name="3_0028_Meio-4" x="384" y="960" width="64" height="64"/>
+    <SubTexture name="3_0029_Meio-3" x="448" y="960" width="64" height="64"/>
+    <SubTexture name="3_0030_Meio-2" x="512" y="960" width="64" height="64"/>
+    <SubTexture name="3_0031_Meio-4" x="576" y="960" width="64" height="64"/>
+    <SubTexture name="3_0032_Meio-3" x="640" y="960" width="64" height="64"/>
+    <SubTexture name="3_0033_Meio-2" x="704" y="960" width="64" height="64"/>
+    <SubTexture name="3_0034_Meio-5" x="768" y="960" width="64" height="64"/>
+    <SubTexture name="3_0035_Meio-3" x="832" y="960" width="64" height="64"/>
+    <SubTexture name="3_0036_Meio-2" x="896" y="960" width="64" height="64"/>
+    <SubTexture name="3_0037_Meio-5" x="960" y="960" width="64" height="64"/>
+    <SubTexture name="3_0038_Meio-4" x="1024" y="960" width="64" height="64"/>
+    <SubTexture name="3_0039_Meio-3" x="1088" y="960" width="64" height="64"/>
+    <SubTexture name="3_0040_Meio-2" x="1152" y="960" width="64" height="64"/>
+    <SubTexture name="3_0041_Meio-1" x="1216" y="960" width="64" height="64"/>
+    <SubTexture name="3_0042_Lado-ESQ-3" x="1280" y="960" width="60" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0043_Lado-ESQ-2" x="1340" y="960" width="62" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0044_Lado-ESQ-1" x="1402" y="960" width="60" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0045_Lado-ESQ-3" x="1462" y="960" width="60" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0046_Lado-ESQ-2" x="1522" y="960" width="62" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0047_Lado-ESQ-1" x="1584" y="960" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0048_Lado-ESQ-3" x="1644" y="960" width="58" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0049_Lado-ESQ-2" x="1702" y="960" width="60" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0050_Lado-ESQ-1" x="1762" y="960" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0051_Lado-ESQ-3" x="1822" y="960" width="60" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0052_Lado-ESQ-2" x="1882" y="960" width="60" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0053_Lado-ESQ-1" x="1942" y="960" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0054_Meio-5" x="0" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0055_Meio-4" x="60" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0056_Meio-3" x="120" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0057_Meio-2" x="180" y="1024" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0058_Meio-1" x="238" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0059_Meio-5" x="298" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0060_Meio-4" x="358" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0061_Meio-3" x="418" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0062_Meio-2" x="478" y="1024" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0063_Meio-1" x="536" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0064_Meio-3" x="596" y="1024" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0065_Meio-2" x="654" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0066_Meio-1" x="714" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0067_Meio-3" x="774" y="1024" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0068_Meio-2" x="832" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0069_Meio-1" x="892" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0070_Meio-3" x="952" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0071_Meio-2" x="1012" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0072_Meio-1" x="1072" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0073_Meio-3" x="1132" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0074_Meio-2" x="1192" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0075_Meio-1" x="1252" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0076_Meio-3" x="1312" y="1024" width="62" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0077_Meio-2" x="1374" y="1024" width="62" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0078_Meio-1" x="1436" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0079_Meio-3" x="1496" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0080_Meio-2" x="1556" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0081_Meio-1" x="1616" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0082_Meio-3" x="1676" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0083_Meio-2" x="1736" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0084_Meio-1" x="1796" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0085_Meio-3" x="1856" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0086_Meio-2" x="1916" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0087_Meio-1" x="1976" y="1024" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0088_Lado-ESQ-3" x="0" y="1088" width="60" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0089_Lado-ESQ-2" x="60" y="1088" width="62" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0090_Lado-ESQ-1" x="122" y="1088" width="60" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0091_Lado-ESQ-3" x="182" y="1088" width="60" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0092_Lado-ESQ-2" x="242" y="1088" width="62" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0093_Lado-ESQ-1" x="304" y="1088" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0094_Lado-ESQ-3" x="364" y="1088" width="58" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0095_Lado-ESQ-2" x="422" y="1088" width="60" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0096_Lado-ESQ-1" x="482" y="1088" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0097_Lado-ESQ-3" x="542" y="1088" width="60" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0098_Lado-ESQ-2" x="602" y="1088" width="60" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0099_Lado-ESQ-1" x="662" y="1088" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0100_Lado-ESQ-3" x="722" y="1088" width="56" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0101_Lado-ESQ-2" x="778" y="1088" width="58" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0102_Lado-ESQ-1" x="836" y="1088" width="58" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0103_Meio-3" x="894" y="1088" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0104_Meio-2" x="952" y="1088" width="60" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0105_Meio-1" x="1012" y="1088" width="58" height="64" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0106_Lado-ESQ-3" x="1070" y="1088" width="56" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0107_Lado-ESQ-2" x="1126" y="1088" width="58" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0108_Lado-ESQ-1" x="1184" y="1088" width="58" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0109_Meio-4" x="1242" y="1088" width="64" height="64"/>
+    <SubTexture name="3_0110_Meio-3" x="1306" y="1088" width="64" height="64"/>
+    <SubTexture name="3_0111_Meio-2" x="1370" y="1088" width="64" height="64"/>
+    <SubTexture name="3_0112_Meio-4" x="1434" y="1088" width="64" height="64"/>
+    <SubTexture name="3_0113_Meio-3" x="1498" y="1088" width="64" height="64"/>
+    <SubTexture name="3_0114_Meio-2" x="1562" y="1088" width="64" height="64"/>
+    <SubTexture name="3_0115_Meio-4" x="1626" y="1088" width="64" height="64"/>
+    <SubTexture name="3_0116_Meio-2" x="1690" y="1088" width="64" height="64"/>
+    <SubTexture name="3_0117_Meio-4" x="1754" y="1088" width="64" height="64"/>
+    <SubTexture name="3_0118_Meio-3" x="1818" y="1088" width="64" height="64"/>
+    <SubTexture name="3_0119_Meio-2" x="1882" y="1088" width="64" height="64"/>
+    <SubTexture name="3_0120_Meio-4" x="1946" y="1088" width="64" height="64"/>
+    <SubTexture name="3_0121_Meio-3" x="0" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0122_Meio-2" x="64" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0123_Meio-4" x="128" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0124_Meio-3" x="192" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0125_Meio-2" x="256" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0126_Meio-4" x="320" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0127_Meio-3" x="384" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0128_Meio-2" x="448" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0129_Meio-4" x="512" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0130_Meio-3" x="576" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0131_Meio-2" x="640" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0132_Meio-4" x="704" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0133_Meio-3" x="768" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0134_Meio-2" x="832" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0135_Meio-4" x="896" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0136_Meio-3" x="960" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0137_Meio-2" x="1024" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0138_Meio-5" x="1088" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0139_Meio-3" x="1152" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0140_Meio-2" x="1216" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0141_Meio-5" x="1280" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0142_Meio-4" x="1344" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0143_Meio-3" x="1408" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0144_Meio-2" x="1472" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0145_Meio-1" x="1536" y="1152" width="64" height="64"/>
+    <SubTexture name="3_0146_Lado-ESQ-3" x="1600" y="1152" width="62" height="60" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0147_Lado-ESQ-2" x="1662" y="1152" width="60" height="62" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0148_Lado-ESQ-1" x="1722" y="1152" width="62" height="60" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0149_Lado-ESQ-3" x="1784" y="1152" width="60" height="60" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0150_Lado-ESQ-2" x="1844" y="1152" width="60" height="62" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0151_Lado-ESQ-1" x="1904" y="1152" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0152_Lado-ESQ-3" x="1968" y="1152" width="60" height="58" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0153_Lado-ESQ-2" x="0" y="1216" width="60" height="60" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0154_Lado-ESQ-1" x="60" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0155_Lado-ESQ-3" x="124" y="1216" width="62" height="60" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0156_Lado-ESQ-2" x="186" y="1216" width="58" height="60" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0157_Lado-ESQ-1" x="244" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0158_Meio-5" x="308" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0159_Meio-4" x="372" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0160_Meio-3" x="436" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0161_Meio-2" x="500" y="1216" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0162_Meio-1" x="564" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0163_Meio-5" x="628" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0164_Meio-4" x="692" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0165_Meio-3" x="756" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0166_Meio-2" x="820" y="1216" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0167_Meio-1" x="884" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0168_Meio-3" x="948" y="1216" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0169_Meio-2" x="1012" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0170_Meio-1" x="1076" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0171_Meio-3" x="1140" y="1216" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0172_Meio-2" x="1204" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0173_Meio-1" x="1268" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0174_Meio-3" x="1332" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0175_Meio-2" x="1396" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0176_Meio-1" x="1460" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0177_Meio-3" x="1524" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0178_Meio-2" x="1588" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0179_Meio-1" x="1652" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0180_Meio-3" x="1716" y="1216" width="64" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0181_Meio-2" x="1780" y="1216" width="64" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0182_Meio-1" x="1844" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0183_Meio-3" x="1908" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0184_Meio-2" x="1972" y="1216" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0185_Meio-1" x="0" y="1278" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0186_Meio-3" x="64" y="1278" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0187_Meio-2" x="128" y="1278" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0188_Meio-1" x="192" y="1278" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0189_Meio-3" x="256" y="1278" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0190_Meio-2" x="320" y="1278" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0191_Meio-1" x="384" y="1278" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0192_Lado-ESQ-3" x="448" y="1278" width="62" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0193_Lado-ESQ-2" x="510" y="1278" width="60" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0194_Lado-ESQ-1" x="570" y="1278" width="62" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0195_Lado-ESQ-3" x="632" y="1278" width="60" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0196_Lado-ESQ-2" x="692" y="1278" width="60" height="62" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0197_Lado-ESQ-1" x="752" y="1278" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0198_Lado-ESQ-3" x="816" y="1278" width="60" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0199_Lado-ESQ-2" x="876" y="1278" width="60" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="3_0200_Lado-ESQ-1" x="936" y="1278" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0000_Lado-ESQ-3" x="1000" y="1278" width="62" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0001_Lado-ESQ-2" x="1062" y="1278" width="58" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0002_Lado-ESQ-1" x="1120" y="1278" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0003_Lado-ESQ-3" x="1184" y="1278" width="60" height="56" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0004_Lado-ESQ-2" x="1244" y="1278" width="58" height="58" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0005_Lado-ESQ-1" x="1302" y="1278" width="62" height="58" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0006_Meio-3" x="1364" y="1278" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0007_Meio-2" x="1428" y="1278" width="64" height="60" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0008_Meio-1" x="1492" y="1278" width="64" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0009_Lado-ESQ-3" x="1556" y="1278" width="60" height="56" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0010_Lado-ESQ-2" x="1616" y="1278" width="58" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0011_Lado-ESQ-1" x="1674" y="1278" width="62" height="58" frameX="0" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0012_Meio-4" x="1736" y="1278" width="64" height="64"/>
+    <SubTexture name="4_0013_Meio-3" x="1800" y="1278" width="64" height="64"/>
+    <SubTexture name="4_0014_Meio-2" x="1864" y="1278" width="64" height="64"/>
+    <SubTexture name="4_0015_Meio-4" x="1928" y="1278" width="64" height="64"/>
+    <SubTexture name="4_0016_Meio-3" x="0" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0017_Meio-2" x="64" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0018_Meio-4" x="128" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0019_Meio-2" x="192" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0020_Meio-4" x="256" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0021_Meio-3" x="320" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0022_Meio-2" x="384" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0023_Meio-4" x="448" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0024_Meio-3" x="512" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0025_Meio-2" x="576" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0026_Meio-4" x="640" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0027_Meio-3" x="704" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0028_Meio-2" x="768" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0029_Meio-4" x="832" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0030_Meio-3" x="896" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0031_Meio-2" x="960" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0032_Meio-4" x="1024" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0033_Meio-3" x="1088" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0034_Meio-2" x="1152" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0035_Meio-4" x="1216" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0036_Meio-3" x="1280" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0037_Meio-2" x="1344" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0038_Meio-4" x="1408" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0039_Meio-3" x="1472" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0040_Meio-2" x="1536" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0041_Meio-5" x="1600" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0042_Meio-3" x="1664" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0043_Meio-2" x="1728" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0044_Meio-5" x="1792" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0045_Meio-4" x="1856" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0046_Meio-3" x="1920" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0047_Meio-2" x="1984" y="1342" width="64" height="64"/>
+    <SubTexture name="4_0048_Meio-1" x="0" y="1406" width="64" height="64"/>
+    <SubTexture name="4_0049_Lado-ESQ-3" x="64" y="1406" width="60" height="62" frameX="-4" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0050_Lado-ESQ-2" x="124" y="1406" width="62" height="60" frameX="-2" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0051_Lado-ESQ-1" x="186" y="1406" width="60" height="62" frameX="-4" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0052_Lado-ESQ-3" x="246" y="1406" width="60" height="60" frameX="-4" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0053_Lado-ESQ-2" x="306" y="1406" width="62" height="60" frameX="-2" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0054_Lado-ESQ-1" x="368" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0055_Lado-ESQ-3" x="428" y="1406" width="58" height="60" frameX="-6" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0056_Lado-ESQ-2" x="486" y="1406" width="60" height="60" frameX="-4" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0057_Lado-ESQ-1" x="546" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0058_Lado-ESQ-3" x="606" y="1406" width="60" height="62" frameX="-4" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0059_Lado-ESQ-2" x="666" y="1406" width="60" height="58" frameX="-4" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0060_Lado-ESQ-1" x="726" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0061_Meio-5" x="786" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0062_Meio-4" x="846" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0063_Meio-3" x="906" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0064_Meio-2" x="966" y="1406" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0065_Meio-1" x="1024" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0066_Meio-5" x="1084" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0067_Meio-4" x="1144" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0068_Meio-3" x="1204" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0069_Meio-2" x="1264" y="1406" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0070_Meio-1" x="1322" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0071_Meio-3" x="1382" y="1406" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0072_Meio-2" x="1440" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0073_Meio-1" x="1500" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0074_Meio-3" x="1560" y="1406" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0075_Meio-2" x="1618" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0076_Meio-1" x="1678" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0077_Meio-3" x="1738" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0078_Meio-2" x="1798" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0079_Meio-1" x="1858" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0080_Meio-3" x="1918" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0081_Meio-2" x="1978" y="1406" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0082_Meio-1" x="0" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0083_Meio-3" x="60" y="1470" width="62" height="64" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0084_Meio-2" x="122" y="1470" width="62" height="64" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0085_Meio-1" x="184" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0086_Meio-3" x="244" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0087_Meio-2" x="304" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0088_Meio-1" x="364" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0089_Meio-3" x="424" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0090_Meio-2" x="484" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0091_Meio-1" x="544" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0092_Meio-3" x="604" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0093_Meio-2" x="664" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0094_Meio-1" x="724" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0095_Lado-ESQ-3" x="784" y="1470" width="60" height="62" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0096_Lado-ESQ-2" x="844" y="1470" width="62" height="60" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0097_Lado-ESQ-1" x="906" y="1470" width="60" height="62" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0098_Lado-ESQ-3" x="966" y="1470" width="60" height="60" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0099_Lado-ESQ-2" x="1026" y="1470" width="62" height="60" frameX="-2" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0100_Lado-ESQ-1" x="1088" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0101_Lado-ESQ-3" x="1148" y="1470" width="58" height="60" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0102_Lado-ESQ-2" x="1206" y="1470" width="60" height="60" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0103_Lado-ESQ-1" x="1266" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0104_Lado-ESQ-3" x="1326" y="1470" width="60" height="62" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0105_Lado-ESQ-2" x="1386" y="1470" width="60" height="58" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0106_Lado-ESQ-1" x="1446" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0107_Lado-ESQ-3" x="1506" y="1470" width="56" height="60" frameX="-8" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0108_Lado-ESQ-2" x="1562" y="1470" width="58" height="58" frameX="-6" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0109_Lado-ESQ-1" x="1620" y="1470" width="58" height="62" frameX="-6" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0110_Meio-3" x="1678" y="1470" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0111_Meio-2" x="1736" y="1470" width="60" height="64" frameX="-4" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0112_Meio-1" x="1796" y="1470" width="58" height="64" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0113_Lado-ESQ-3" x="1854" y="1470" width="56" height="60" frameX="-8" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0114_Lado-ESQ-2" x="1910" y="1470" width="58" height="58" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0115_Lado-ESQ-1" x="1968" y="1470" width="58" height="62" frameX="-6" frameY="0" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0116_Meio-4" x="0" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0117_Meio-3" x="64" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0118_Meio-2" x="128" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0119_Meio-4" x="192" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0120_Meio-3" x="256" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0121_Meio-2" x="320" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0122_Meio-4" x="384" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0123_Meio-2" x="448" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0124_Meio-4" x="512" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0125_Meio-3" x="576" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0126_Meio-2" x="640" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0127_Meio-4" x="704" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0128_Meio-3" x="768" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0129_Meio-2" x="832" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0130_Meio-4" x="896" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0131_Meio-3" x="960" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0132_Meio-2" x="1024" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0133_Meio-4" x="1088" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0134_Meio-3" x="1152" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0135_Meio-2" x="1216" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0136_Meio-4" x="1280" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0137_Meio-3" x="1344" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0138_Meio-2" x="1408" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0139_Meio-4" x="1472" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0140_Meio-3" x="1536" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0141_Meio-2" x="1600" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0142_Meio-4" x="1664" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0143_Meio-3" x="1728" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0144_Meio-2" x="1792" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0145_Meio-5" x="1856" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0146_Meio-3" x="1920" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0147_Meio-2" x="1984" y="1534" width="64" height="64"/>
+    <SubTexture name="4_0148_Meio-5" x="0" y="1598" width="64" height="64"/>
+    <SubTexture name="4_0149_Meio-4" x="64" y="1598" width="64" height="64"/>
+    <SubTexture name="4_0150_Meio-3" x="128" y="1598" width="64" height="64"/>
+    <SubTexture name="4_0151_Meio-2" x="192" y="1598" width="64" height="64"/>
+    <SubTexture name="4_0152_Meio-1" x="256" y="1598" width="64" height="64"/>
+    <SubTexture name="4_0153_Lado-ESQ-3" x="320" y="1598" width="62" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0154_Lado-ESQ-2" x="382" y="1598" width="60" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0155_Lado-ESQ-1" x="442" y="1598" width="62" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0156_Lado-ESQ-3" x="504" y="1598" width="60" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0157_Lado-ESQ-2" x="564" y="1598" width="60" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0158_Lado-ESQ-1" x="624" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0159_Lado-ESQ-3" x="688" y="1598" width="60" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0160_Lado-ESQ-2" x="748" y="1598" width="60" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0161_Lado-ESQ-1" x="808" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0162_Lado-ESQ-3" x="872" y="1598" width="62" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0163_Lado-ESQ-2" x="934" y="1598" width="58" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0164_Lado-ESQ-1" x="992" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0165_Meio-5" x="1056" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0166_Meio-4" x="1120" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0167_Meio-3" x="1184" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0168_Meio-2" x="1248" y="1598" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0169_Meio-1" x="1312" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0170_Meio-5" x="1376" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0171_Meio-4" x="1440" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0172_Meio-3" x="1504" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0173_Meio-2" x="1568" y="1598" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0174_Meio-1" x="1632" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0175_Meio-3" x="1696" y="1598" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0176_Meio-2" x="1760" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0177_Meio-1" x="1824" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0178_Meio-3" x="1888" y="1598" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0179_Meio-2" x="1952" y="1598" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0180_Meio-1" x="0" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0181_Meio-3" x="64" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0182_Meio-2" x="128" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0183_Meio-1" x="192" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0184_Meio-3" x="256" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0185_Meio-2" x="320" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0186_Meio-1" x="384" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0187_Meio-3" x="448" y="1662" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0188_Meio-2" x="512" y="1662" width="64" height="62" frameX="0" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0189_Meio-1" x="576" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0190_Meio-3" x="640" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0191_Meio-2" x="704" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0192_Meio-1" x="768" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0193_Meio-3" x="832" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0194_Meio-2" x="896" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0195_Meio-1" x="960" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0196_Meio-3" x="1024" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0197_Meio-2" x="1088" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0198_Meio-1" x="1152" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0199_Lado-ESQ-3" x="1216" y="1662" width="62" height="60" frameX="-2" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0200_Lado-ESQ-2" x="1278" y="1662" width="60" height="62" frameX="-4" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0201_Lado-ESQ-1" x="1338" y="1662" width="62" height="60" frameX="-2" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0202_Lado-ESQ-3" x="1400" y="1662" width="60" height="60" frameX="-4" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0203_Lado-ESQ-2" x="1460" y="1662" width="60" height="62" frameX="-4" frameY="-2" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0204_Lado-ESQ-1" x="1520" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0205_Lado-ESQ-3" x="1584" y="1662" width="60" height="58" frameX="-4" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0206_Lado-ESQ-2" x="1644" y="1662" width="60" height="60" frameX="-4" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0207_Lado-ESQ-1" x="1704" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0208_Lado-ESQ-3" x="1768" y="1662" width="62" height="60" frameX="-2" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0209_Lado-ESQ-2" x="1830" y="1662" width="58" height="60" frameX="-6" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0210_Lado-ESQ-1" x="1888" y="1662" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0211_Lado-ESQ-3" x="1952" y="1662" width="60" height="56" frameX="0" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0212_Lado-ESQ-2" x="0" y="1724" width="58" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0213_Lado-ESQ-1" x="58" y="1724" width="62" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0214_Meio-3" x="120" y="1724" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0215_Meio-2" x="184" y="1724" width="64" height="60" frameX="0" frameY="-4" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0216_Meio-1" x="248" y="1724" width="64" height="58" frameX="0" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0217_Lado-ESQ-3" x="312" y="1724" width="60" height="56" frameX="-4" frameY="-8" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0218_Lado-ESQ-2" x="372" y="1724" width="58" height="58" frameX="-6" frameY="-6" frameWidth="64" frameHeight="64"/>
+    <SubTexture name="4_0219_Lado-ESQ-1" x="430" y="1724" width="62" height="58" frameX="-2" frameY="-6" frameWidth="64" frameHeight="64"/>
+</TextureAtlas>

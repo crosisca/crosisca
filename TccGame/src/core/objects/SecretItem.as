@@ -4,6 +4,8 @@ package core.objects
 	
 	import citrus.objects.platformer.box2d.Sensor;
 	
+	import core.art.AssetsManager;
+	
 	import org.osflash.signals.Signal;
 	
 	public final class SecretItem extends Sensor
@@ -13,6 +15,7 @@ package core.objects
 		public function SecretItem(name:String, params:Object=null)
 		{
 			super(name, params);
+			view = AssetsManager.getInstance().getTextureAtlas("MenuAtlas").getTexture("secretItem");
 		}
 		
 		override public function handleBeginContact(contact:b2Contact):void

@@ -1,7 +1,5 @@
 package core.data
 {
-	import flash.utils.Dictionary;
-	
 	import core.levels.world1.World1Level1;
 	import core.levels.world1.World1Level10;
 	import core.levels.world1.World1Level2;
@@ -42,7 +40,6 @@ package core.data
 	import core.levels.world4.World4Level7;
 	import core.levels.world4.World4Level8;
 	import core.levels.world4.World4Level9;
-	import core.utils.Debug;
 	import core.utils.LevelInfo;
 
 	public final class GameData
@@ -137,8 +134,8 @@ package core.data
 					levelsInfo[i].levelNumber = (i%10)+1;
 					if(i%10 == 0)
 					{
-						Debug.log("Uncloked the 1st level of a world!");
-						Debug.log("World: " + levelsInfo[i].worldNumber , "Level: "+ levelsInfo[i].levelNumber);
+						//Debug.log("Uncloked the 1st level of a world!");
+						//Debug.log("World: " + levelsInfo[i].worldNumber , "Level: "+ levelsInfo[i].levelNumber);
 						levelsInfo[i].locked = false;
 					}
 				}

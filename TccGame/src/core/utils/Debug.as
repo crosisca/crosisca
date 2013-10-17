@@ -10,7 +10,7 @@ package core.utils
 		{
 			if(debug)
 			{
-				trace("[DEBUG]",date,msg);
+				trace("[DEBUG]",/*date,*/msg);
 			}
 		}
 	}

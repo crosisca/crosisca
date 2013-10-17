@@ -4,6 +4,7 @@ package core.states.start
 	import citrus.core.CitrusEngine;
 	import citrus.sounds.CitrusSoundGroup;
 	
+	import core.art.AssetsManager;
 	import core.buttons.FxButton;
 	import core.buttons.LanguageButton;
 	import core.buttons.MusicButton;
@@ -40,7 +41,7 @@ package core.states.start
 			_background = new Image(Texture.fromColor(1024,768,0xFF7F7F7F));
 			this.addChild(_background);
 			
-			_closeBtn = new Button(Texture.fromColor(50,50,0xFFFF0000),"X");
+			_closeBtn = new Button(AssetsManager.getInstance().getHudAltas().getTexture("quitButton"));
 			_closeBtn.pivotX = _closeBtn.width * .5;
 			_closeBtn.pivotY = _closeBtn.height * .5;
 			_closeBtn.x = (_background.x + _background.width) - _closeBtn.width * 1.5;

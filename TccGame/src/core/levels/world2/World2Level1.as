@@ -8,5 +8,10 @@ package core.levels.world2
 		{
 			super(level);
 		}
+		
+		override public function initialize():void
+		{
+			super.initialize();
+		}
 	}
 }
