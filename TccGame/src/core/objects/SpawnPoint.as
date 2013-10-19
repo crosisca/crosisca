@@ -1,4 +1,4 @@
-package core.objects
+	package core.objects
 {
 	import citrus.core.CitrusObject;
 	

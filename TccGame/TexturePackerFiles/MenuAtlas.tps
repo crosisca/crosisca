@@ -163,16 +163,7 @@
             <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/backgroundLevelSelection.png</filename>
             <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/backgroundMenu.png</filename>
             <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/backgroundPauseWindow.png</filename>
-            <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/fxButtonOff.png</filename>
-            <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/fxButtonOn.png</filename>
-            <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/itemSecreto.png</filename>
-            <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/pauseButton.png</filename>
-            <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/pauseWindowsQuitButton.png</filename>
-            <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/quitButton.png</filename>
-            <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/resetButton.png</filename>
             <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/secretItem.png</filename>
-            <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/soundButtonOff.png</filename>
-            <filename>../../../../Users/Caio/Dropbox/Tcc/TCC AGORA/soundButtonOn.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

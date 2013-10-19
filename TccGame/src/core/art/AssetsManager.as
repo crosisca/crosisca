@@ -24,10 +24,10 @@ package core.art
 		 * End Flix Art
 		 */
 		
-		[Embed(source="/../../assets/menu/MenuAtlas.xml", mimeType="application/octet-stream")]
+		[Embed(source="/../../assets/menu/HudAtlas.xml", mimeType="application/octet-stream")]
 		private var _hudXml:Class;
 		
-		[Embed(source="/../../assets/menu/MenuAtlas.png")]
+		[Embed(source="/../../assets/menu/HudAtlas.png")]
 		private var _hudPng:Class;
 		
 		private var _hudAtlas:TextureAtlas;

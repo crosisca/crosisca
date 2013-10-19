@@ -15,7 +15,7 @@ package core.states.ingame
 		{
 			super();		
 			
-			itemFound = new Image(AssetsManager.getInstance().getTextureAtlas("MenuAtlas").getTexture("secretItem"));
+			itemFound = new Image(AssetsManager.getInstance().getHudAltas().getTexture("secretItem"));
 			itemFound.pivotX = itemFound.width * .5;
 			itemFound.pivotY = itemFound.height * .5;
 			itemFound.visible = false;

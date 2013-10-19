@@ -66,7 +66,7 @@ package core.states.ingame
 			_restartBtn.y = _background.y + _background.height * .7;
 			this.addChild(_restartBtn);
 			
-			_quitBtn = new Button(AssetsManager.getInstance().getHudAltas().getTexture("quitButton"),"QUIT");
+			_quitBtn = new Button(AssetsManager.getInstance().getHudAltas().getTexture("pauseWindowsQuitButton"),"QUIT");
 				_quitBtn.pivotX = _quitBtn.width * .5;
 			_quitBtn.pivotY = _quitBtn.height * .5;
 			_quitBtn.x =_background.x + _background.width * .5;

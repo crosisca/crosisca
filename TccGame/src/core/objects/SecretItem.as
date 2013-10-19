@@ -15,7 +15,7 @@ package core.objects
 		public function SecretItem(name:String, params:Object=null)
 		{
 			super(name, params);
-			view = AssetsManager.getInstance().getTextureAtlas("MenuAtlas").getTexture("secretItem");
+			view = AssetsManager.getInstance().getHudAltas().getTexture("secretItem");
 		}
 		
 		override public function handleBeginContact(contact:b2Contact):void

@@ -15,12 +15,11 @@ package customobjects
 		public function FinalFase(name:String, params:Object=null)
 		{
 			super(name, params);
-			view = AssetsManager.getInstance().getTextureAtlas("MenuAtlas").getTexture("itemSecreto");
+			view = AssetsManager.getInstance().getHudAltas().getTexture("itemSecreto");
 		}
 		
 		public override function handleBeginContact(contact:b2Contact):void{
 			onCollision.dispatch();
 		}
-		
 	}
 }

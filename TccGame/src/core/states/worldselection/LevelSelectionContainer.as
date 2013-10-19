@@ -28,7 +28,7 @@ package core.states.worldselection
 			_background = new Image(background);
 			this.addChild(_background);
 			
-			closeButton = new Button(AssetsManager.getInstance().getTextureAtlas("MenuAtlas").getTexture("quitButton"));
+			closeButton = new Button(AssetsManager.getInstance().getHudAltas().getTexture("quitButton"));
 			closeButton.pivotX = closeButton.width>>1;
 			closeButton.pivotY = closeButton.height>>1;
 			closeButton.x = (_background.x + _background.width) - closeButton.width;

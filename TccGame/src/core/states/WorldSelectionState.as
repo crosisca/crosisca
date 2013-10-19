@@ -82,7 +82,7 @@ package core.states
 		{
 			//TODO > Tirar itens usados no jogo do atlas do menu e sumir com ele aqui
 			
-			//_assets.removeTextureAtlas("MenuAtlas");
+			_assets.removeTextureAtlas("MenuAtlas");
 			super.destroy();
 		}
 	}

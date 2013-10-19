@@ -393,7 +393,7 @@ package core.levels
 			pauseBtn = new Button(AssetsManager.getInstance().getHudAltas().getTexture("pauseButton"));
 			pauseBtn.pivotX = pauseBtn.width * .5;
 			pauseBtn.pivotY = pauseBtn.height * .5;
-			pauseBtn.x = ScreenUtils.SCREEN_REAL_WIDTH - pauseBtn.width * 1.5;
+			pauseBtn.x = ScreenUtils.SCREEN_REAL_WIDTH - pauseBtn.width * 1.5 - 500;
 			pauseBtn.y = pauseBtn.height * 1.5;
 			pauseBtn.touchable = true;
 			addChild(pauseBtn);
