@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:1ec04a7a5a3bd7a8f811dae7a2e09038:1/1$ -->
+<TextureAtlas imagePath="HudAtlas.png">
+    <SubTexture name="fxButtonOff" x="58" y="162" width="71" height="56"/>
+    <SubTexture name="fxButtonOn" x="71" y="71" width="55" height="56"/>
+    <SubTexture name="itemSecreto" x="0" y="0" width="50" height="91"/>
+    <SubTexture name="pauseButton" x="126" y="52" width="51" height="50"/>
+    <SubTexture name="pauseWindowsQuitButton" x="50" y="0" width="67" height="71" frameX="-2" frameY="0" frameWidth="71" frameHeight="71"/>
+    <SubTexture name="quitButton" x="0" y="162" width="58" height="58"/>
+    <SubTexture name="resetButton" x="0" y="91" width="71" height="71"/>
+    <SubTexture name="secretItem" x="126" y="102" width="36" height="40"/>
+    <SubTexture name="soundButtonOff" x="180" y="0" width="63" height="52"/>
+    <SubTexture name="soundButtonOn" x="117" y="0" width="63" height="52"/>
+</TextureAtlas>
